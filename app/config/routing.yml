@@ -1,0 +1,4 @@
+web_forms_test:
+    resource: "@WebFormsTestBundle/Resources/config/routing.yml"
+    prefix:   /
+

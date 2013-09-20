@@ -1,0 +1,12 @@
+web_forms_test_homepage:
+    pattern:  /hello/{name}
+    defaults: { _controller: WebFormsTestBundle:Default:index }
+
+web_forms_test_form:
+    pattern:  /test-form
+    defaults: { _controller: WebFormsTestBundle:Default:new }
+
+web_forms_task_success:
+    pattern: /success
+    defaults: { _controller: WebFormsTestBundle:Default:success }
+

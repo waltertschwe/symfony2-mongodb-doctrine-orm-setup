@@ -1,0 +1,7 @@
+parameters:
+#    web_forms_test.example.class: WebForms\TestBundle\Example
+
+services:
+#    web_forms_test.example:
+#        class: %web_forms_test.example.class%
+#        arguments: [@service_id, "plain_value", %parameter%]
