@@ -1,0 +1,7 @@
+<?php
+namespace WebForms\TestBundle\Document;
+
+class MongoTest {
+    protected $name;
+	protected $price;
+}

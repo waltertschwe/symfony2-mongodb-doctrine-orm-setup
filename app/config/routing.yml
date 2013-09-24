@@ -1,3 +1,7 @@
+story_admin:
+    resource: "@StoryAdminBundle/Resources/config/routing.yml"
+    prefix:   /story-admin
+
 web_forms_test:
     resource: "@WebFormsTestBundle/Resources/config/routing.yml"
     prefix:   /

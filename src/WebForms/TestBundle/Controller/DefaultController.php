@@ -4,8 +4,9 @@ namespace WebForms\TestBundle\Controller;
 
 use Symfony\Bundle\FrameworkBundle\Controller\Controller;
 use Symfony\Component\HttpFoundation\Request;
-
+use Symfony\Component\HttpFoundation\Response;
 use WebForms\TestBundle\Entity\Task;
+use WebForms\TestBundle\Document\MongoTest;
 
 
 class DefaultController extends Controller {
@@ -49,6 +50,21 @@ class DefaultController extends Controller {
 	public function successAction() {
 		return $this->render('WebFormsTestBundle:Default:success.html.twig');
 	} 
+
+    public function mongoAction() {
+ 
+	    $product = new MongoTest();
+	    $product->setName('A Foo Bar');
+	    $product->setPrice('19.99');
+	
+	    $dm = $this->get('doctrine_mongodb')->getManager();
+	    $dm->persist($product);
+	    $dm->flush();
+	
+	    return new Response('Created product id '.$product->getId());
+
+    }
+
 	 
 	 
 	 

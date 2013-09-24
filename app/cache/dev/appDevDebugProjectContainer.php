@@ -679,14 +679,21 @@ class appDevDebugProjectContainer extends Container
         $a = new \Doctrine\Common\Cache\ArrayCache();
         $a->setNamespace('sf2mongodb_default_987aa0ac6a134a0d555795fd450e9888');
 
-        $b = new \Doctrine\Bundle\MongoDBBundle\Logger\Logger($this->get('monolog.logger.doctrine', ContainerInterface::NULL_ON_INVALID_REFERENCE));
-        $b->setBatchInsertThreshold(4);
+        $b = new \Doctrine\Bundle\MongoDBBundle\Mapping\Driver\YamlDriver(array('/var/www/Symfony/src/WebForms/TestBundle/Resources/config/doctrine' => 'WebForms\\TestBundle\\Document', '/var/www/Symfony/src/Story/AdminBundle/Resources/config/doctrine' => 'Story\\AdminBundle\\Document'));
+        $b->setGlobalBasename('mapping');
+
+        $c = new \Doctrine\Common\Persistence\Mapping\Driver\MappingDriverChain();
+        $c->addDriver($b, 'WebForms\\TestBundle\\Document');
+        $c->addDriver($b, 'Story\\AdminBundle\\Document');
+
+        $d = new \Doctrine\Bundle\MongoDBBundle\Logger\Logger($this->get('monolog.logger.doctrine', ContainerInterface::NULL_ON_INVALID_REFERENCE));
+        $d->setBatchInsertThreshold(4);
 
         $this->services['doctrine_mongodb.odm.default_configuration'] = $instance = new \Doctrine\ODM\MongoDB\Configuration();
 
-        $instance->setDocumentNamespaces(array());
+        $instance->setDocumentNamespaces(array('WebFormsTestBundle' => 'WebForms\\TestBundle\\Document', 'StoryAdminBundle' => 'Story\\AdminBundle\\Document'));
         $instance->setMetadataCacheImpl($a);
-        $instance->setMetadataDriverImpl(new \Doctrine\Common\Persistence\Mapping\Driver\MappingDriverChain());
+        $instance->setMetadataDriverImpl($c);
         $instance->setProxyDir('/var/www/Symfony/app/cache/dev/doctrine/odm/mongodb/Proxies');
         $instance->setProxyNamespace('MongoDBODMProxies');
         $instance->setAutoGenerateProxyClasses(false);
@@ -697,7 +704,7 @@ class appDevDebugProjectContainer extends Container
         $instance->setDefaultCommitOptions(array('safe' => true, 'fsync' => false, 'timeout' => 30000));
         $instance->setRetryConnect(0);
         $instance->setRetryQuery(0);
-        $instance->setLoggerCallable(array(0 => new \Doctrine\Bundle\MongoDBBundle\Logger\AggregateLogger(array(0 => $b, 1 => $this->get('doctrine_mongodb.odm.data_collector.pretty'))), 1 => 'logQuery'));
+        $instance->setLoggerCallable(array(0 => new \Doctrine\Bundle\MongoDBBundle\Logger\AggregateLogger(array(0 => $d, 1 => $this->get('doctrine_mongodb.odm.data_collector.pretty'))), 1 => 'logQuery'));
 
         return $instance;
     }
@@ -3113,6 +3120,7 @@ class appDevDebugProjectContainer extends Container
         $instance->addPath('/var/www/Symfony/vendor/doctrine/doctrine-bundle/Doctrine/Bundle/DoctrineBundle/Resources/views', 'Doctrine');
         $instance->addPath('/var/www/Symfony/vendor/doctrine/mongodb-odm-bundle/Doctrine/Bundle/MongoDBBundle/Resources/views', 'DoctrineMongoDB');
         $instance->addPath('/var/www/Symfony/src/WebForms/TestBundle/Resources/views', 'WebFormsTest');
+        $instance->addPath('/var/www/Symfony/src/Story/AdminBundle/Resources/views', 'StoryAdmin');
         $instance->addPath('/var/www/Symfony/src/Acme/DemoBundle/Resources/views', 'AcmeDemo');
         $instance->addPath('/var/www/Symfony/vendor/symfony/symfony/src/Symfony/Bundle/WebProfilerBundle/Resources/views', 'WebProfiler');
         $instance->addPath('/var/www/Symfony/vendor/sensio/distribution-bundle/Sensio/Bundle/DistributionBundle/Resources/views', 'SensioDistribution');
@@ -3586,6 +3594,7 @@ class appDevDebugProjectContainer extends Container
                 'DoctrineMongoDBBundle' => 'Doctrine\\Bundle\\MongoDBBundle\\DoctrineMongoDBBundle',
                 'SensioFrameworkExtraBundle' => 'Sensio\\Bundle\\FrameworkExtraBundle\\SensioFrameworkExtraBundle',
                 'WebFormsTestBundle' => 'WebForms\\TestBundle\\WebFormsTestBundle',
+                'StoryAdminBundle' => 'Story\\AdminBundle\\StoryAdminBundle',
                 'AcmeDemoBundle' => 'Acme\\DemoBundle\\AcmeDemoBundle',
                 'WebProfilerBundle' => 'Symfony\\Bundle\\WebProfilerBundle\\WebProfilerBundle',
                 'SensioDistributionBundle' => 'Sensio\\Bundle\\DistributionBundle\\SensioDistributionBundle',

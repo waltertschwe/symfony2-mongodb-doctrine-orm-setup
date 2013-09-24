@@ -133,6 +133,33 @@ class appDevUrlMatcher extends Symfony\Bundle\FrameworkBundle\Routing\Redirectab
 
         }
 
+        if (0 === strpos($pathinfo, '/story-admin')) {
+            // story_admin_story_homepage
+            if (rtrim($pathinfo, '/') === '/story-admin') {
+                if (substr($pathinfo, -1) !== '/') {
+                    return $this->redirect($pathinfo.'/', 'story_admin_story_homepage');
+                }
+
+                return array (  '_controller' => 'Story\\AdminBundle\\Controller\\StoryController::indexAction',  '_route' => 'story_admin_story_homepage',);
+            }
+
+            // story_admin_story_create
+            if ($pathinfo === '/story-admin/create') {
+                return array (  '_controller' => 'Story\\AdminBundle\\Controller\\StoryController::createAction',  '_route' => 'story_admin_story_create',);
+            }
+
+            // story_admin_story_update
+            if (0 === strpos($pathinfo, '/story-admin/update') && preg_match('#^/story\\-admin/update/(?P<storyId>[^/]++)$#s', $pathinfo, $matches)) {
+                return $this->mergeDefaults(array_replace($matches, array('_route' => 'story_admin_story_update')), array (  '_controller' => 'Story\\AdminBundle\\Controller\\StoryController::updateAction',));
+            }
+
+            // story_admin_story_delete
+            if (0 === strpos($pathinfo, '/story-admin/delete') && preg_match('#^/story\\-admin/delete/(?P<storyId>[^/]++)$#s', $pathinfo, $matches)) {
+                return $this->mergeDefaults(array_replace($matches, array('_route' => 'story_admin_story_delete')), array (  '_controller' => 'Story\\AdminBundle\\Controller\\StoryController::deleteAction',));
+            }
+
+        }
+
         // web_forms_test_homepage
         if (0 === strpos($pathinfo, '/hello') && preg_match('#^/hello/(?P<name>[^/]++)$#s', $pathinfo, $matches)) {
             return $this->mergeDefaults(array_replace($matches, array('_route' => 'web_forms_test_homepage')), array (  '_controller' => 'WebForms\\TestBundle\\Controller\\DefaultController::indexAction',));
@@ -146,6 +173,11 @@ class appDevUrlMatcher extends Symfony\Bundle\FrameworkBundle\Routing\Redirectab
         // web_forms_task_success
         if ($pathinfo === '/success') {
             return array (  '_controller' => 'WebForms\\TestBundle\\Controller\\DefaultController::successAction',  '_route' => 'web_forms_task_success',);
+        }
+
+        // mongo_test
+        if ($pathinfo === '/mongo') {
+            return array (  '_controller' => 'WebForms\\TestBundle\\Controller\\DefaultController::mongoAction',  '_route' => 'mongo_test',);
         }
 
         // _welcome

@@ -1,0 +1,12 @@
+story_admin_story_homepage:
+    pattern:  /
+    defaults: { _controller: StoryAdminBundle:Story:index }
+story_admin_story_create:
+    pattern:  /create
+    defaults: { _controller: StoryAdminBundle:Story:create }
+story_admin_story_update:
+    pattern:  /update/{storyId}
+    defaults: { _controller: StoryAdminBundle:Story:update }
+story_admin_story_delete:
+    pattern:  /delete/{storyId}
+    defaults: { _controller: StoryAdminBundle:Story:delete }

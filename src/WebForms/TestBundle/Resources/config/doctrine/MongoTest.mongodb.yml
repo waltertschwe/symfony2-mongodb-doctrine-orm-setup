@@ -1,0 +1,8 @@
+WebForms\TestBundle\Document\MongoTest:
+    fields:
+        id:
+            id:  true
+        name:
+            type: string
+        price:
+            type: float

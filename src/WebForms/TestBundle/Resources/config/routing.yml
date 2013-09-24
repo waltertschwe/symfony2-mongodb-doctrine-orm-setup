@@ -10,3 +10,6 @@ web_forms_task_success:
     pattern: /success
     defaults: { _controller: WebFormsTestBundle:Default:success }
 
+mongo_test:
+    pattern: /mongo
+    defaults: { _controller: WebFormsTestBundle:Default:mongo }

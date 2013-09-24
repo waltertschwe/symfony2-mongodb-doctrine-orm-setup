@@ -1,0 +1,11 @@
+Story\AdminBundle\Document\Story:
+    fields:
+        id:
+            id:  true
+        storyName:
+            type: string
+        author:
+            type: string
+        description:
+            type: string
+        
