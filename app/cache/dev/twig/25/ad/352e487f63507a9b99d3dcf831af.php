@@ -29,10 +29,9 @@ class __TwigTemplate_25ad352e487f63507a9b99d3dcf831af extends Twig_Template
         // line 4
         echo $this->env->getExtension('form')->renderer->searchAndRenderBlock($this->getAttribute((isset($context["form"]) ? $context["form"] : $this->getContext($context, "form")), "storyName"), 'row');
         echo " <br/>
-
-
+\t
 ";
-        // line 7
+        // line 6
         echo         $this->env->getExtension('form')->renderer->renderBlock((isset($context["form"]) ? $context["form"] : $this->getContext($context, "form")), 'form_end');
     }
 
@@ -48,6 +47,6 @@ class __TwigTemplate_25ad352e487f63507a9b99d3dcf831af extends Twig_Template
 
     public function getDebugInfo()
     {
-        return array (  36 => 7,  30 => 4,  26 => 3,  22 => 2,  19 => 1,);
+        return array (  35 => 6,  30 => 4,  26 => 3,  22 => 2,  19 => 1,);
     }
 }

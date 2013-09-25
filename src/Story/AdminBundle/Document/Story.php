@@ -3,12 +3,7 @@
 namespace Story\AdminBundle\Document;
 
 
-
-/**
- * Story\AdminBundle\Document\Story
- */
-class Story
-{
+class Story {
     /**
      * @var MongoId $id
      */

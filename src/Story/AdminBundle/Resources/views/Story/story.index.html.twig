@@ -1,14 +1,12 @@
 {% for flashMessage in app.session.flashbag.get('notice') %}
     <div class="flash-notice">
-        {{ flashMessage }}
+        <font color="red"> {{ flashMessage }} </font>
     </div>
 {% endfor %}
-
-
-<h2>Stories<h2><br/>
-
+<h2>Stories</h2><br/>
+<h4><a href="/symfony/web/app_dev.php/story-admin/create">Create New Story</a></h4><br/>
 {% for story in stories %}
-    <a href="/update/{{ story.id }}">
+    <a href="/symfony/web/app_dev.php/story-admin/update/{{ story.id }}">
         {{ story.storyName }}
     </a><br/>
 {% endfor %}

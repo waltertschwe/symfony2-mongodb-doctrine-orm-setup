@@ -5,7 +5,12 @@ namespace Story\AdminBundle\Controller;
 use Symfony\Bundle\FrameworkBundle\Controller\Controller;
 use Symfony\Component\HttpFoundation\Request;
 use Symfony\Component\HttpFoundation\Response;
+
+// Story Model
 use Story\AdminBundle\Document\Story;
+
+// Generic Story Form
+use Story\AdminBundle\Form\Type\StoryType;
 
 class StoryController extends Controller {
 	
@@ -23,15 +28,7 @@ class StoryController extends Controller {
     public function createAction(Request $request) {
     	
 		$story = new Story();
-	    //$story->setStoryName('Tim and the Witch of Iceland');
-		
-		$form = $this->createFormBuilder($story)
-			->add('storyName', 'text', array('max_length' => '45', 'attr' => array('size' => '45')))
-			->add('author', 'text')
-			->add('description', 'textarea')
-			->add('save', 'submit')
-	        ->getForm();
-	    
+		$form = $this->createForm(new StoryType(), $story);	
 		$form->handleRequest($this->getRequest());
 
 		// Form submitted
@@ -42,7 +39,7 @@ class StoryController extends Controller {
 	    	$dm->flush();
 	    	$this->get('session')->getFlashBag()->add(
             	'notice',
-            	'Your changes were saved!'
+            	'Story Created!!!'
        		);
 			  
     		return $this->redirect($this->generateUrl('story_admin_story_homepage'));
@@ -54,8 +51,42 @@ class StoryController extends Controller {
             'form' => $form->createView(),
         ));
     }
-	public function updateAction($storyId) {
-		return $this->render('StoryAdminBundle:Story:story.update.html.twig', array('storyId' => $storyId));
+	public function updateAction(Request $request) {
+		
+		$request = $this->get('request');
+		$repository = $this->get('doctrine_mongodb')
+	        ->getManager()
+	        ->getRepository('StoryAdminBundle:Story');
+			
+		$storyId = $this->getRequest()->get('storyId');
+		$storyObj = $repository->findOneById($storyId);
+		
+		// create story array to pass to form
+		$storyArr = array();
+		$storyArr['id'] = $storyObj->getId();
+		$storyArr['storyName'] = $storyObj->getStoryName();
+		$storyArr['author'] = $storyObj->getAuthor();
+		$storyArr['description'] = $storyObj->getDescription();
+		$form = $this->createForm(new StoryType(), $storyArr);	
+			
+		if ($request->getMethod() == 'POST') {
+			 $form->submit($request);
+   			 $data = $form->getData();
+			 $storyObj->setStoryName($data['storyName']);
+			 $storyObj->setAuthor($data['author']);
+			 $storyObj->setDescription($data['description']);
+			 $dm = $this->get('doctrine_mongodb')->getManager();
+	 		 $dm->persist($storyObj);
+	    	 $dm->flush();
+	    	 $this->get('session')->getFlashBag()->add(
+            	'notice',
+            	'Your changes were updated!'
+       		);
+		} 
+		
+		return $this->render('StoryAdminBundle:Story:story.update.html.twig', array(
+			'form' => $form->createView()
+		));
 	}
 	public function deleteAction($storyId) {
 		return $this->render('StoryAdminBundle:Story:story.delete.html.twig', array('storyId' => $storyId));

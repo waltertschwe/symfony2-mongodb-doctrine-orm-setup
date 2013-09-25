@@ -1,1 +1,12 @@
-Story Update. id = {{storyId}}
+<h2>Update Story</h2>
+{% for flashMessage in app.session.flashbag.get('notice') %}
+    <div class="flash-notice">
+       <font color="red"> {{ flashMessage }} </font>
+    </div>
+{% endfor %}
+{{ form_start(form) }}
+    {{ form_errors(form) }}
+	{{ form_row(form.storyName) }} <br/>
+
+
+{{ form_end(form) }}
