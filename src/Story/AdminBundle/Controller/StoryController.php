@@ -88,7 +88,14 @@ class StoryController extends Controller {
 			'form' => $form->createView()
 		));
 	}
-	public function deleteAction($storyId) {
+	public function deleteAction(Request $request) {
+		
+		$request = $this->get('request');
+		$repository = $this->get('doctrine_mongodb')
+	        ->getManager()
+	        ->getRepository('StoryAdminBundle:Story');
+			
+		$storyId = $this->getRequest()->get('storyId');
 		return $this->render('StoryAdminBundle:Story:story.delete.html.twig', array('storyId' => $storyId));
 	}
 	
