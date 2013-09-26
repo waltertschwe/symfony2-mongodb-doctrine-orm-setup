@@ -1,3 +1,26 @@
+<!DOCTYPE html>
+<html>
+    <head>  
+        {% block stylesheets %}
+            <link href="{{ asset('bundles/storyadmin/css/demo_page.css') }}" type="text/css" rel="stylesheet" />
+            <link href="{{ asset('bundles/storyadmin/css/demo_table.css') }}" type="text/css" rel="stylesheet" />
+        {% endblock %}
+        {% javascripts
+        	'@StoryAdminBundle/Resources/public/js/jquery.js'
+    		'@StoryAdminBundle/Resources/public/js/jquery.dataTables.js'	
+    	%}
+    		<script src="{{ asset_url }}"></script>
+		{% endjavascripts %}
+		
+		<script type="text/javascript" charset="utf-8">
+			$(document).ready(function() {
+				$('#example').dataTable( {
+					"sDom": '<"top"i>rt<"bottom"flp><"clear">'
+				} );
+			} );
+		</script>
+      	
+<body>
 {% for flashMessage in app.session.flashbag.get('notice') %}
     <div class="flash-notice">
         <font color="red"> {{ flashMessage }} </font>
@@ -10,3 +33,5 @@
         {{ story.storyName }}
     </a><br/>
 {% endfor %}
+</body>
+</html>
