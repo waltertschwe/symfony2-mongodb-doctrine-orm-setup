@@ -14,24 +14,54 @@
 		
 		<script type="text/javascript" charset="utf-8">
 			$(document).ready(function() {
-				$('#example').dataTable( {
-					"sDom": '<"top"i>rt<"bottom"flp><"clear">'
-				} );
+				$('#example').dataTable();
 			} );
 		</script>
-      	
-<body>
-{% for flashMessage in app.session.flashbag.get('notice') %}
-    <div class="flash-notice">
-        <font color="red"> {{ flashMessage }} </font>
-    </div>
-{% endfor %}
-<h2>Stories</h2><br/>
-<h4><a href="/symfony/web/app_dev.php/story-admin/create">Create New Story</a></h4><br/>
-{% for story in stories %}
-    <a href="/symfony/web/app_dev.php/story-admin/update/{{ story.id }}">
-        {{ story.storyName }}
-    </a><br/>
-{% endfor %}
+
+<body id="dt_example">
+<div id="container">
+	{% for flashMessage in app.session.flashbag.get('notice') %}
+		<!-- FLASH MESSAGE -->
+	    <div class="flash-notice">
+	       <font color="red"> {{ flashMessage }} </font> 
+	    </div>
+		<!-- END FLASH MESSAGE -->
+	{% endfor %}
+	<div class="full_width big">Story Tool Generator</div>
+	<h1>Stories</h1>
+	<p><a href="/symfony/web/app_dev.php/story-admin/create">Create New Story</a></p>
+	<h1>Live Stories</h1>
+<div id="demo">
+<table cellpadding="0" cellspacing="0" border="0" class="display" id="example" width="100%">
+	<thead>
+		<tr>
+			<th>Story</th>
+			<th>Author</th>
+			<th>Description</th>
+			<th>Actions</th>
+		</tr>
+	</thead>
+	<tbody>
+		{% for story in stories %}
+		<tr class="odd gradeX">
+			<td class="center"><a href="/symfony/web/app_dev.php/story-admin/update/{{ story.id }}">{{ story.storyName }}</a>
+    		</td>
+			<td class="center">{{ story.author }}</td>
+			<td>{{ story.description }}</td>
+			<td class="center"></td>
+		</tr>
+		{% endfor %}
+	</tbody>
+	<tfoot>
+		<tr>
+			<th>Story</th>
+			<th>Author</th>
+			<th>Description</th>
+			<th>Actions</th>
+		</tr>
+	</tfoot>
+</table>
+</div>
+</div>
 </body>
 </html>

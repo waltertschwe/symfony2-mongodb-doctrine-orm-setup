@@ -52,55 +52,92 @@ class __TwigTemplate_b7956e6783a6357aa3126ef1fd83eb75 extends Twig_Template
         echo "\t\t
 \t\t<script type=\"text/javascript\" charset=\"utf-8\">
 \t\t\t\$(document).ready(function() {
-\t\t\t\t\$('#example').dataTable( {
-\t\t\t\t\t\"sDom\": '<\"top\"i>rt<\"bottom\"flp><\"clear\">'
-\t\t\t\t} );
+\t\t\t\t\$('#example').dataTable();
 \t\t\t} );
 \t\t</script>
-      \t
-<body>
-";
-        // line 24
+
+<body id=\"dt_example\">
+<div id=\"container\">
+\t";
+        // line 23
         $context['_parent'] = (array) $context;
         $context['_seq'] = twig_ensure_traversable($this->getAttribute($this->getAttribute($this->getAttribute((isset($context["app"]) ? $context["app"] : $this->getContext($context, "app")), "session"), "flashbag"), "get", array(0 => "notice"), "method"));
         foreach ($context['_seq'] as $context["_key"] => $context["flashMessage"]) {
-            // line 25
-            echo "    <div class=\"flash-notice\">
-        <font color=\"red\"> ";
+            // line 24
+            echo "\t\t<!-- FLASH MESSAGE -->
+\t    <div class=\"flash-notice\">
+\t       <font color=\"red\"> ";
             // line 26
             echo twig_escape_filter($this->env, (isset($context["flashMessage"]) ? $context["flashMessage"] : $this->getContext($context, "flashMessage")), "html", null, true);
-            echo " </font>
-    </div>
-";
+            echo " </font> 
+\t    </div>
+\t\t<!-- END FLASH MESSAGE -->
+\t";
         }
         $_parent = $context['_parent'];
         unset($context['_seq'], $context['_iterated'], $context['_key'], $context['flashMessage'], $context['_parent'], $context['loop']);
         $context = array_intersect_key($context, $_parent) + $_parent;
-        // line 29
-        echo "<h2>Stories</h2><br/>
-<h4><a href=\"/symfony/web/app_dev.php/story-admin/create\">Create New Story</a></h4><br/>
-";
-        // line 31
+        // line 30
+        echo "\t<div class=\"full_width big\">Story Tool Generator</div>
+\t<h1>Stories</h1>
+\t<p><a href=\"/symfony/web/app_dev.php/story-admin/create\">Create New Story</a></p>
+\t<h1>Live Stories</h1>
+<div id=\"demo\">
+<table cellpadding=\"0\" cellspacing=\"0\" border=\"0\" class=\"display\" id=\"example\" width=\"100%\">
+\t<thead>
+\t\t<tr>
+\t\t\t<th>Story</th>
+\t\t\t<th>Author</th>
+\t\t\t<th>Description</th>
+\t\t\t<th>Actions</th>
+\t\t</tr>
+\t</thead>
+\t<tbody>
+\t\t";
+        // line 45
         $context['_parent'] = (array) $context;
         $context['_seq'] = twig_ensure_traversable((isset($context["stories"]) ? $context["stories"] : $this->getContext($context, "stories")));
         foreach ($context['_seq'] as $context["_key"] => $context["story"]) {
-            // line 32
-            echo "    <a href=\"/symfony/web/app_dev.php/story-admin/update/";
+            // line 46
+            echo "\t\t<tr class=\"odd gradeX\">
+\t\t\t<td class=\"center\"><a href=\"/symfony/web/app_dev.php/story-admin/update/";
+            // line 47
             echo twig_escape_filter($this->env, $this->getAttribute((isset($context["story"]) ? $context["story"] : $this->getContext($context, "story")), "id"), "html", null, true);
-            echo "\">
-        ";
-            // line 33
+            echo "\">";
             echo twig_escape_filter($this->env, $this->getAttribute((isset($context["story"]) ? $context["story"] : $this->getContext($context, "story")), "storyName"), "html", null, true);
-            echo "
-    </a><br/>
-";
+            echo "</a>
+    \t\t</td>
+\t\t\t<td class=\"center\">";
+            // line 49
+            echo twig_escape_filter($this->env, $this->getAttribute((isset($context["story"]) ? $context["story"] : $this->getContext($context, "story")), "author"), "html", null, true);
+            echo "</td>
+\t\t\t<td>";
+            // line 50
+            echo twig_escape_filter($this->env, $this->getAttribute((isset($context["story"]) ? $context["story"] : $this->getContext($context, "story")), "description"), "html", null, true);
+            echo "</td>
+\t\t\t<td class=\"center\"></td>
+\t\t</tr>
+\t\t";
         }
         $_parent = $context['_parent'];
         unset($context['_seq'], $context['_iterated'], $context['_key'], $context['story'], $context['_parent'], $context['loop']);
         $context = array_intersect_key($context, $_parent) + $_parent;
-        // line 36
-        echo "</body>
-</html>";
+        // line 54
+        echo "\t</tbody>
+\t<tfoot>
+\t\t<tr>
+\t\t\t<th>Story</th>
+\t\t\t<th>Author</th>
+\t\t\t<th>Description</th>
+\t\t\t<th>Actions</th>
+\t\t</tr>
+\t</tfoot>
+</table>
+</div>
+</div>
+</body>
+</html>
+";
     }
 
     // line 4
@@ -129,6 +166,6 @@ class __TwigTemplate_b7956e6783a6357aa3126ef1fd83eb75 extends Twig_Template
 
     public function getDebugInfo()
     {
-        return array (  115 => 6,  110 => 5,  107 => 4,  102 => 36,  93 => 33,  88 => 32,  84 => 31,  80 => 29,  71 => 26,  68 => 25,  64 => 24,  52 => 14,  32 => 12,  27 => 8,  25 => 4,  20 => 1,);
+        return array (  152 => 6,  147 => 5,  144 => 4,  126 => 54,  116 => 50,  112 => 49,  105 => 47,  102 => 46,  98 => 45,  81 => 30,  71 => 26,  67 => 24,  63 => 23,  52 => 14,  32 => 12,  27 => 8,  25 => 4,  20 => 1,);
     }
 }
