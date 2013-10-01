@@ -10,3 +10,15 @@ story_admin_story_update:
 story_admin_story_delete:
     pattern:  /delete/{storyId}
     defaults: { _controller: StoryAdminBundle:Story:delete }
+page_admin_story_index:
+    pattern: /pages/{storyId}
+    defaults: { _controller: StoryAdminBundle:Page:index }
+page_admin_story_create:
+    pattern:  /create
+    defaults: { _controller: StoryAdminBundle:Page:create }
+page_admin_story_update:
+    pattern:  /update/{storyId}
+    defaults: { _controller: StoryAdminBundle:Page:update }
+page_admin_story_delete:
+    pattern:  /delete/{storyId}
+    defaults: { _controller: StoryAdminBundle:Page:delete }

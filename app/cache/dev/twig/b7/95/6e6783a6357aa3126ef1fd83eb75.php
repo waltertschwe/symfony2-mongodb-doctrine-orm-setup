@@ -115,14 +115,35 @@ class __TwigTemplate_b7956e6783a6357aa3126ef1fd83eb75 extends Twig_Template
             // line 50
             echo twig_escape_filter($this->env, $this->getAttribute((isset($context["story"]) ? $context["story"] : $this->getContext($context, "story")), "description"), "html", null, true);
             echo "</td>
-\t\t\t<td class=\"center\"></td>
+\t\t\t<td class=\"center\">
+\t\t\t<a href=\"/symfony/web/app_dev.php/story-admin/pages/";
+            // line 52
+            echo twig_escape_filter($this->env, $this->getAttribute((isset($context["story"]) ? $context["story"] : $this->getContext($context, "story")), "id"), "html", null, true);
+            echo "\">
+\t\t\t<img src=\"";
+            // line 53
+            echo twig_escape_filter($this->env, $this->env->getExtension('assets')->getAssetUrl("bundles/storyadmin/images/page_icon.png"), "html", null, true);
+            echo "\" /></a>&nbsp;
+\t\t\t<img src=\"";
+            // line 54
+            echo twig_escape_filter($this->env, $this->env->getExtension('assets')->getAssetUrl("bundles/storyadmin/images/json.png"), "html", null, true);
+            echo "\" />&nbsp;
+\t\t\t<!-- <img src=\"";
+            // line 55
+            echo twig_escape_filter($this->env, $this->env->getExtension('assets')->getAssetUrl("bundles/storyadmin/images/callback.jpg"), "html", null, true);
+            echo "\" />&nbsp; -->
+\t\t\t<img src=\"";
+            // line 56
+            echo twig_escape_filter($this->env, $this->env->getExtension('assets')->getAssetUrl("bundles/storyadmin/images/delete16x16.gif"), "html", null, true);
+            echo "\" />&nbsp;
+\t\t\t</td>
 \t\t</tr>
 \t\t";
         }
         $_parent = $context['_parent'];
         unset($context['_seq'], $context['_iterated'], $context['_key'], $context['story'], $context['_parent'], $context['loop']);
         $context = array_intersect_key($context, $_parent) + $_parent;
-        // line 54
+        // line 60
         echo "\t</tbody>
 \t<tfoot>
 \t\t<tr>
@@ -166,6 +187,6 @@ class __TwigTemplate_b7956e6783a6357aa3126ef1fd83eb75 extends Twig_Template
 
     public function getDebugInfo()
     {
-        return array (  152 => 6,  147 => 5,  144 => 4,  126 => 54,  116 => 50,  112 => 49,  105 => 47,  102 => 46,  98 => 45,  81 => 30,  71 => 26,  67 => 24,  63 => 23,  52 => 14,  32 => 12,  27 => 8,  25 => 4,  20 => 1,);
+        return array (  173 => 6,  168 => 5,  165 => 4,  147 => 60,  137 => 56,  133 => 55,  129 => 54,  125 => 53,  121 => 52,  116 => 50,  112 => 49,  105 => 47,  102 => 46,  98 => 45,  81 => 30,  71 => 26,  67 => 24,  63 => 23,  52 => 14,  32 => 12,  27 => 8,  25 => 4,  20 => 1,);
     }
 }

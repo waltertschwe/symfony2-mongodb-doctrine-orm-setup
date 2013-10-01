@@ -83,7 +83,7 @@ class StoryController extends Controller {
             	'Your changes were updated!'
        		);
 			
-			return $this->redirect($this->generateUrl('story_admin_story_homepage'));
+			return $this->redirect($this->generateUrl('story_admin_story_homepage'));	
 		} 
 		
 		return $this->render('StoryAdminBundle:Story:story.update.html.twig', array(
