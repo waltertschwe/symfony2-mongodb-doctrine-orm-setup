@@ -1,0 +1,10 @@
+Story\AdminBundle\Document\Page:
+    fields:
+        id:
+            id:  true
+        pageName:
+            type: string
+        pageNumber:
+            type: string
+        choice:
+            type: string

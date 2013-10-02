@@ -9,8 +9,8 @@ use Symfony\Component\HttpFoundation\Response;
 // Story Model
 use Story\AdminBundle\Document\Story;
 
-// Generic Story Form
-use Story\AdminBundle\Form\Type\StoryType;
+// Generic Page Form
+use Story\AdminBundle\Form\Type\PageType;
 
 class PageController extends Controller {
 	
@@ -35,7 +35,10 @@ class PageController extends Controller {
 		
 		$story = $repository->findOneBy(array('_id' => $storyId));
 		
-		var_dump($story);
+		$page = new Page();
+		$form = $this->createForm(new StoryType(), $story);	
+		$form->handleRequest($this->getRequest());
+
 		 
 		return $this->render('StoryAdminBundle:Page:page.create.html.twig');	
 	}
