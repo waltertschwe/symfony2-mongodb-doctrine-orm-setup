@@ -8,4 +8,6 @@ Story\AdminBundle\Document\Story:
             type: string
         description:
             type: string
-        
+        pages:
+            type: hash
+       

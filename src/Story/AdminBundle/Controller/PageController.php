@@ -8,7 +8,6 @@ use Symfony\Component\HttpFoundation\Response;
 
 // Mongo DB Mappings
 use Story\AdminBundle\Document\Story;
-use Story\AdminBundle\Document\Page;
 
 // Forms
 use Story\AdminBundle\Form\Type\StoryType;
@@ -25,7 +24,6 @@ class PageController extends Controller {
 		$story = $repository->findOneBy(array('_id' => $storyId));
 		
 		var_dump($story);
-		 
 		return $this->render('StoryAdminBundle:Page:page.index.html.twig');
 	}
 	

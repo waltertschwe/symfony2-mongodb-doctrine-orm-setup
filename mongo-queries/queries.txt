@@ -1,2 +1,19 @@
 ## FIND STORY BASED ON _id 
 db.Story.find( { "_id" :  ObjectId("5241fafaca50a995292af40a") })
+
+## SIMPLE MONGO UPDATE
+db.Story.update({ "_id" : ObjectId("5241fafaca50a995292af40a")}, { "storyName" : "x story" })
+
+## ADD A PAGE ARRAY TO A MONGO STORY (no data):
+ db.Story.update({ "_id" : ObjectId("5241fafaca50a995292af40a")}, { $set : { "pages" : [ ] } });
+
+## INSERT A PAGE INTO A MONGO STORY ARRAY: 
+db.Story.update( { "_id" :  ObjectId("5241fafaca50a995292af40a") },
+         {$push :  { 
+              "pages": {
+                "pageNumber": "1",
+                "pageName": "This is page 1",
+                "body": "This is page 1 body",
+                "decision": "false"
+         
+}}})
