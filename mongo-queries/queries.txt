@@ -1,0 +1,2 @@
+## FIND STORY BASED ON _id 
+db.Story.find( { "_id" :  ObjectId("5241fafaca50a995292af40a") })
