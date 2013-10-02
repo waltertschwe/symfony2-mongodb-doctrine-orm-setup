@@ -6,10 +6,12 @@ use Symfony\Bundle\FrameworkBundle\Controller\Controller;
 use Symfony\Component\HttpFoundation\Request;
 use Symfony\Component\HttpFoundation\Response;
 
-// Story Model
+// Mongo DB Mappings
 use Story\AdminBundle\Document\Story;
+use Story\AdminBundle\Document\Page;
 
-// Generic Page Form
+// Forms
+use Story\AdminBundle\Form\Type\StoryType;
 use Story\AdminBundle\Form\Type\PageType;
 
 class PageController extends Controller {
@@ -36,11 +38,13 @@ class PageController extends Controller {
 		$story = $repository->findOneBy(array('_id' => $storyId));
 		
 		$page = new Page();
-		$form = $this->createForm(new StoryType(), $story);	
+		$form = $this->createForm(new PageType(), $page);	
 		$form->handleRequest($this->getRequest());
 
 		 
-		return $this->render('StoryAdminBundle:Page:page.create.html.twig');	
+		return $this->render('StoryAdminBundle:Page:page.create.html.twig', array(
+			'form' => $form->createView()
+		));	
 	}
 	
 	public function updateAction(Request $request) {

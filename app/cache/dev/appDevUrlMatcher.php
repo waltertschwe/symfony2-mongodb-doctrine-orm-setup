@@ -179,24 +179,27 @@ class appDevUrlMatcher extends Symfony\Bundle\FrameworkBundle\Routing\Redirectab
                 return $this->mergeDefaults(array_replace($matches, array('_route' => 'story_admin_story_delete')), array (  '_controller' => 'Story\\AdminBundle\\Controller\\StoryController::deleteAction',));
             }
 
-            // page_admin_story_index
-            if (0 === strpos($pathinfo, '/story-admin/pages') && preg_match('#^/story\\-admin/pages/(?P<storyId>[^/]++)$#s', $pathinfo, $matches)) {
-                return $this->mergeDefaults(array_replace($matches, array('_route' => 'page_admin_story_index')), array (  '_controller' => 'Story\\AdminBundle\\Controller\\PageController::indexAction',));
-            }
+            if (0 === strpos($pathinfo, '/story-admin/page')) {
+                // page_admin_story_index
+                if (0 === strpos($pathinfo, '/story-admin/pages') && preg_match('#^/story\\-admin/pages/(?P<storyId>[^/]++)$#s', $pathinfo, $matches)) {
+                    return $this->mergeDefaults(array_replace($matches, array('_route' => 'page_admin_story_index')), array (  '_controller' => 'Story\\AdminBundle\\Controller\\PageController::indexAction',));
+                }
 
-            // page_admin_story_create
-            if ($pathinfo === '/story-admin/create') {
-                return array (  '_controller' => 'Story\\AdminBundle\\Controller\\PageController::createAction',  '_route' => 'page_admin_story_create',);
-            }
+                // page_admin_story_create
+                if (0 === strpos($pathinfo, '/story-admin/page/create') && preg_match('#^/story\\-admin/page/create/(?P<storyId>[^/]++)$#s', $pathinfo, $matches)) {
+                    return $this->mergeDefaults(array_replace($matches, array('_route' => 'page_admin_story_create')), array (  '_controller' => 'Story\\AdminBundle\\Controller\\PageController::createAction',));
+                }
 
-            // page_admin_story_update
-            if (0 === strpos($pathinfo, '/story-admin/update') && preg_match('#^/story\\-admin/update/(?P<storyId>[^/]++)$#s', $pathinfo, $matches)) {
-                return $this->mergeDefaults(array_replace($matches, array('_route' => 'page_admin_story_update')), array (  '_controller' => 'Story\\AdminBundle\\Controller\\PageController::updateAction',));
-            }
+                // page_admin_story_update
+                if (0 === strpos($pathinfo, '/story-admin/page/update') && preg_match('#^/story\\-admin/page/update/(?P<storyId>[^/]++)$#s', $pathinfo, $matches)) {
+                    return $this->mergeDefaults(array_replace($matches, array('_route' => 'page_admin_story_update')), array (  '_controller' => 'Story\\AdminBundle\\Controller\\PageController::updateAction',));
+                }
 
-            // page_admin_story_delete
-            if (0 === strpos($pathinfo, '/story-admin/delete') && preg_match('#^/story\\-admin/delete/(?P<storyId>[^/]++)$#s', $pathinfo, $matches)) {
-                return $this->mergeDefaults(array_replace($matches, array('_route' => 'page_admin_story_delete')), array (  '_controller' => 'Story\\AdminBundle\\Controller\\PageController::deleteAction',));
+                // page_admin_story_delete
+                if (0 === strpos($pathinfo, '/story-admin/page/delete') && preg_match('#^/story\\-admin/page/delete/(?P<storyId>[^/]++)$#s', $pathinfo, $matches)) {
+                    return $this->mergeDefaults(array_replace($matches, array('_route' => 'page_admin_story_delete')), array (  '_controller' => 'Story\\AdminBundle\\Controller\\PageController::deleteAction',));
+                }
+
             }
 
         }

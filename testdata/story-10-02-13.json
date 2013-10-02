@@ -1,0 +1,20 @@
+{
+    "_id": "52432cd9ca50a9ca1b2af40b",
+    "author": "Walter Schweitzer",
+    "description": "adsf",
+    "storyName": "Alice and the Silver Stone",
+    "pages": [
+        {
+            "pageNumber": 1,
+            "pageName": "This is page 1",
+            "body": "This is page 1 body",
+            "decision": "false"
+        },
+        {
+            "pageNumber": 2,
+            "pageName": "This is page 2",
+            "body": "This is page 2 body",
+            "decision": "false"
+        }
+    ]
+}

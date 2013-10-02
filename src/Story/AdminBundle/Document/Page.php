@@ -103,4 +103,85 @@ class Page {
     {
         return $this->choice;
     }
+    /**
+     * @var string $body
+     */
+    protected $body;
+
+
+    /**
+     * Set body
+     *
+     * @param string $body
+     * @return self
+     */
+    public function setBody($body)
+    {
+        $this->body = $body;
+        return $this;
+    }
+
+    /**
+     * Get body
+     *
+     * @return string $body
+     */
+    public function getBody()
+    {
+        return $this->body;
+    }
+    /**
+     * @var string $gender
+     */
+    protected $gender;
+
+
+    /**
+     * Set gender
+     *
+     * @param string $gender
+     * @return self
+     */
+    public function setGender($gender)
+    {
+        $this->gender = $gender;
+        return $this;
+    }
+
+    /**
+     * Get gender
+     *
+     * @return string $gender
+     */
+    public function getGender()
+    {
+        return $this->gender;
+    }
+    /**
+     * @var string $decision
+     */
+    protected $decision;
+
+
+    /**
+     * Set decision
+     *
+     * @param string $decision
+     * @return self
+     */
+    public function setDecision($decision)
+    {
+        $this->decision = $decision;
+        return $this;
+    }
+
+    /**
+     * Get decision
+     *
+     * @return string $decision
+     */
+    public function getDecision()
+    {
+        return $this->decision;
+    }
 }

@@ -6,5 +6,7 @@ Story\AdminBundle\Document\Page:
             type: string
         pageNumber:
             type: string
-        choice:
+        body:
+            type: string 
+        decision:
             type: string

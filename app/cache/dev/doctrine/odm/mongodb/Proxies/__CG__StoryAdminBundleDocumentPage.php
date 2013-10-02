@@ -44,10 +44,79 @@ class Page extends \Story\AdminBundle\Document\Page implements \Doctrine\ODM\Mon
     }
 
     
+    public function getId()
+    {
+        if ($this->__isInitialized__ === false) {
+            return $this->__identifier__;
+        }
+        $this->__load();
+        return parent::getId();
+    }
+
+    public function setPageName($pageName)
+    {
+        $this->__load();
+        return parent::setPageName($pageName);
+    }
+
+    public function getPageName()
+    {
+        $this->__load();
+        return parent::getPageName();
+    }
+
+    public function setPageNumber($pageNumber)
+    {
+        $this->__load();
+        return parent::setPageNumber($pageNumber);
+    }
+
+    public function getPageNumber()
+    {
+        $this->__load();
+        return parent::getPageNumber();
+    }
+
+    public function setChoice($choice)
+    {
+        $this->__load();
+        return parent::setChoice($choice);
+    }
+
+    public function getChoice()
+    {
+        $this->__load();
+        return parent::getChoice();
+    }
+
+    public function setBody($body)
+    {
+        $this->__load();
+        return parent::setBody($body);
+    }
+
+    public function getBody()
+    {
+        $this->__load();
+        return parent::getBody();
+    }
+
+    public function setGender($gender)
+    {
+        $this->__load();
+        return parent::setGender($gender);
+    }
+
+    public function getGender()
+    {
+        $this->__load();
+        return parent::getGender();
+    }
+
 
     public function __sleep()
     {
-        return array('__isInitialized__', );
+        return array('__isInitialized__', 'id', 'pageName', 'pageNumber', 'body');
     }
 
     public function __clone()

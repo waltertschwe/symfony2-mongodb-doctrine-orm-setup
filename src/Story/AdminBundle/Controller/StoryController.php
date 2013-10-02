@@ -48,7 +48,7 @@ class StoryController extends Controller {
 	    
 		// generate the create form
         return $this->render('StoryAdminBundle:Story:story.create.html.twig', array(
-            'form' => $form->createView(),
+            'form' => $form->createView()
         ));
     }
 	public function updateAction(Request $request) {

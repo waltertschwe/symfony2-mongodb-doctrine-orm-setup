@@ -116,7 +116,7 @@ class __TwigTemplate_b7956e6783a6357aa3126ef1fd83eb75 extends Twig_Template
             echo twig_escape_filter($this->env, $this->getAttribute((isset($context["story"]) ? $context["story"] : $this->getContext($context, "story")), "description"), "html", null, true);
             echo "</td>
 \t\t\t<td class=\"center\">
-\t\t\t<a href=\"/symfony/web/app_dev.php/story-admin/pages/";
+\t\t\t<a href=\"/symfony/web/app_dev.php/story-admin/page/create/";
             // line 52
             echo twig_escape_filter($this->env, $this->getAttribute((isset($context["story"]) ? $context["story"] : $this->getContext($context, "story")), "id"), "html", null, true);
             echo "\">

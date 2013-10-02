@@ -52,11 +52,19 @@ class StoryAdminBundleDocumentPageHydrator implements HydratorInterface
         }
 
         /** @Field(type="string") */
-        if (isset($data['choice'])) {
-            $value = $data['choice'];
+        if (isset($data['body'])) {
+            $value = $data['body'];
             $return = (string) $value;
-            $this->class->reflFields['choice']->setValue($document, $return);
-            $hydratedData['choice'] = $return;
+            $this->class->reflFields['body']->setValue($document, $return);
+            $hydratedData['body'] = $return;
+        }
+
+        /** @Field(type="string") */
+        if (isset($data['decision'])) {
+            $value = $data['decision'];
+            $return = (string) $value;
+            $this->class->reflFields['decision']->setValue($document, $return);
+            $hydratedData['decision'] = $return;
         }
         return $hydratedData;
     }
