@@ -48,7 +48,7 @@ class PageController extends Controller {
 	public function updateAction(Request $request) {
 		
 		$storyId = $this->getRequest()->get('storyId');
-		$pageId  = $this->getRequest()->get('pageId');
+		$pageNumber  = $this->getRequest()->get('pageNumber');
 		
 		$repository = $this->get('doctrine_mongodb')
 	        ->getManager()
@@ -56,7 +56,16 @@ class PageController extends Controller {
 		
 		$story = $repository->findOneBy(array('_id' => $storyId));
 		
-		
+		// pages php array 
+		$pages = $story->getPages();
+		/*
+		foreach($page as $pages) {
+			if($page['pageNumber'] == $pageNumber) {
+				echo "found a pageNumber";
+			}
+		}
+		 * 
+		 */
 		
 		
 		return $this->render('StoryAdminBundle:Page:page.update.html.twig'
