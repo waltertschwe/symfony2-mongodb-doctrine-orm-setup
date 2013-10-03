@@ -47,6 +47,21 @@ class PageController extends Controller {
 	
 	public function updateAction(Request $request) {
 		
+		$storyId = $this->getRequest()->get('storyId');
+		$pageId  = $this->getRequest()->get('pageId');
+		
+		$repository = $this->get('doctrine_mongodb')
+	        ->getManager()
+	        ->getRepository('StoryAdminBundle:Story');
+		
+		$story = $repository->findOneBy(array('_id' => $storyId));
+		
+		
+		
+		
+		return $this->render('StoryAdminBundle:Page:page.update.html.twig'
+			);	
+		
 	}
 	
 	public function deleteAction(Request $request) {
