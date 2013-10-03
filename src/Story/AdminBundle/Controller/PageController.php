@@ -55,19 +55,26 @@ class PageController extends Controller {
 	        ->getRepository('StoryAdminBundle:Story');
 		
 		$story = $repository->findOneBy(array('_id' => $storyId));
-		
 		// pages php array 
 		$pages = $story->getPages();
-		/*
-		foreach($page as $pages) {
+		var_dump($pages);
+		$pageCounter = 0;
+		$pageKey = -1;
+		foreach($pages as $page) {
 			if($page['pageNumber'] == $pageNumber) {
-				echo "found a pageNumber";
+				$pageKey = $pageCounter;
+				break;
 			}
+			$pageCounter++;
 		}
-		 * 
-		 */
 		
+		if ($pageKey < 0) {
+			echo "pageNotFound";
+		} else {
+			echo "pageFound = " . $pageKey . "<br/>";
+		}
 		
+		  
 		return $this->render('StoryAdminBundle:Page:page.update.html.twig'
 			);	
 		
