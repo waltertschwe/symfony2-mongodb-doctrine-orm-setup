@@ -23,8 +23,8 @@ class PageController extends Controller {
 		
 		$story = $repository->findOneBy(array('_id' => $storyId));
 		
-		var_dump($story);
-		return $this->render('StoryAdminBundle:Page:page.index.html.twig');
+		return $this->render('StoryAdminBundle:Page:page.index.html.twig', array(
+				'story' => $story));
 	}
 	
 	public function createAction($storyId) {

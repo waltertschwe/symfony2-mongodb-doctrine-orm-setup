@@ -1,1 +1,61 @@
-Hello World!
+<!DOCTYPE html>
+<html>
+    <head>  
+        {% block stylesheets %}
+            <link href="{{ asset('bundles/storyadmin/css/demo_page.css') }}" type="text/css" rel="stylesheet" />
+            <link href="{{ asset('bundles/storyadmin/css/demo_table.css') }}" type="text/css" rel="stylesheet" />
+        {% endblock %}
+        {% javascripts
+        	'@StoryAdminBundle/Resources/public/js/jquery.js'
+    		'@StoryAdminBundle/Resources/public/js/jquery.dataTables.js'	
+    	%}
+    		<script src="{{ asset_url }}"></script>
+		{% endjavascripts %}
+		
+		<script type="text/javascript" charset="utf-8">
+			$(document).ready(function() {
+				$('#example').dataTable();
+			} );
+		</script>
+
+<body id="dt_example">
+<div id="container">
+<div class="full_width big">Story Tool Generator</div>
+	<h1>Pages</h1>
+	<p><a href="/symfony/web/app_dev.php/story-admin/create">Create New Page</a></p>
+<div id="demo">
+<table cellpadding="0" cellspacing="0" border="0" class="display" id="example" width="100%">
+	<thead>
+		<tr>
+			<th>Page Number</th>
+			<th>Page Name</th>
+			<th>Body</th>
+			<th>Decision</th>
+		</tr>
+	</thead>
+	<tbody>
+{% for page in story.pages %}
+<tr class="odd gradeZ">
+	<td class="center">{{ page.pageNumber }} </td>
+	<td class="center">{{ page.pageName }} </td>
+	<td class="center">{{ page.body }} </td>
+	<td class="center">{{ page.decision }} </td>
+{% endfor %}
+</tbody>
+	<tfoot>
+		<tr>
+			<th>Page Number</th>
+			<th>Page Name</th>
+			<th>Body</th>
+			<th>Decision</th>
+		</tr>
+	</tfoot>
+</table>
+</div>
+</div>
+</body>
+</html>
+
+
+
+
