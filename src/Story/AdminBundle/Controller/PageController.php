@@ -42,10 +42,7 @@ class PageController extends Controller {
 	        ->getManager()
 	        ->getRepository('StoryAdminBundle:Story');
 		
-		
-		
-		
-		$form = $this->createForm(new PageType(), $storyArr);	
+		$form = $this->createForm(new PageType());	
 		
 		 
 		return $this->render('StoryAdminBundle:Page:page.create.html.twig' 
