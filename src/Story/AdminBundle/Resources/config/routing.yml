@@ -14,7 +14,7 @@ page_admin_story_index:
     pattern: /pages/{storyId}
     defaults: { _controller: StoryAdminBundle:Page:index }
 page_admin_story_create:
-    pattern:  /page/create/{storyId}
+    pattern:  /page/create/{storyId}/{newPageNumber}
     defaults: { _controller: StoryAdminBundle:Page:create }
 page_admin_story_update:
     pattern:  /page/update/{storyId}/{pageNumber}

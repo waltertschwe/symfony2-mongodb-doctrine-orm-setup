@@ -186,7 +186,7 @@ class appDevUrlMatcher extends Symfony\Bundle\FrameworkBundle\Routing\Redirectab
                 }
 
                 // page_admin_story_create
-                if (0 === strpos($pathinfo, '/story-admin/page/create') && preg_match('#^/story\\-admin/page/create/(?P<storyId>[^/]++)$#s', $pathinfo, $matches)) {
+                if (0 === strpos($pathinfo, '/story-admin/page/create') && preg_match('#^/story\\-admin/page/create/(?P<storyId>[^/]++)/(?P<newPageNumber>[^/]++)$#s', $pathinfo, $matches)) {
                     return $this->mergeDefaults(array_replace($matches, array('_route' => 'page_admin_story_create')), array (  '_controller' => 'Story\\AdminBundle\\Controller\\PageController::createAction',));
                 }
 
