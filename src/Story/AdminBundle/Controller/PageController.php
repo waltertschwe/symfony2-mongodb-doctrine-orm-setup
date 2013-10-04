@@ -48,6 +48,23 @@ class PageController extends Controller {
 		$pageArr['pageNumber'] = $newPageNumber;
 		
 		$form = $this->createForm(new PageType(), $pageArr);	
+		
+		$form->handleRequest($this->getRequest());
+		if ($form->isValid()) {
+			$storyId = $this->getRequest()->get('storyId');
+			$storyObj = $repository->findOneById($storyId);
+   			$data = $form->getData();
+			
+    		$dm = $this->get('doctrine_mongodb')->getManager();
+			
+			$result = $dm->createQueryBuilder('StoryAdminBundle:Story')
+				->update()
+				->field('pages')->push($data)
+			    ->field('id')->equals($storyId)
+			    ->getQuery()
+		        ->execute();
+					
+		}
 		 
 		return $this->render('StoryAdminBundle:Page:page.create.html.twig', array(
             'form' => $form->createView())
