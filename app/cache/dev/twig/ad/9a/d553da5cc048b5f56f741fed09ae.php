@@ -84,20 +84,35 @@ class __TwigTemplate_ad9ad553da5cc048b5f56f741fed09ae extends Twig_Template
         foreach ($context['_seq'] as $context["_key"] => $context["page"]) {
             // line 38
             echo "<tr class=\"odd gradeZ\">
-\t<td class=\"center\">";
-            // line 39
-            echo twig_escape_filter($this->env, $this->getAttribute((isset($context["page"]) ? $context["page"] : $this->getContext($context, "page")), "pageNumber"), "html", null, true);
-            echo " </td>
-\t<td class=\"center\">";
+\t<td class=\"center\">
+\t\t<a href=\"/symfony/web/app_dev.php/story-admin/page/update/";
             // line 40
+            echo twig_escape_filter($this->env, $this->getAttribute((isset($context["story"]) ? $context["story"] : $this->getContext($context, "story")), "id"), "html", null, true);
+            echo "/";
+            echo twig_escape_filter($this->env, $this->getAttribute((isset($context["page"]) ? $context["page"] : $this->getContext($context, "page")), "pageNumber"), "html", null, true);
+            echo "\"> ";
+            echo twig_escape_filter($this->env, $this->getAttribute((isset($context["page"]) ? $context["page"] : $this->getContext($context, "page")), "pageNumber"), "html", null, true);
+            echo "</a>
+\t</td>
+\t<td class=\"center\">
+\t\t<a href=\"/symfony/web/app_dev.php/story-admin/page/update/";
+            // line 43
+            echo twig_escape_filter($this->env, $this->getAttribute((isset($context["story"]) ? $context["story"] : $this->getContext($context, "story")), "id"), "html", null, true);
+            echo "/";
+            echo twig_escape_filter($this->env, $this->getAttribute((isset($context["page"]) ? $context["page"] : $this->getContext($context, "page")), "pageNumber"), "html", null, true);
+            echo "\">
+\t\t\t";
+            // line 44
             echo twig_escape_filter($this->env, $this->getAttribute((isset($context["page"]) ? $context["page"] : $this->getContext($context, "page")), "pageName"), "html", null, true);
-            echo " </td>
+            echo " 
+\t\t</a>\t\t
+\t</td>
 \t<td class=\"center\">";
-            // line 41
+            // line 47
             echo twig_escape_filter($this->env, $this->getAttribute((isset($context["page"]) ? $context["page"] : $this->getContext($context, "page")), "body"), "html", null, true);
             echo " </td>
 \t<td class=\"center\">";
-            // line 42
+            // line 48
             echo twig_escape_filter($this->env, $this->getAttribute((isset($context["page"]) ? $context["page"] : $this->getContext($context, "page")), "decision"), "html", null, true);
             echo " </td>
 ";
@@ -105,7 +120,7 @@ class __TwigTemplate_ad9ad553da5cc048b5f56f741fed09ae extends Twig_Template
         $_parent = $context['_parent'];
         unset($context['_seq'], $context['_iterated'], $context['_key'], $context['page'], $context['_parent'], $context['loop']);
         $context = array_intersect_key($context, $_parent) + $_parent;
-        // line 44
+        // line 50
         echo "</tbody>
 \t<tfoot>
 \t\t<tr>
@@ -153,6 +168,6 @@ class __TwigTemplate_ad9ad553da5cc048b5f56f741fed09ae extends Twig_Template
 
     public function getDebugInfo()
     {
-        return array (  139 => 6,  134 => 5,  131 => 4,  109 => 44,  101 => 42,  97 => 41,  93 => 40,  89 => 39,  86 => 38,  82 => 37,  65 => 25,  52 => 14,  32 => 12,  27 => 8,  25 => 4,  20 => 1,);
+        return array (  154 => 6,  149 => 5,  146 => 4,  124 => 50,  116 => 48,  112 => 47,  106 => 44,  100 => 43,  90 => 40,  86 => 38,  82 => 37,  65 => 25,  52 => 14,  32 => 12,  27 => 8,  25 => 4,  20 => 1,);
     }
 }

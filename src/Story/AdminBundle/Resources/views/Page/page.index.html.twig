@@ -36,8 +36,14 @@
 	<tbody>
 {% for page in story.pages %}
 <tr class="odd gradeZ">
-	<td class="center">{{ page.pageNumber }} </td>
-	<td class="center">{{ page.pageName }} </td>
+	<td class="center">
+		<a href="/symfony/web/app_dev.php/story-admin/page/update/{{ story.id }}/{{ page.pageNumber }}"> {{ page.pageNumber }}</a>
+	</td>
+	<td class="center">
+		<a href="/symfony/web/app_dev.php/story-admin/page/update/{{ story.id }}/{{ page.pageNumber }}">
+			{{ page.pageName }} 
+		</a>		
+	</td>
 	<td class="center">{{ page.body }} </td>
 	<td class="center">{{ page.decision }} </td>
 {% endfor %}

@@ -100,9 +100,10 @@ class PageController extends Controller {
 			echo "page Not Found<br/>";
 		}
 		
-		var_dump($pages);
-		//echo "page Data = " . $pages[$pageKey];
+		$pageData = $pages[$pageKey];
+		var_dump($pageData);
 		
+		//$form = $this->createForm(new PageType(), $pageArr);	
 		  
 		return $this->render('StoryAdminBundle:Page:page.update.html.twig'
 			);	
