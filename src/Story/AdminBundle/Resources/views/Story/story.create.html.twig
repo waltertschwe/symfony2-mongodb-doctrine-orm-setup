@@ -1,17 +1,24 @@
 <!DOCTYPE html>
 <html>
     <head>  
+      <meta charset="utf-8">
+      {% block stylesheets %}
+            <link href="{{ asset('bundles/storyadmin/css/ckeditor.css') }}" type="text/css" rel="stylesheet" />
+      {% endblock %}
       {% javascripts
-        	'@StoryAdminBundle/Resources/public/js/ckeditor.js' 	
+      		'@StoryAdminBundle/Resources/public/js/config.js' 
        %}
        <script src="{{ asset_url }}"></script>
 		{% endjavascripts %}
+		<script src="/symfony/web/js/ckeditor/ckeditor.js"></script>
     </head>
 <body>
 <h2>Create Story</h2>
 {{ form_start(form) }}
     {{ form_errors(form) }}
-	{{ form_row(form.storyName) }} <br/>
+	{{ form_row(form.storyName) }} 
+	{{ form_row(form.author) }}
+	{{ form_row(form.description) }} 
 	
 {{ form_end(form) }}
 

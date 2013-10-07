@@ -23,19 +23,19 @@ return array (
       ),
     ),
   ),
-  'e0e22a6' => 
+  'bc4cc89' => 
   array (
     0 => 
     array (
-      0 => '@StoryAdminBundle/Resources/public/js/ckeditor.js',
+      0 => '@StoryAdminBundle/Resources/public/js/config.js',
     ),
     1 => 
     array (
     ),
     2 => 
     array (
-      'output' => '_controller/js/e0e22a6.js',
-      'name' => 'e0e22a6',
+      'output' => '_controller/js/bc4cc89.js',
+      'name' => 'bc4cc89',
       'debug' => NULL,
       'combine' => NULL,
       'vars' => 
