@@ -47,15 +47,15 @@ class appDevUrlMatcher extends Symfony\Bundle\FrameworkBundle\Routing\Redirectab
 
             }
 
-            if (0 === strpos($pathinfo, '/js/bc4cc89')) {
-                // _assetic_bc4cc89
-                if ($pathinfo === '/js/bc4cc89.js') {
-                    return array (  '_controller' => 'assetic.controller:render',  'name' => 'bc4cc89',  'pos' => NULL,  '_format' => 'js',  '_route' => '_assetic_bc4cc89',);
+            if (0 === strpos($pathinfo, '/js/bff46d8')) {
+                // _assetic_bff46d8
+                if ($pathinfo === '/js/bff46d8.js') {
+                    return array (  '_controller' => 'assetic.controller:render',  'name' => 'bff46d8',  'pos' => NULL,  '_format' => 'js',  '_route' => '_assetic_bff46d8',);
                 }
 
-                // _assetic_bc4cc89_0
-                if ($pathinfo === '/js/bc4cc89_config_1.js') {
-                    return array (  '_controller' => 'assetic.controller:render',  'name' => 'bc4cc89',  'pos' => 0,  '_format' => 'js',  '_route' => '_assetic_bc4cc89_0',);
+                // _assetic_bff46d8_0
+                if ($pathinfo === '/js/bff46d8_jquery_1.js') {
+                    return array (  '_controller' => 'assetic.controller:render',  'name' => 'bff46d8',  'pos' => 0,  '_format' => 'js',  '_route' => '_assetic_bff46d8_0',);
                 }
 
             }

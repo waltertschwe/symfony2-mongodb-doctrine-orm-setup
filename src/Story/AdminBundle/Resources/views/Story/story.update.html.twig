@@ -1,12 +1,38 @@
-<h2>Update Story</h2>
+<!DOCTYPE html>
+<html>
+    <head>  
+      <meta charset="utf-8">
+        {% block stylesheets %}
+            <link href="{{ asset('bundles/storyadmin/css/ckeditor.css') }}" type="text/css" rel="stylesheet" />
+      {% endblock %}
+      {% javascripts
+      		'@StoryAdminBundle/Resources/public/js/jquery.js'
+       %}
+       <script src="{{ asset_url }}"></script>
+		{% endjavascripts %}
+		<script src="/symfony/web/js/ckeditor/ckeditor.js"></script>
+		
+</head>
+<body>
 {% for flashMessage in app.session.flashbag.get('notice') %}
     <div class="flash-notice">
        <font color="red"> {{ flashMessage }} </font>
     </div>
 {% endfor %}
+<h2>Story Update</h2>
 {{ form_start(form) }}
     {{ form_errors(form) }}
-	{{ form_row(form.storyName) }} <br/>
-
-
+	{{ form_row(form.storyName) }} 
+	{{ form_row(form.author) }}<br/>
+	{{ form_row(form.description) }} 
+	<script type="text/javascript" charset="utf-8">
+			CKEDITOR.replace( 'storyName_description', {
+				uiColor: '#1C6BA0'
+			});
+		</script>
+	<br/>
 {{ form_end(form) }}
+
+
+</body>
+</html>

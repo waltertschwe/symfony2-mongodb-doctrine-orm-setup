@@ -27,16 +27,16 @@ class __TwigTemplate_25ad352e487f63507a9b99d3dcf831af extends Twig_Template
         // line 8
         echo "      ";
         if (isset($context['assetic']['debug']) && $context['assetic']['debug']) {
-            // asset "bc4cc89_0"
-            $context["asset_url"] = isset($context['assetic']['use_controller']) && $context['assetic']['use_controller'] ? $this->env->getExtension('routing')->getPath("_assetic_bc4cc89_0") : $this->env->getExtension('assets')->getAssetUrl("_controller/js/bc4cc89_config_1.js");
+            // asset "bff46d8_0"
+            $context["asset_url"] = isset($context['assetic']['use_controller']) && $context['assetic']['use_controller'] ? $this->env->getExtension('routing')->getPath("_assetic_bff46d8_0") : $this->env->getExtension('assets')->getAssetUrl("_controller/js/bff46d8_jquery_1.js");
             // line 11
             echo "       <script src=\"";
             echo twig_escape_filter($this->env, (isset($context["asset_url"]) ? $context["asset_url"] : $this->getContext($context, "asset_url")), "html", null, true);
             echo "\"></script>
 \t\t";
         } else {
-            // asset "bc4cc89"
-            $context["asset_url"] = isset($context['assetic']['use_controller']) && $context['assetic']['use_controller'] ? $this->env->getExtension('routing')->getPath("_assetic_bc4cc89") : $this->env->getExtension('assets')->getAssetUrl("_controller/js/bc4cc89.js");
+            // asset "bff46d8"
+            $context["asset_url"] = isset($context['assetic']['use_controller']) && $context['assetic']['use_controller'] ? $this->env->getExtension('routing')->getPath("_assetic_bff46d8") : $this->env->getExtension('assets')->getAssetUrl("_controller/js/bff46d8.js");
             echo "       <script src=\"";
             echo twig_escape_filter($this->env, (isset($context["asset_url"]) ? $context["asset_url"] : $this->getContext($context, "asset_url")), "html", null, true);
             echo "\"></script>
@@ -45,37 +45,44 @@ class __TwigTemplate_25ad352e487f63507a9b99d3dcf831af extends Twig_Template
         unset($context["asset_url"]);
         // line 13
         echo "\t\t<script src=\"/symfony/web/js/ckeditor/ckeditor.js\"></script>
+\t\t
     </head>
 <body>
 <h2>Create Story</h2>
 ";
-        // line 17
+        // line 18
         echo         $this->env->getExtension('form')->renderer->renderBlock((isset($context["form"]) ? $context["form"] : $this->getContext($context, "form")), 'form_start');
         echo "
     ";
-        // line 18
+        // line 19
         echo $this->env->getExtension('form')->renderer->searchAndRenderBlock((isset($context["form"]) ? $context["form"] : $this->getContext($context, "form")), 'errors');
         echo "
 \t";
-        // line 19
+        // line 20
         echo $this->env->getExtension('form')->renderer->searchAndRenderBlock($this->getAttribute((isset($context["form"]) ? $context["form"] : $this->getContext($context, "form")), "storyName"), 'row');
         echo " 
 \t";
-        // line 20
-        echo $this->env->getExtension('form')->renderer->searchAndRenderBlock($this->getAttribute((isset($context["form"]) ? $context["form"] : $this->getContext($context, "form")), "author"), 'row');
-        echo "
-\t";
         // line 21
+        echo $this->env->getExtension('form')->renderer->searchAndRenderBlock($this->getAttribute((isset($context["form"]) ? $context["form"] : $this->getContext($context, "form")), "author"), 'row');
+        echo "<br/>
+\t";
+        // line 22
         echo $this->env->getExtension('form')->renderer->searchAndRenderBlock($this->getAttribute((isset($context["form"]) ? $context["form"] : $this->getContext($context, "form")), "description"), 'row');
         echo " 
-\t
+\t<script type=\"text/javascript\" charset=\"utf-8\">
+\t\t\tCKEDITOR.replace( 'storyName_description', {
+\t\t\t\tuiColor: '#1C6BA0'
+\t\t\t});
+\t\t</script>
+\t<br/>
 ";
-        // line 23
+        // line 29
         echo         $this->env->getExtension('form')->renderer->renderBlock((isset($context["form"]) ? $context["form"] : $this->getContext($context, "form")), 'form_end');
         echo "
 
 </body>
-</html>";
+</html>
+";
     }
 
     // line 5
@@ -100,6 +107,6 @@ class __TwigTemplate_25ad352e487f63507a9b99d3dcf831af extends Twig_Template
 
     public function getDebugInfo()
     {
-        return array (  85 => 6,  82 => 5,  74 => 23,  69 => 21,  65 => 20,  61 => 19,  57 => 18,  53 => 17,  47 => 13,  33 => 11,  28 => 8,  26 => 5,  20 => 1,);
+        return array (  92 => 6,  89 => 5,  80 => 29,  70 => 22,  66 => 21,  62 => 20,  58 => 19,  54 => 18,  47 => 13,  33 => 11,  28 => 8,  26 => 5,  20 => 1,);
     }
 }

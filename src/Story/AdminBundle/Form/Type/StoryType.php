@@ -11,7 +11,7 @@ class StoryType extends AbstractType {
       	
 		$builder->add('storyName', 'text', array('max_length' => '45', 'attr' => array('size' => '45')))
 			->add('author', 'text')
-			->add('description', 'textarea', array('label' => false, 'attr' => array('class' => 'ckeditor')))
+			->add('description', 'textarea', array('label' => 'Summary', 'attr' => array('class' => 'ckeditor')))
 			->add('save', 'submit')
 	        ->getForm();
     }

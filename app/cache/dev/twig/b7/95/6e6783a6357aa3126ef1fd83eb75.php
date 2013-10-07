@@ -98,7 +98,7 @@ class __TwigTemplate_b7956e6783a6357aa3126ef1fd83eb75 extends Twig_Template
         $context['_seq'] = twig_ensure_traversable((isset($context["stories"]) ? $context["stories"] : $this->getContext($context, "stories")));
         foreach ($context['_seq'] as $context["_key"] => $context["story"]) {
             // line 45
-            echo "\t\t<tr class=\"odd gradeX\">
+            echo "\t\t<tr class=\"odd gradeC\">
 \t\t\t<td class=\"center\"><a href=\"/symfony/web/app_dev.php/story-admin/update/";
             // line 46
             echo twig_escape_filter($this->env, $this->getAttribute((isset($context["story"]) ? $context["story"] : $this->getContext($context, "story")), "id"), "html", null, true);

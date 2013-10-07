@@ -23,19 +23,19 @@ return array (
       ),
     ),
   ),
-  'bc4cc89' => 
+  'bff46d8' => 
   array (
     0 => 
     array (
-      0 => '@StoryAdminBundle/Resources/public/js/config.js',
+      0 => '@StoryAdminBundle/Resources/public/js/jquery.js',
     ),
     1 => 
     array (
     ),
     2 => 
     array (
-      'output' => '_controller/js/bc4cc89.js',
-      'name' => 'bc4cc89',
+      'output' => '_controller/js/bff46d8.js',
+      'name' => 'bff46d8',
       'debug' => NULL,
       'combine' => NULL,
       'vars' => 

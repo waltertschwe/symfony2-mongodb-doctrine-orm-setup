@@ -221,7 +221,7 @@ table.display tr.even.gradeA {
 }
 
 table.display tr.odd.gradeC {
-	background-color: #ddddff;
+	 background-color: #ddddff; 
 }
 
 table.display tr.even.gradeC {
