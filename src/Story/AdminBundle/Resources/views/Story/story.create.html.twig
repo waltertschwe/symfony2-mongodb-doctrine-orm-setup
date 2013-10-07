@@ -1,7 +1,11 @@
 <!DOCTYPE html>
 <html>
     <head>  
-    
+      {% javascripts
+        	'@StoryAdminBundle/Resources/public/js/ckeditor.js' 	
+       %}
+       <script src="{{ asset_url }}"></script>
+		{% endjavascripts %}
     </head>
 <body>
 <h2>Create Story</h2>
