@@ -49,24 +49,27 @@ class __TwigTemplate_25ad352e487f63507a9b99d3dcf831af extends Twig_Template
     </head>
 <body>
 <h2>Create Story</h2>
+<a href=\"/symfony/web/app_dev.php/story-admin\">
+<img src=\"/symfony/web/bundles/storyadmin/images/back-icon.png\" />
+</a>
 ";
-        // line 18
+        // line 21
         echo         $this->env->getExtension('form')->renderer->renderBlock((isset($context["form"]) ? $context["form"] : $this->getContext($context, "form")), 'form_start');
         echo "
     ";
-        // line 19
+        // line 22
         echo $this->env->getExtension('form')->renderer->searchAndRenderBlock((isset($context["form"]) ? $context["form"] : $this->getContext($context, "form")), 'errors');
         echo "
 \t";
-        // line 20
+        // line 23
         echo $this->env->getExtension('form')->renderer->searchAndRenderBlock($this->getAttribute((isset($context["form"]) ? $context["form"] : $this->getContext($context, "form")), "storyName"), 'row');
         echo " 
 \t";
-        // line 21
+        // line 24
         echo $this->env->getExtension('form')->renderer->searchAndRenderBlock($this->getAttribute((isset($context["form"]) ? $context["form"] : $this->getContext($context, "form")), "author"), 'row');
         echo "<br/>
 \t";
-        // line 22
+        // line 25
         echo $this->env->getExtension('form')->renderer->searchAndRenderBlock($this->getAttribute((isset($context["form"]) ? $context["form"] : $this->getContext($context, "form")), "description"), 'row');
         echo " 
 \t<script type=\"text/javascript\" charset=\"utf-8\">
@@ -76,7 +79,7 @@ class __TwigTemplate_25ad352e487f63507a9b99d3dcf831af extends Twig_Template
 \t\t</script>
 \t<br/>
 ";
-        // line 29
+        // line 32
         echo         $this->env->getExtension('form')->renderer->renderBlock((isset($context["form"]) ? $context["form"] : $this->getContext($context, "form")), 'form_end');
         echo "
 
@@ -107,6 +110,6 @@ class __TwigTemplate_25ad352e487f63507a9b99d3dcf831af extends Twig_Template
 
     public function getDebugInfo()
     {
-        return array (  92 => 6,  89 => 5,  80 => 29,  70 => 22,  66 => 21,  62 => 20,  58 => 19,  54 => 18,  47 => 13,  33 => 11,  28 => 8,  26 => 5,  20 => 1,);
+        return array (  95 => 6,  92 => 5,  83 => 32,  73 => 25,  69 => 24,  65 => 23,  61 => 22,  57 => 21,  47 => 13,  33 => 11,  28 => 8,  26 => 5,  20 => 1,);
     }
 }

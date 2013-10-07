@@ -67,24 +67,27 @@ class __TwigTemplate_170b6cdcac9d7989109aaea180748ad2 extends Twig_Template
         $context = array_intersect_key($context, $_parent) + $_parent;
         // line 22
         echo "<h2>Story Update</h2>
+<a href=\"/symfony/web/app_dev.php/story-admin\">
+<img src=\"/symfony/web/bundles/storyadmin/images/back-icon.png\" />
+</a>
 ";
-        // line 23
+        // line 26
         echo         $this->env->getExtension('form')->renderer->renderBlock((isset($context["form"]) ? $context["form"] : $this->getContext($context, "form")), 'form_start');
         echo "
     ";
-        // line 24
+        // line 27
         echo $this->env->getExtension('form')->renderer->searchAndRenderBlock((isset($context["form"]) ? $context["form"] : $this->getContext($context, "form")), 'errors');
         echo "
 \t";
-        // line 25
+        // line 28
         echo $this->env->getExtension('form')->renderer->searchAndRenderBlock($this->getAttribute((isset($context["form"]) ? $context["form"] : $this->getContext($context, "form")), "storyName"), 'row');
         echo " 
 \t";
-        // line 26
+        // line 29
         echo $this->env->getExtension('form')->renderer->searchAndRenderBlock($this->getAttribute((isset($context["form"]) ? $context["form"] : $this->getContext($context, "form")), "author"), 'row');
         echo "<br/>
 \t";
-        // line 27
+        // line 30
         echo $this->env->getExtension('form')->renderer->searchAndRenderBlock($this->getAttribute((isset($context["form"]) ? $context["form"] : $this->getContext($context, "form")), "description"), 'row');
         echo " 
 \t<script type=\"text/javascript\" charset=\"utf-8\">
@@ -94,7 +97,7 @@ class __TwigTemplate_170b6cdcac9d7989109aaea180748ad2 extends Twig_Template
 \t\t</script>
 \t<br/>
 ";
-        // line 34
+        // line 37
         echo         $this->env->getExtension('form')->renderer->renderBlock((isset($context["form"]) ? $context["form"] : $this->getContext($context, "form")), 'form_end');
         echo "
 
@@ -125,6 +128,6 @@ class __TwigTemplate_170b6cdcac9d7989109aaea180748ad2 extends Twig_Template
 
     public function getDebugInfo()
     {
-        return array (  110 => 6,  107 => 5,  98 => 34,  88 => 27,  84 => 26,  80 => 25,  76 => 24,  72 => 23,  69 => 22,  60 => 19,  57 => 18,  53 => 17,  47 => 13,  33 => 11,  28 => 8,  26 => 5,  20 => 1,);
+        return array (  113 => 6,  110 => 5,  101 => 37,  91 => 30,  87 => 29,  83 => 28,  79 => 27,  75 => 26,  69 => 22,  60 => 19,  57 => 18,  53 => 17,  47 => 13,  33 => 11,  28 => 8,  26 => 5,  20 => 1,);
     }
 }

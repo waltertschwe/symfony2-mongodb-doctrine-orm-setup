@@ -78,7 +78,7 @@ class __TwigTemplate_b7956e6783a6357aa3126ef1fd83eb75 extends Twig_Template
         unset($context['_seq'], $context['_iterated'], $context['_key'], $context['flashMessage'], $context['_parent'], $context['loop']);
         $context = array_intersect_key($context, $_parent) + $_parent;
         // line 30
-        echo "\t<div class=\"full_width big\">Story Tool Generator</div>
+        echo "\t<div class=\"full_width big\">Story Tool</div>
 \t<h1>Live Stories</h1>
 \t<p><a href=\"/symfony/web/app_dev.php/story-admin/create\">Create New Story</a></p>
 <div id=\"demo\">
