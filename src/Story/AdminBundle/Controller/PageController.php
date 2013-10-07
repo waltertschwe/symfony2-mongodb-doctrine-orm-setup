@@ -94,22 +94,17 @@ class PageController extends Controller {
 			$pageCounter++;
 		}
 		
-		/*
-		if ($pageKey >= 0) {
-			echo "pageFound = " . $pageKey . "<br/>";
-		} else {
-			echo "page Not Found<br/>";
-		}
-		
-		 * 
-		 */
 		$pageData = $pages[$pageKey];
-		var_dump($pageData);
+		$form = $this->createForm(new PageType(), $pageData);	
 		
-		//$form = $this->createForm(new PageType(), $pageArr);	
+		if ($request->getMethod() == 'POST') {
+			 $form->submit($request);
+   			 $data = $form->getData();
+			 var_dump($data);	 
+		}
 		  
-		return $this->render('StoryAdminBundle:Page:page.update.html.twig'
-			);	
+		return $this->render('StoryAdminBundle:Page:page.update.html.twig', array(
+			'form' => $form->createView()));	
 		
 	}
 	
