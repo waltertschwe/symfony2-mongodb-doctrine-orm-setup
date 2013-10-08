@@ -1,0 +1,1 @@
+db.test_users.remove( {"_id": ObjectId("4d512b45cc9374271b02ec4f")});
