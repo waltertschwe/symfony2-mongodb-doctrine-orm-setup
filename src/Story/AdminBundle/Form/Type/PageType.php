@@ -11,7 +11,7 @@ class PageType extends AbstractType {
       	
 		$builder->add('pageName', 'text')
 			->add('pageNumber', 'integer', array('required' => true, 'label' => 'Page Number'))
-			->add('body', 'textarea')
+			->add('body', 'textarea', array('label' => 'Page Body', 'attr' => array('class' => 'ckeditor')))
 			->add('decision', 'choice', array(
     			'choices' => array('n' => 'No', 'y' => 'Yes')))
 			->add('save', 'submit')

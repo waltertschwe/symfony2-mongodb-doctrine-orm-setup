@@ -92,13 +92,28 @@ class StoryController extends Controller {
 	}
 	public function deleteAction(Request $request) {
 		
-		$request = $this->get('request');
 		$repository = $this->get('doctrine_mongodb')
 	        ->getManager()
 	        ->getRepository('StoryAdminBundle:Story');
 			
 		$storyId = $this->getRequest()->get('storyId');
-		return $this->render('StoryAdminBundle:Story:story.delete.html.twig', array('storyId' => $storyId));
+		
+		$dm = $this->get('doctrine_mongodb')->getManager();
+		$result = $dm->createQueryBuilder('StoryAdminBundle:Story')
+    				 ->remove()
+    				 ->field('_id')->equals($storyId)
+		             ->getQuery()
+    	             ->execute();
+		
+		$stories = $repository->findAll();
+		
+		$this->get('session')->getFlashBag()->add(
+            	'notice',
+            	'Story Deleted'
+       	);
+		
+		
+		return $this->render('StoryAdminBundle:Story:story.index.html.twig', array('stories' => $stories));
 	}
 	
 	

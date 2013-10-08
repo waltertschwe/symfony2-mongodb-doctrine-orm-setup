@@ -27,7 +27,7 @@
 	    </div>
 		<!-- END FLASH MESSAGE -->
 	{% endfor %}
-	<div class="full_width big">Story Tool</div>
+	<div class="full_width big">CREATIVE STORYTELLING TOOL</div>
 	<h1>Live Stories</h1>
 	<p><a href="/symfony/web/app_dev.php/story-admin/create">Create New Story</a></p>
 <div id="demo">
@@ -52,7 +52,7 @@
 			<img src="{{ asset('bundles/storyadmin/images/page_icon.png') }}" /></a>&nbsp;
 			<img src="{{ asset('bundles/storyadmin/images/json.png') }}" />&nbsp;
 			<!-- <img src="{{ asset('bundles/storyadmin/images/callback.jpg') }}" />&nbsp; -->
-			<img src="{{ asset('bundles/storyadmin/images/delete16x16.gif') }}" />&nbsp;
+			<a href="/symfony/web/app_dev.php/story-admin/delete/{{ story.id }}"><img src="{{ asset('bundles/storyadmin/images/delete16x16.gif') }}" /></a>&nbsp;
 			</td>
 		</tr>
 		{% endfor %}

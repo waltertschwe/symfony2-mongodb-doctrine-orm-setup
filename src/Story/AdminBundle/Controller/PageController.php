@@ -37,13 +37,17 @@ class PageController extends Controller {
 	}
 	
 	public function createAction(Request $request) {
+		
+		$storyId = $this->getRequest()->get('storyId');
+		$newPageNumber  = $this->getRequest()->get('newPageNumber');
 			
 		$repository = $this->get('doctrine_mongodb')
 	        ->getManager()
 	        ->getRepository('StoryAdminBundle:Story');
 		
+		$storyArr = array();
+		$storyArr['storyId'] = $storyId;
 		
-		$newPageNumber  = $this->getRequest()->get('newPageNumber');
 		$pageArr = array();
 		$pageArr['pageNumber'] = $newPageNumber;
 		
@@ -67,7 +71,8 @@ class PageController extends Controller {
 		}
 		 
 		return $this->render('StoryAdminBundle:Page:page.create.html.twig', array(
-            'form' => $form->createView())
+            'form' => $form->createView(),
+			'story' => $storyArr)
 		);	
 	}
 	

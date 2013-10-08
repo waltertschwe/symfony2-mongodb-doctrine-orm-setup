@@ -58,8 +58,11 @@ class __TwigTemplate_ad9ad553da5cc048b5f56f741fed09ae extends Twig_Template
 
 <body id=\"dt_example\">
 <div id=\"container\">
-<div class=\"full_width big\">Story Tool Generator</div>
-\t<h1>Pages</h1>
+<div class=\"full_width big\"><a href=\"../../story-admin\">CREATIVE STORYTELLING TOOL</a></div>
+\t<h1><font color=\"red\"> ";
+        // line 24
+        echo twig_escape_filter($this->env, $this->getAttribute((isset($context["story"]) ? $context["story"] : $this->getContext($context, "story")), "storyName"), "html", null, true);
+        echo "</font> - Pages</h1>
 \t<p><a href=\"/symfony/web/app_dev.php/story-admin/page/create/";
         // line 25
         echo twig_escape_filter($this->env, $this->getAttribute((isset($context["story"]) ? $context["story"] : $this->getContext($context, "story")), "id"), "html", null, true);
@@ -168,6 +171,6 @@ class __TwigTemplate_ad9ad553da5cc048b5f56f741fed09ae extends Twig_Template
 
     public function getDebugInfo()
     {
-        return array (  154 => 6,  149 => 5,  146 => 4,  124 => 50,  116 => 48,  112 => 47,  106 => 44,  100 => 43,  90 => 40,  86 => 38,  82 => 37,  65 => 25,  52 => 14,  32 => 12,  27 => 8,  25 => 4,  20 => 1,);
+        return array (  157 => 6,  152 => 5,  149 => 4,  127 => 50,  119 => 48,  115 => 47,  109 => 44,  103 => 43,  93 => 40,  89 => 38,  85 => 37,  68 => 25,  64 => 24,  52 => 14,  32 => 12,  27 => 8,  25 => 4,  20 => 1,);
     }
 }

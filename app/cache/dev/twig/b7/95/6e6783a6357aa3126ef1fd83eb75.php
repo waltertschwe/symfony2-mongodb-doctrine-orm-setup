@@ -78,7 +78,7 @@ class __TwigTemplate_b7956e6783a6357aa3126ef1fd83eb75 extends Twig_Template
         unset($context['_seq'], $context['_iterated'], $context['_key'], $context['flashMessage'], $context['_parent'], $context['loop']);
         $context = array_intersect_key($context, $_parent) + $_parent;
         // line 30
-        echo "\t<div class=\"full_width big\">Story Tool</div>
+        echo "\t<div class=\"full_width big\">CREATIVE STORYTELLING TOOL</div>
 \t<h1>Live Stories</h1>
 \t<p><a href=\"/symfony/web/app_dev.php/story-admin/create\">Create New Story</a></p>
 <div id=\"demo\">
@@ -131,10 +131,12 @@ class __TwigTemplate_b7956e6783a6357aa3126ef1fd83eb75 extends Twig_Template
             // line 54
             echo twig_escape_filter($this->env, $this->env->getExtension('assets')->getAssetUrl("bundles/storyadmin/images/callback.jpg"), "html", null, true);
             echo "\" />&nbsp; -->
-\t\t\t<img src=\"";
+\t\t\t<a href=\"/symfony/web/app_dev.php/story-admin/delete/";
             // line 55
+            echo twig_escape_filter($this->env, $this->getAttribute((isset($context["story"]) ? $context["story"] : $this->getContext($context, "story")), "id"), "html", null, true);
+            echo "\"><img src=\"";
             echo twig_escape_filter($this->env, $this->env->getExtension('assets')->getAssetUrl("bundles/storyadmin/images/delete16x16.gif"), "html", null, true);
-            echo "\" />&nbsp;
+            echo "\" /></a>&nbsp;
 \t\t\t</td>
 \t\t</tr>
 \t\t";
@@ -186,6 +188,6 @@ class __TwigTemplate_b7956e6783a6357aa3126ef1fd83eb75 extends Twig_Template
 
     public function getDebugInfo()
     {
-        return array (  172 => 6,  167 => 5,  164 => 4,  146 => 59,  136 => 55,  132 => 54,  128 => 53,  124 => 52,  120 => 51,  115 => 49,  111 => 48,  104 => 46,  101 => 45,  97 => 44,  81 => 30,  71 => 26,  67 => 24,  63 => 23,  52 => 14,  32 => 12,  27 => 8,  25 => 4,  20 => 1,);
+        return array (  174 => 6,  169 => 5,  166 => 4,  148 => 59,  136 => 55,  132 => 54,  128 => 53,  124 => 52,  120 => 51,  115 => 49,  111 => 48,  104 => 46,  101 => 45,  97 => 44,  81 => 30,  71 => 26,  67 => 24,  63 => 23,  52 => 14,  32 => 12,  27 => 8,  25 => 4,  20 => 1,);
     }
 }
