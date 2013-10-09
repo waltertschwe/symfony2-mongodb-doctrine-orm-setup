@@ -1,0 +1,2 @@
+## INCLUDE TWIG FILE
+{{ include('StoryAdminBundle:Story:story.nav.html.twig') }}

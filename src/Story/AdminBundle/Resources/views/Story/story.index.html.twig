@@ -2,8 +2,9 @@
 <html>
     <head>  
         {% block stylesheets %}
-            <link href="{{ asset('bundles/storyadmin/css/demo_page.css') }}" type="text/css" rel="stylesheet" />
+            <link href="{{ asset('bundles/storyadmin/css/nav.css') }}" type="text/css" rel="stylesheet" />
             <link href="{{ asset('bundles/storyadmin/css/demo_table.css') }}" type="text/css" rel="stylesheet" />
+    
         {% endblock %}
         {% javascripts
         	'@StoryAdminBundle/Resources/public/js/jquery.js'
@@ -17,9 +18,11 @@
 				$('#example').dataTable();
 			} );
 		</script>
-
+{{ include('StoryAdminBundle:Story:story.nav.html.twig') }}
 <body id="dt_example">
-<div id="container">
+
+<h1>Story Tool</h1>
+
 	{% for flashMessage in app.session.flashbag.get('notice') %}
 		<!-- FLASH MESSAGE -->
 	    <div class="flash-notice">
@@ -27,9 +30,10 @@
 	    </div>
 		<!-- END FLASH MESSAGE -->
 	{% endfor %}
-	<div class="full_width big">CREATIVE STORYTELLING TOOL</div>
-	<h1>Live Stories</h1>
+	<!--
+	<h3>Live Stories</h3>
 	<p><a href="/symfony/web/app_dev.php/story-admin/create">Create New Story</a></p>
+	-->
 <div id="demo">
 <table cellpadding="0" cellspacing="0" border="0" class="display" id="example" width="100%">
 	<thead>
@@ -66,7 +70,7 @@
 		</tr>
 	</tfoot>
 </table>
-</div>
+
 </div>
 </body>
 </html>
