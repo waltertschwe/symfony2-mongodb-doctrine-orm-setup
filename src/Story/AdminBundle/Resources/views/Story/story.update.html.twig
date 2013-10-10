@@ -1,29 +1,26 @@
 <!DOCTYPE html>
 <html>
     <head>  
-      <meta charset="utf-8">
-        {% block stylesheets %}
-            <link href="{{ asset('bundles/storyadmin/css/ckeditor.css') }}" type="text/css" rel="stylesheet" />
-      {% endblock %}
-      {% javascripts
-      		'@StoryAdminBundle/Resources/public/js/jquery.js'
-       %}
-       <script src="{{ asset_url }}"></script>
-		{% endjavascripts %}
-		<script src="/symfony/web/js/ckeditor/ckeditor.js"></script>
-		
-</head>
+     	 {{ include('StoryAdminBundle:Story:header/story.header-editor.html.twig') }}
+	</head>
 <body>
+{{ include('StoryAdminBundle:Story:story.nav.html.twig') }}
 {% for flashMessage in app.session.flashbag.get('notice') %}
     <div class="flash-notice">
        <font color="red"> {{ flashMessage }} </font>
     </div>
 {% endfor %}
+ <div class="container">
+  <div class="starter-template">
 <h2>Story Update</h2>
 <a href="/symfony/web/app_dev.php/story-admin">
 <img src="/symfony/web/bundles/storyadmin/images/back-icon.png" />
 </a>
+<section id="forms">
+  <div class="page-header">
 {{ form_start(form) }}
+ 
+
     {{ form_errors(form) }}
 	{{ form_row(form.storyName) }} 
 	{{ form_row(form.author) }}<br/>
@@ -33,9 +30,13 @@
 				uiColor: '#1C6BA0'
 			});
 		</script>
+	
 	<br/>
 {{ form_end(form) }}
+</div>
+</section>
 
+</div></div>
 
 </body>
 </html>

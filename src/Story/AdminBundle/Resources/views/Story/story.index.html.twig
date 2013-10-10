@@ -1,44 +1,10 @@
 <!DOCTYPE html>
 <html>
     <head>  
-        {% block stylesheets %}
-            <link href="{{ asset('bundles/storyadmin/css/bootstrap.css') }}" type="text/css" rel="stylesheet" />
-            <link href="{{ asset('bundles/storyadmin/css/custom-template.css') }}" type="text/css" rel="stylesheet" />
-            <link href="{{ asset('bundles/storyadmin/css/demo_table.css') }}" type="text/css" rel="stylesheet" />
-        {% endblock %}
-        {% javascripts
-        	'@StoryAdminBundle/Resources/public/js/jquery.js'
-    		'@StoryAdminBundle/Resources/public/js/jquery.dataTables.js'	
-    	%}
-    		<script src="{{ asset_url }}"></script>
-		{% endjavascripts %}
-		
-		<script type="text/javascript" charset="utf-8">
-			$(document).ready(function() {
-				$('#example').dataTable();
-			} );
-		</script>
-
+        {{ include('StoryAdminBundle:Story:header/story.header.html.twig') }}
+	</head>
 <body id="dt_example">
-<div class="navbar navbar-inverse navbar-fixed-top">
-      <div class="container">
-        <div class="navbar-header">
-          <button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-collapse">
-            <span class="icon-bar"></span>
-            <span class="icon-bar"></span>
-            <span class="icon-bar"></span>
-          </button>
-          <a class="navbar-brand" href="#">Story Tool</a>
-        </div>
-        <div class="collapse navbar-collapse">
-          <ul class="nav navbar-nav">
-            <li class="active"><a href="#">Create Story</a></li>
-            <li><a href="#about">User Info</a></li>
-            <li><a href="#contact">Admin Tools</a></li>
-          </ul>
-        </div><!--/.nav-collapse -->
-      </div>
-</div>
+{{ include('StoryAdminBundle:Story:story.nav.html.twig') }}
 {% for flashMessage in app.session.flashbag.get('notice') %}
 	<!-- FLASH MESSAGE -->
 	    <div class="flash-notice">
@@ -50,8 +16,8 @@
 	<h3>Live Stories</h3>
 	<p><a href="/symfony/web/app_dev.php/story-admin/create">Create New Story</a></p>
 	-->
- <div class="container">
-  <div class="starter-template">
+<div class="container">
+<div class="starter-template">
 <div id="demo">
 <table cellpadding="0" cellspacing="0" border="0" class="display" id="example" width="100%">
 	<thead>
