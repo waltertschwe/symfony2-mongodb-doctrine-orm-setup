@@ -53,8 +53,8 @@ class __TwigTemplate_b7956e6783a6357aa3126ef1fd83eb75 extends Twig_Template
 \t<h3>Live Stories</h3>
 \t<p><a href=\"/symfony/web/app_dev.php/story-admin/create\">Create New Story</a></p>
 \t-->
- <div class=\"container\">
-  <div class=\"starter-template\">
+<div class=\"container\">
+<div class=\"starter-template\">
 <div id=\"demo\">
 <table cellpadding=\"0\" cellspacing=\"0\" border=\"0\" class=\"display\" id=\"example\" width=\"100%\">
 \t<thead>

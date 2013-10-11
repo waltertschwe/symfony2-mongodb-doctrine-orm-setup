@@ -48,28 +48,32 @@ class __TwigTemplate_25ad352e487f63507a9b99d3dcf831af extends Twig_Template
 \t\t
     </head>
 <body>
+";
+        // line 17
+        echo twig_include($this->env, $context, "StoryAdminBundle:Story:story.nav.html.twig");
+        echo "
 <h2>Create Story</h2>
 <a href=\"/symfony/web/app_dev.php/story-admin\">
 <img src=\"/symfony/web/bundles/storyadmin/images/back-icon.png\" />
 </a>
 ";
-        // line 21
+        // line 22
         echo         $this->env->getExtension('form')->renderer->renderBlock((isset($context["form"]) ? $context["form"] : $this->getContext($context, "form")), 'form_start');
         echo "
     ";
-        // line 22
+        // line 23
         echo $this->env->getExtension('form')->renderer->searchAndRenderBlock((isset($context["form"]) ? $context["form"] : $this->getContext($context, "form")), 'errors');
         echo "
 \t";
-        // line 23
+        // line 24
         echo $this->env->getExtension('form')->renderer->searchAndRenderBlock($this->getAttribute((isset($context["form"]) ? $context["form"] : $this->getContext($context, "form")), "storyName"), 'row');
         echo " 
 \t";
-        // line 24
+        // line 25
         echo $this->env->getExtension('form')->renderer->searchAndRenderBlock($this->getAttribute((isset($context["form"]) ? $context["form"] : $this->getContext($context, "form")), "author"), 'row');
         echo "<br/>
 \t";
-        // line 25
+        // line 26
         echo $this->env->getExtension('form')->renderer->searchAndRenderBlock($this->getAttribute((isset($context["form"]) ? $context["form"] : $this->getContext($context, "form")), "description"), 'row');
         echo " 
 \t<script type=\"text/javascript\" charset=\"utf-8\">
@@ -79,7 +83,7 @@ class __TwigTemplate_25ad352e487f63507a9b99d3dcf831af extends Twig_Template
 \t\t</script>
 \t<br/>
 ";
-        // line 32
+        // line 33
         echo         $this->env->getExtension('form')->renderer->renderBlock((isset($context["form"]) ? $context["form"] : $this->getContext($context, "form")), 'form_end');
         echo "
 
@@ -110,6 +114,6 @@ class __TwigTemplate_25ad352e487f63507a9b99d3dcf831af extends Twig_Template
 
     public function getDebugInfo()
     {
-        return array (  95 => 6,  92 => 5,  83 => 32,  73 => 25,  69 => 24,  65 => 23,  61 => 22,  57 => 21,  47 => 13,  33 => 11,  28 => 8,  26 => 5,  20 => 1,);
+        return array (  99 => 6,  96 => 5,  87 => 33,  77 => 26,  73 => 25,  69 => 24,  65 => 23,  61 => 22,  53 => 17,  47 => 13,  33 => 11,  28 => 8,  26 => 5,  20 => 1,);
     }
 }
