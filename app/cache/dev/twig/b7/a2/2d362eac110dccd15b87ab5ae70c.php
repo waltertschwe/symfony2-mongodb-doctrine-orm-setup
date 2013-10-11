@@ -26,7 +26,7 @@ class __TwigTemplate_b7a22d362eac110dccd15b87ab5ae70c extends Twig_Template
         if (isset($context['assetic']['debug']) && $context['assetic']['debug']) {
             // asset "bff46d8_0"
             $context["asset_url"] = isset($context['assetic']['use_controller']) && $context['assetic']['use_controller'] ? $this->env->getExtension('routing')->getPath("_assetic_bff46d8_0") : $this->env->getExtension('assets')->getAssetUrl("_controller/js/bff46d8_jquery_1.js");
-            // line 10
+            // line 11
             echo " <script src=\"";
             echo twig_escape_filter($this->env, (isset($context["asset_url"]) ? $context["asset_url"] : $this->getContext($context, "asset_url")), "html", null, true);
             echo "\"></script>
@@ -40,9 +40,11 @@ class __TwigTemplate_b7a22d362eac110dccd15b87ab5ae70c extends Twig_Template
 ";
         }
         unset($context["asset_url"]);
-        // line 12
+        // line 13
         echo "
-<script src=\"/symfony/web/js/ckeditor/ckeditor.js\"></script>";
+<script src=\"/symfony/web/js/ckeditor/ckeditor.js\"></script>
+ 
+";
     }
 
     // line 2
@@ -56,10 +58,7 @@ class __TwigTemplate_b7a22d362eac110dccd15b87ab5ae70c extends Twig_Template
         // line 4
         echo twig_escape_filter($this->env, $this->env->getExtension('assets')->getAssetUrl("bundles/storyadmin/css/custom-template.css"), "html", null, true);
         echo "\" type=\"text/css\" rel=\"stylesheet\" />
-      <link href=\"";
-        // line 5
-        echo twig_escape_filter($this->env, $this->env->getExtension('assets')->getAssetUrl("bundles/storyadmin/css/ckeditor.css"), "html", null, true);
-        echo "\" type=\"text/css\" rel=\"stylesheet\" />
+      
  ";
     }
 
@@ -75,6 +74,6 @@ class __TwigTemplate_b7a22d362eac110dccd15b87ab5ae70c extends Twig_Template
 
     public function getDebugInfo()
     {
-        return array (  61 => 5,  57 => 4,  52 => 3,  49 => 2,  44 => 12,  30 => 10,  25 => 7,  23 => 2,  20 => 1,);
+        return array (  59 => 4,  54 => 3,  51 => 2,  44 => 13,  25 => 7,  23 => 2,  20 => 1,  67 => 26,  57 => 19,  53 => 18,  49 => 17,  45 => 16,  41 => 15,  30 => 11,  24 => 4,  19 => 1,);
     }
 }

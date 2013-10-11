@@ -2,12 +2,14 @@
  {% block stylesheets %}
  	  <link href="{{ asset('bundles/storyadmin/css/bootstrap.css') }}" type="text/css" rel="stylesheet" />
       <link href="{{ asset('bundles/storyadmin/css/custom-template.css') }}" type="text/css" rel="stylesheet" />
-      <link href="{{ asset('bundles/storyadmin/css/ckeditor.css') }}" type="text/css" rel="stylesheet" />
+      
  {% endblock %}
  {% javascripts
   		'@StoryAdminBundle/Resources/public/js/jquery.js'
+  		
   %}
  <script src="{{ asset_url }}"></script>
 {% endjavascripts %}
 
 <script src="/symfony/web/js/ckeditor/ckeditor.js"></script>
+ 

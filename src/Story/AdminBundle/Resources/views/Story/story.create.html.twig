@@ -1,20 +1,13 @@
 <!DOCTYPE html>
 <html>
     <head>  
-      <meta charset="utf-8">
-      {% block stylesheets %}
-            <link href="{{ asset('bundles/storyadmin/css/ckeditor.css') }}" type="text/css" rel="stylesheet" />
-      {% endblock %}
-      {% javascripts
-      		'@StoryAdminBundle/Resources/public/js/jquery.js'
-       %}
-       <script src="{{ asset_url }}"></script>
-		{% endjavascripts %}
-		<script src="/symfony/web/js/ckeditor/ckeditor.js"></script>
-		
+       {{ include('StoryAdminBundle:Story:header/story.header-editor.html.twig') }}
     </head>
 <body>
 {{ include('StoryAdminBundle:Story:story.nav.html.twig') }}
+
+<div class="container">
+<div class="starter-template">
 <h2>Create Story</h2>
 <a href="/symfony/web/app_dev.php/story-admin">
 <img src="/symfony/web/bundles/storyadmin/images/back-icon.png" />
@@ -31,6 +24,12 @@
 		</script>
 	<br/>
 {{ form_end(form) }}
+</div></div>
+
+</body>
+
+
+
 
 </body>
 </html>

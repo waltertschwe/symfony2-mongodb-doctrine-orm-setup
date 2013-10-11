@@ -17,12 +17,15 @@ class __TwigTemplate_5bb87da2dbe815e07562a1b91e9e87cf extends Twig_Template
     protected function doDisplay(array $context, array $blocks = array())
     {
         // line 1
+        echo "<meta charset=\"utf-8\">
+";
+        // line 2
         $this->displayBlock('stylesheets', $context, $blocks);
-        // line 6
+        // line 7
         if (isset($context['assetic']['debug']) && $context['assetic']['debug']) {
             // asset "c4adca3_0"
             $context["asset_url"] = isset($context['assetic']['use_controller']) && $context['assetic']['use_controller'] ? $this->env->getExtension('routing')->getPath("_assetic_c4adca3_0") : $this->env->getExtension('assets')->getAssetUrl("_controller/js/c4adca3_jquery_1.js");
-            // line 10
+            // line 11
             echo "\t<script src=\"";
             echo twig_escape_filter($this->env, (isset($context["asset_url"]) ? $context["asset_url"] : $this->getContext($context, "asset_url")), "html", null, true);
             echo "\"></script>
@@ -42,7 +45,7 @@ class __TwigTemplate_5bb87da2dbe815e07562a1b91e9e87cf extends Twig_Template
 ";
         }
         unset($context["asset_url"]);
-        // line 12
+        // line 13
         echo "
 <script type=\"text/javascript\" charset=\"utf-8\">
 \t\$(document).ready(function() {
@@ -51,19 +54,19 @@ class __TwigTemplate_5bb87da2dbe815e07562a1b91e9e87cf extends Twig_Template
 </script>";
     }
 
-    // line 1
+    // line 2
     public function block_stylesheets($context, array $blocks = array())
     {
-        // line 2
+        // line 3
         echo "    <link href=\"";
         echo twig_escape_filter($this->env, $this->env->getExtension('assets')->getAssetUrl("bundles/storyadmin/css/bootstrap.css"), "html", null, true);
         echo "\" type=\"text/css\" rel=\"stylesheet\" />
     <link href=\"";
-        // line 3
+        // line 4
         echo twig_escape_filter($this->env, $this->env->getExtension('assets')->getAssetUrl("bundles/storyadmin/css/custom-template.css"), "html", null, true);
         echo "\" type=\"text/css\" rel=\"stylesheet\" />
     <link href=\"";
-        // line 4
+        // line 5
         echo twig_escape_filter($this->env, $this->env->getExtension('assets')->getAssetUrl("bundles/storyadmin/css/demo_table.css"), "html", null, true);
         echo "\" type=\"text/css\" rel=\"stylesheet\" />
 ";
@@ -81,6 +84,6 @@ class __TwigTemplate_5bb87da2dbe815e07562a1b91e9e87cf extends Twig_Template
 
     public function getDebugInfo()
     {
-        return array (  67 => 4,  63 => 3,  58 => 2,  55 => 1,  46 => 12,  26 => 10,  22 => 6,  20 => 1,  122 => 47,  110 => 43,  106 => 42,  102 => 41,  98 => 40,  94 => 39,  89 => 37,  85 => 36,  78 => 34,  75 => 33,  71 => 32,  52 => 15,  42 => 11,  38 => 9,  34 => 8,  30 => 7,  24 => 4,  19 => 1,);
+        return array (  70 => 5,  66 => 4,  61 => 3,  58 => 2,  49 => 13,  29 => 11,  25 => 7,  23 => 2,  20 => 1,);
     }
 }
