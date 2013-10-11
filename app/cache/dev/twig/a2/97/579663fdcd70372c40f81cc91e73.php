@@ -24,7 +24,7 @@ class __TwigTemplate_a297579663fdcd70372c40f81cc91e73 extends Twig_Template
             <span class=\"icon-bar\"></span>
             <span class=\"icon-bar\"></span>
           </button>
-          <a class=\"navbar-brand\" href=\"#\">Story Tool</a>
+          <a class=\"navbar-brand\" href=\"/symfony/web/app_dev.php/story-admin\">Story Tool</a>
         </div>
         <div class=\"collapse navbar-collapse\">
           <ul class=\"nav navbar-nav\">

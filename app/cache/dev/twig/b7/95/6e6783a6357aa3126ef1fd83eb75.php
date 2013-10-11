@@ -59,10 +59,10 @@ class __TwigTemplate_b7956e6783a6357aa3126ef1fd83eb75 extends Twig_Template
 <table cellpadding=\"0\" cellspacing=\"0\" border=\"0\" class=\"display\" id=\"example\" width=\"100%\">
 \t<thead>
 \t\t<tr>
-\t\t\t<th>Story</th>
-\t\t\t<th>Author</th>
-\t\t\t<th>Description</th>
-\t\t\t<th>Actions</th>
+\t\t\t<th style=\"text-align: center\">Story</th>
+\t\t\t<th style=\"text-align: center\">Author</th>
+\t\t\t<th style=\"text-align: center\">Description</th>
+\t\t\t<th style=\"text-align: center\">Actions</th>
 \t\t</tr>
 \t</thead>
 \t<tbody>
@@ -122,10 +122,10 @@ class __TwigTemplate_b7956e6783a6357aa3126ef1fd83eb75 extends Twig_Template
         echo "\t</tbody>
 \t<tfoot>
 \t\t<tr>
-\t\t\t<th>Story</th>
-\t\t\t<th>Author</th>
-\t\t\t<th>Description</th>
-\t\t\t<th>Actions</th>
+\t\t\t<th style=\"text-align: center\">Story</th>
+\t\t\t<th style=\"text-align: center\">Author</th>
+\t\t\t<th style=\"text-align: center\">Description</th>
+\t\t\t<th style=\"text-align: center\">Actions</th>
 \t\t</tr>
 \t</tfoot>
 </table>
