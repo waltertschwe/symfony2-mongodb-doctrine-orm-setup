@@ -1,8 +1,23 @@
-<h2>Update Page</h2>
+<!DOCTYPE html>
+<html>
+    <head>  
+     	 {{ include('StoryAdminBundle:Story:header/story.header-editor.html.twig') }}
+	</head>
+<body>
+{{ include('StoryAdminBundle:Story:story.nav.html.twig') }}
+<div class="container">
+  <div class="starter-template">
+<h2>Page Update</h2>
 
 {{ form_start(form) }}
     {{ form_errors(form) }}
  <br/>
-
-
+ 	<script type="text/javascript" charset="utf-8">
+			CKEDITOR.replace( 'storyName_description', {
+				uiColor: '#1C6BA0'
+	});
+	</script>
 {{ form_end(form) }}
+
+</div></div>
+</body>
