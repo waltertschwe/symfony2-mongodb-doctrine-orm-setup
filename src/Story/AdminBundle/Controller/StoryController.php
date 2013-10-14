@@ -80,7 +80,7 @@ class StoryController extends Controller {
 	    	 $dm->flush();
 	    	 $this->get('session')->getFlashBag()->add(
             	'notice',
-            	'Your changes were updated!'
+            	'The Story was Updated!'
        		);
 			
 			return $this->redirect($this->generateUrl('story_admin_story_homepage'));	

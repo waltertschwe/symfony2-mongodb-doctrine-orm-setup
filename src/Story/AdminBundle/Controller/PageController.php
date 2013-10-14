@@ -104,8 +104,33 @@ class PageController extends Controller {
 		
 		if ($request->getMethod() == 'POST') {
 			 $form->submit($request);
+			 ## page data
    			 $data = $form->getData();
-			 var_dump($data);	 
+			 var_dump($data);
+			 $dm = $this->get('doctrine_mongodb')->getManager();
+			 
+			 echo "<br/>page Number = " . $pageNumber;
+			 echo "<br/> storyId = " . $storyId;
+			 
+			 $result = $dm->createQueryBuilder('StoryAdminBundle:Story')
+				->update()
+				->field('pages')->push($data)
+			    ->field('id')->equals($storyId)
+				->field('pages.pageNumber')->equals($pageNumber)
+			    ->getQuery()
+		        ->execute();	
+				
+				
+			echo "<br/>RESULT = ";
+			var_dump($result);
+			
+			$this->get('session')->getFlashBag()->add(
+            	'notice',
+            	'Page Information Updated!'
+       		); 
+			
+			//return $this->redirect($this->generateUrl('page_admin_story_index'), array(
+			//			'storyId' => $storyId));	
 		}
 		  
 		return $this->render('StoryAdminBundle:Page:page.update.html.twig', array(

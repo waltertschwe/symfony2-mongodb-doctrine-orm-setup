@@ -80,8 +80,8 @@ class __TwigTemplate_170b6cdcac9d7989109aaea180748ad2 extends Twig_Template
 \t<script type=\"text/javascript\" charset=\"utf-8\">
 \t\t\tCKEDITOR.replace( 'storyName_description', {
 \t\t\t\tuiColor: '#1C6BA0'
-\t\t\t});
-\t\t</script>
+\t});
+\t</script>
 \t
 \t<br/>
 ";
