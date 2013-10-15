@@ -112,18 +112,23 @@ class PageController extends Controller {
 			 echo "<br/>page Number = " . $pageNumber;
 			 echo "<br/> storyId = " . $storyId;
 			 
+			 /*
 			 $result = $dm->createQueryBuilder('StoryAdminBundle:Story')
 				->update()
-				->field('pages')->push($data)
+				->field('pages')->set('pages.pageNumber', $data)
 			    ->field('id')->equals($storyId)
-				->field('pages.pageNumber')->equals($pageNumber)
 			    ->getQuery()
 		        ->execute();	
+			*/
+			$story = $dm->createQueryBuilder('StoryAdminBundle:Story')
+    			->field('id')->equals($storyId)
+    			->getQuery()
+    			->getSingleResult();
 				
-				
-			echo "<br/>RESULT = ";
-			var_dump($result);
+			$pages = $story->getPages();
+			var_dump($pages);
 			
+				
 			$this->get('session')->getFlashBag()->add(
             	'notice',
             	'Page Information Updated!'
