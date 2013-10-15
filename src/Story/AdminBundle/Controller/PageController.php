@@ -114,10 +114,12 @@ class PageController extends Controller {
     			->getSingleResult();
 				
 			$pages = $storyObj->getPages();
-			$data = array($data);
 			
-			$updatedPages = array_replace($pages,$data);
-			$storyObj->setPages($updatedPages);	
+			$updatedPages = array_replace($pages,array($data));
+			$storyObj->setPages($updatedPages);
+			
+			var_dump($storyObj);
+				
 			$dm->persist($storyObj);
 	    	$dm->flush();
 				
