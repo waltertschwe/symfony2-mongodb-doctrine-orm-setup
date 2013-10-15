@@ -32,13 +32,16 @@ class __TwigTemplate_1f223d1607c5705f921c90bef96dacac extends Twig_Template
 <div class=\"container\">
   <div class=\"starter-template\">
 <h2>Page Update</h2>
+<a href=\"/symfony/web/app_dev.php/story-admin\">
+<img src=\"/symfony/web/bundles/storyadmin/images/back-icon.png\" />
+</a>
 
 ";
-        // line 12
+        // line 15
         echo         $this->env->getExtension('form')->renderer->renderBlock((isset($context["form"]) ? $context["form"] : $this->getContext($context, "form")), 'form_start');
         echo "
     ";
-        // line 13
+        // line 16
         echo $this->env->getExtension('form')->renderer->searchAndRenderBlock((isset($context["form"]) ? $context["form"] : $this->getContext($context, "form")), 'errors');
         echo "
  <br/>
@@ -48,7 +51,7 @@ class __TwigTemplate_1f223d1607c5705f921c90bef96dacac extends Twig_Template
 \t});
 \t</script>
 ";
-        // line 20
+        // line 23
         echo         $this->env->getExtension('form')->renderer->renderBlock((isset($context["form"]) ? $context["form"] : $this->getContext($context, "form")), 'form_end');
         echo "
 
@@ -68,6 +71,6 @@ class __TwigTemplate_1f223d1607c5705f921c90bef96dacac extends Twig_Template
 
     public function getDebugInfo()
     {
-        return array (  52 => 20,  42 => 13,  38 => 12,  30 => 7,  24 => 4,  19 => 1,);
+        return array (  55 => 23,  45 => 16,  41 => 15,  30 => 7,  24 => 4,  19 => 1,);
     }
 }

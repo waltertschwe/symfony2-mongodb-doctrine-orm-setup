@@ -103,32 +103,25 @@ class PageController extends Controller {
 		$form = $this->createForm(new PageType(), $pageData);	
 		
 		if ($request->getMethod() == 'POST') {
-			 $form->submit($request);
-			 ## page data
-   			 $data = $form->getData();
-			 var_dump($data);
-			 $dm = $this->get('doctrine_mongodb')->getManager();
-			 
-			 echo "<br/>page Number = " . $pageNumber;
-			 echo "<br/> storyId = " . $storyId;
-			 
-			 /*
-			 $result = $dm->createQueryBuilder('StoryAdminBundle:Story')
-				->update()
-				->field('pages')->set('pages.pageNumber', $data)
-			    ->field('id')->equals($storyId)
-			    ->getQuery()
-		        ->execute();	
-			*/
-			$story = $dm->createQueryBuilder('StoryAdminBundle:Story')
+			$form->submit($request);
+			## page data
+   			$data = $form->getData(); 
+			$dm = $this->get('doctrine_mongodb')->getManager();
+			  
+			$storyObj = $dm->createQueryBuilder('StoryAdminBundle:Story')
     			->field('id')->equals($storyId)
     			->getQuery()
     			->getSingleResult();
 				
-			$pages = $story->getPages();
-			var_dump($pages);
+			$pages = $storyObj->getPages();
+			$data = array($data);
 			
+			$updatedPages = array_replace($pages,$data);
+			$storyObj->setPages($updatedPages);	
+			$dm->persist($storyObj);
+	    	$dm->flush();
 				
+			
 			$this->get('session')->getFlashBag()->add(
             	'notice',
             	'Page Information Updated!'
