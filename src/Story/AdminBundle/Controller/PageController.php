@@ -30,9 +30,9 @@ class PageController extends Controller {
 		if(empty($pages)) {
 			$newPageNum = 1;
 		} else {
-			$pagesArray = array($pages);
-			$newPageNum = count($pagesArray);
-			$newPageNum = $newPageNum + 2 ;
+			$pageCount = count($pages);
+			$pageCount++;
+			$newPageNum = $pageCount;
 		}
 		
 		$pageArr = array();
@@ -63,7 +63,6 @@ class PageController extends Controller {
 		$form->handleRequest($this->getRequest());
 		if ($form->isValid()) {
 			$data = $form->getData();
-			
 			$storyId = $this->getRequest()->get('storyId');
 			$storyObj = $repository->findOneById($storyId);
 			$pages = $storyObj->getPages();
@@ -137,13 +136,9 @@ class PageController extends Controller {
 			
 			$updatedPages = array_replace($pages,array($data));
 			$storyObj->setPages($updatedPages);
-			
-			var_dump($storyObj);
-				
 			$dm->persist($storyObj);
 	    	$dm->flush();
 				
-			
 			$this->get('session')->getFlashBag()->add(
             	'notice',
             	'Page Information Updated!'
