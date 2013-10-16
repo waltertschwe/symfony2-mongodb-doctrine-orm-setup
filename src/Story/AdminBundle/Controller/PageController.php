@@ -15,7 +15,9 @@ use Story\AdminBundle\Form\Type\PageType;
 
 class PageController extends Controller {
 	
-	public function indexAction($storyId) {
+	public function indexAction(Request $request) {
+		
+		$storyId = $this->getRequest()->get('storyId');
 		
 		$repository = $this->get('doctrine_mongodb')
 	        ->getManager()
@@ -25,12 +27,17 @@ class PageController extends Controller {
 		
 		// Get Next Page that doesn't exist for creation
 		$pages = $story->getPages();
-		$newPageNum = count($pages);
-		$newPageNum++;
+		if(empty($pages)) {
+			$newPageNum = 1;
+		} else {
+			$pagesArray = array($pages);
+			$newPageNum = count($pagesArray);
+			$newPageNum = $newPageNum + 2 ;
+		}
 		
 		$pageArr = array();
 		$pageArr['newPageNumber'] = $newPageNum;
-		
+	
 		return $this->render('StoryAdminBundle:Page:page.index.html.twig', array(
 				'story' => $story,
 				'page' => $pageArr));
@@ -55,18 +62,31 @@ class PageController extends Controller {
 		
 		$form->handleRequest($this->getRequest());
 		if ($form->isValid()) {
+			$data = $form->getData();
+			
 			$storyId = $this->getRequest()->get('storyId');
 			$storyObj = $repository->findOneById($storyId);
-   			$data = $form->getData();
+			$pages = $storyObj->getPages();
+			if(empty($pages)) {
+				$storyObj->setPages(array($data));
+			} else {
+				array_push($pages, $data);		
+				$storyObj->setPages($pages);
+			}
 			
     		$dm = $this->get('doctrine_mongodb')->getManager();
+			$dm->persist($storyObj);
+	    	$dm->flush();
 			
+			/*
 			$result = $dm->createQueryBuilder('StoryAdminBundle:Story')
 				->update()
 				->field('pages')->push($data)
 			    ->field('id')->equals($storyId)
 			    ->getQuery()
 		        ->execute();
+			 * 
+			 */
 					
 		}
 		 

@@ -94,9 +94,11 @@ class __TwigTemplate_ad9ad553da5cc048b5f56f741fed09ae extends Twig_Template
             echo twig_escape_filter($this->env, $this->getAttribute((isset($context["page"]) ? $context["page"] : $this->getContext($context, "page")), "decision"), "html", null, true);
             echo " </td>
 \t<td class=\"center\">
-\t<a href=\"/symfony/web/app_dev.php/story-admin/pages/";
+\t<a href=\"/symfony/web/app_dev.php/story-admin/page/update/";
             // line 39
             echo twig_escape_filter($this->env, $this->getAttribute((isset($context["story"]) ? $context["story"] : $this->getContext($context, "story")), "id"), "html", null, true);
+            echo "/";
+            echo twig_escape_filter($this->env, $this->getAttribute((isset($context["page"]) ? $context["page"] : $this->getContext($context, "page")), "pageNumber"), "html", null, true);
             echo "\">
 \t<img src=\"";
             // line 40
@@ -157,6 +159,6 @@ class __TwigTemplate_ad9ad553da5cc048b5f56f741fed09ae extends Twig_Template
 
     public function getDebugInfo()
     {
-        return array (  126 => 46,  115 => 43,  111 => 42,  107 => 41,  103 => 40,  99 => 39,  94 => 37,  90 => 36,  84 => 33,  78 => 32,  68 => 29,  64 => 27,  60 => 26,  41 => 12,  37 => 11,  30 => 7,  24 => 4,  19 => 1,);
+        return array (  128 => 46,  117 => 43,  113 => 42,  109 => 41,  105 => 40,  99 => 39,  94 => 37,  90 => 36,  84 => 33,  78 => 32,  68 => 29,  64 => 27,  60 => 26,  41 => 12,  37 => 11,  30 => 7,  24 => 4,  19 => 1,);
     }
 }
