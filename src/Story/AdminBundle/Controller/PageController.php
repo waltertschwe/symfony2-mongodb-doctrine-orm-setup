@@ -173,18 +173,18 @@ class PageController extends Controller {
 				if($k2 == "pageNumber") {
 					if($v2 == $pageNumberToDelete) {
 						$pageKey = $key;
+						unset($pages[$pageKey]);
 						break 2;
 					}				
 				}
 			} 
 		}
 		
-		unset($pages[$pageKey]);
 		$story->setPages($pages);
-		
 		$dm->persist($story);
 	    $dm->flush();
-			
-
+		
+		return $this->forward('StoryAdminBundle:Page:index', array('storyId' => $storyId));
+		
 	}
 }
