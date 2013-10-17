@@ -98,8 +98,8 @@ class PageController extends Controller {
 	public function updateAction(Request $request) {
 		
 		$storyId = $this->getRequest()->get('storyId');
-		$pageNumber  = $this->getRequest()->get('pageNumber');
-		
+		$selectedPageNumber  = $this->getRequest()->get('pageNumber');
+
 		$repository = $this->get('doctrine_mongodb')
 	        ->getManager()
 	        ->getRepository('StoryAdminBundle:Story');
@@ -108,14 +108,17 @@ class PageController extends Controller {
 		// pages php array 
 		$pages = $story->getPages();
 		
-		$pageCounter = 0;
-		$pageKey = -1;
-		foreach($pages as $page) {
-			if($page['pageNumber'] == $pageNumber) {
-				$pageKey = $pageCounter;
-				break;
-			}
-			$pageCounter++;
+
+		foreach ($pages as $key => $value) {
+		    foreach ($value as $k2 => $v2) {	
+				if($k2 == "pageNumber") {
+					if($v2 == $selectedPageNumber) {
+						$pageKey = $key;
+						break 2;
+					}				
+				}
+			} 
+			
 		}
 		
 		$pageData = $pages[$pageKey];
@@ -150,24 +153,30 @@ class PageController extends Controller {
 			$storyObj->setPages($pages);
 			$dm->persist($storyObj);
 	    	$dm->flush();
-			/*	
+			
 			$this->get('session')->getFlashBag()->add(
             	'notice',
             	'Page Information Updated!'
-       		); 
-			*/
-			//return $this->redirect($this->generateUrl('page_admin_story_index'), array(
-			//			'storyId' => $storyId));	
+       		);
+			
+
 		}
 		  
 		return $this->render('StoryAdminBundle:Page:page.update.html.twig', array(
-			'form' => $form->createView()));	
+			'form' => $form->createView(), 'storyId' => $storyId));	
 		
 	}
 	
 	public function deleteAction(Request $request) {
 		
+		$repository = $this->get('doctrine_mongodb')
+	        ->getManager()
+	        ->getRepository('StoryAdminBundle:Story');
+			
+		$storyId = $this->getRequest()->get('storyId');
+		$dm = $this->get('doctrine_mongodb')->getManager();
+		
+		
+		
 	}
-	
-	
 }

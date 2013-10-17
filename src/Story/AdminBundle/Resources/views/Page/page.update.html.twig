@@ -5,10 +5,17 @@
 	</head>
 <body>
 {{ include('StoryAdminBundle:Story:story.nav.html.twig') }}
+{% for flashMessage in app.session.flashbag.get('notice') %}
+	<!-- FLASH MESSAGE -->
+	    <div class="flash-notice">
+		    <font color="red"> {{ flashMessage }} </font> 
+	    </div>
+	<!-- END FLASH MESSAGE -->
+{% endfor %}
 <div class="container">
   <div class="starter-template">
 <h2>Page Update</h2>
-<a href="/symfony/web/app_dev.php/story-admin">
+<a href="/symfony/web/app_dev.php/story-admin/pages/{{ storyId }}">
 <img src="/symfony/web/bundles/storyadmin/images/back-icon.png" />
 </a>
 

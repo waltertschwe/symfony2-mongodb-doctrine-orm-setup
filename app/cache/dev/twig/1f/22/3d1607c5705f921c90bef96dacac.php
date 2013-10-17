@@ -29,19 +29,42 @@ class __TwigTemplate_1f223d1607c5705f921c90bef96dacac extends Twig_Template
         // line 7
         echo twig_include($this->env, $context, "StoryAdminBundle:Story:story.nav.html.twig");
         echo "
-<div class=\"container\">
+";
+        // line 8
+        $context['_parent'] = (array) $context;
+        $context['_seq'] = twig_ensure_traversable($this->getAttribute($this->getAttribute($this->getAttribute((isset($context["app"]) ? $context["app"] : $this->getContext($context, "app")), "session"), "flashbag"), "get", array(0 => "notice"), "method"));
+        foreach ($context['_seq'] as $context["_key"] => $context["flashMessage"]) {
+            // line 9
+            echo "\t<!-- FLASH MESSAGE -->
+\t    <div class=\"flash-notice\">
+\t\t    <font color=\"red\"> ";
+            // line 11
+            echo twig_escape_filter($this->env, (isset($context["flashMessage"]) ? $context["flashMessage"] : $this->getContext($context, "flashMessage")), "html", null, true);
+            echo " </font> 
+\t    </div>
+\t<!-- END FLASH MESSAGE -->
+";
+        }
+        $_parent = $context['_parent'];
+        unset($context['_seq'], $context['_iterated'], $context['_key'], $context['flashMessage'], $context['_parent'], $context['loop']);
+        $context = array_intersect_key($context, $_parent) + $_parent;
+        // line 15
+        echo "<div class=\"container\">
   <div class=\"starter-template\">
 <h2>Page Update</h2>
-<a href=\"/symfony/web/app_dev.php/story-admin\">
+<a href=\"/symfony/web/app_dev.php/story-admin/pages/";
+        // line 18
+        echo twig_escape_filter($this->env, (isset($context["storyId"]) ? $context["storyId"] : $this->getContext($context, "storyId")), "html", null, true);
+        echo "\">
 <img src=\"/symfony/web/bundles/storyadmin/images/back-icon.png\" />
 </a>
 
 ";
-        // line 15
+        // line 22
         echo         $this->env->getExtension('form')->renderer->renderBlock((isset($context["form"]) ? $context["form"] : $this->getContext($context, "form")), 'form_start');
         echo "
     ";
-        // line 16
+        // line 23
         echo $this->env->getExtension('form')->renderer->searchAndRenderBlock((isset($context["form"]) ? $context["form"] : $this->getContext($context, "form")), 'errors');
         echo "
  <br/>
@@ -51,7 +74,7 @@ class __TwigTemplate_1f223d1607c5705f921c90bef96dacac extends Twig_Template
 \t});
 \t</script>
 ";
-        // line 23
+        // line 30
         echo         $this->env->getExtension('form')->renderer->renderBlock((isset($context["form"]) ? $context["form"] : $this->getContext($context, "form")), 'form_end');
         echo "
 
@@ -71,6 +94,6 @@ class __TwigTemplate_1f223d1607c5705f921c90bef96dacac extends Twig_Template
 
     public function getDebugInfo()
     {
-        return array (  55 => 23,  45 => 16,  41 => 15,  30 => 7,  24 => 4,  19 => 1,);
+        return array (  78 => 30,  68 => 23,  64 => 22,  57 => 18,  52 => 15,  42 => 11,  38 => 9,  34 => 8,  30 => 7,  24 => 4,  19 => 1,);
     }
 }
