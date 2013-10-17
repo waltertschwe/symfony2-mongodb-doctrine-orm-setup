@@ -123,7 +123,7 @@ class PageController extends Controller {
 		
 		if ($request->getMethod() == 'POST') {
 			$form->submit($request);
-			## page data
+			## form data
    			$data = $form->getData(); 
 			$dm = $this->get('doctrine_mongodb')->getManager();
 			  
@@ -131,19 +131,31 @@ class PageController extends Controller {
     			->field('id')->equals($storyId)
     			->getQuery()
     			->getSingleResult();
-				
-			$pages = $storyObj->getPages();
 			
-			$updatedPages = array_replace($pages,array($data));
-			$storyObj->setPages($updatedPages);
+			$pages = $storyObj->getPages();
+			$currentPage = $data['pageNumber'];
+	
+			$pageIndex = 0;
+			foreach ($pages as $page) {
+				if ($page['pageNumber'] == $currentPage) {
+					unset($pages[$pageIndex]);
+					$pages[$pageIndex] = $data;
+					break;
+				} else {
+					$pageIndex++;
+					continue;
+				}
+			}
+			
+			$storyObj->setPages($pages);
 			$dm->persist($storyObj);
 	    	$dm->flush();
-				
+			/*	
 			$this->get('session')->getFlashBag()->add(
             	'notice',
             	'Page Information Updated!'
        		); 
-			
+			*/
 			//return $this->redirect($this->generateUrl('page_admin_story_index'), array(
 			//			'storyId' => $storyId));	
 		}
