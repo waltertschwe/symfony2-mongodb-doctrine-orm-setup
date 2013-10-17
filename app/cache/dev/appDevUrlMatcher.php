@@ -212,7 +212,7 @@ class appDevUrlMatcher extends Symfony\Bundle\FrameworkBundle\Routing\Redirectab
                 }
 
                 // page_admin_story_delete
-                if (0 === strpos($pathinfo, '/story-admin/page/delete') && preg_match('#^/story\\-admin/page/delete/(?P<storyId>[^/]++)$#s', $pathinfo, $matches)) {
+                if (0 === strpos($pathinfo, '/story-admin/page/delete') && preg_match('#^/story\\-admin/page/delete/(?P<storyId>[^/]++)/(?P<pageNumber>[^/]++)$#s', $pathinfo, $matches)) {
                     return $this->mergeDefaults(array_replace($matches, array('_route' => 'page_admin_story_delete')), array (  '_controller' => 'Story\\AdminBundle\\Controller\\PageController::deleteAction',));
                 }
 

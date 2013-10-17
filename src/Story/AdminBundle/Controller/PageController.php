@@ -76,17 +76,7 @@ class PageController extends Controller {
     		$dm = $this->get('doctrine_mongodb')->getManager();
 			$dm->persist($storyObj);
 	    	$dm->flush();
-			
-			/*
-			$result = $dm->createQueryBuilder('StoryAdminBundle:Story')
-				->update()
-				->field('pages')->push($data)
-			    ->field('id')->equals($storyId)
-			    ->getQuery()
-		        ->execute();
-			 * 
-			 */
-					
+						
 		}
 		 
 		return $this->render('StoryAdminBundle:Page:page.create.html.twig', array(
@@ -108,7 +98,6 @@ class PageController extends Controller {
 		// pages php array 
 		$pages = $story->getPages();
 		
-
 		foreach ($pages as $key => $value) {
 		    foreach ($value as $k2 => $v2) {	
 				if($k2 == "pageNumber") {
@@ -118,7 +107,6 @@ class PageController extends Controller {
 					}				
 				}
 			} 
-			
 		}
 		
 		$pageData = $pages[$pageKey];
@@ -137,18 +125,20 @@ class PageController extends Controller {
 			
 			$pages = $storyObj->getPages();
 			$currentPage = $data['pageNumber'];
-	
-			$pageIndex = 0;
-			foreach ($pages as $page) {
-				if ($page['pageNumber'] == $currentPage) {
-					unset($pages[$pageIndex]);
-					$pages[$pageIndex] = $data;
-					break;
-				} else {
-					$pageIndex++;
-					continue;
-				}
+			
+			foreach ($pages as $key => $value) {
+			    foreach ($value as $k2 => $v2) {	
+					if($k2 == "pageNumber") {
+						if($v2 == $currentPage) {
+							$pageKey = $key;
+							unset($pages[$pageKey]);
+							$pages[$pageKey] = $data;
+							break 2;
+						}				
+					}
+				} 
 			}
+			
 			
 			$storyObj->setPages($pages);
 			$dm->persist($storyObj);
@@ -169,14 +159,32 @@ class PageController extends Controller {
 	
 	public function deleteAction(Request $request) {
 		
-		$repository = $this->get('doctrine_mongodb')
-	        ->getManager()
-	        ->getRepository('StoryAdminBundle:Story');
-			
+		$storyId = $this->getRequest()->get('storyId');
+		$pageNumberToDelete  = $this->getRequest()->get('pageNumber');
+						
 		$storyId = $this->getRequest()->get('storyId');
 		$dm = $this->get('doctrine_mongodb')->getManager();
+		$story = $dm->getRepository('StoryAdminBundle:Story')->findOneById($storyId);
 		
+		$pages = $story->getPages();
 		
+		foreach ($pages as $key => $value) {
+		    foreach ($value as $k2 => $v2) {	
+				if($k2 == "pageNumber") {
+					if($v2 == $pageNumberToDelete) {
+						$pageKey = $key;
+						break 2;
+					}				
+				}
+			} 
+		}
 		
+		unset($pages[$pageKey]);
+		$story->setPages($pages);
+		
+		$dm->persist($story);
+	    $dm->flush();
+			
+
 	}
 }

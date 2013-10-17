@@ -38,7 +38,7 @@ class __TwigTemplate_ad9ad553da5cc048b5f56f741fed09ae extends Twig_Template
 \t<p><a href=\"/symfony/web/app_dev.php/story-admin/page/create/";
         // line 11
         echo twig_escape_filter($this->env, $this->getAttribute((isset($context["story"]) ? $context["story"] : $this->getContext($context, "story")), "id"), "html", null, true);
-        echo "/ ";
+        echo "/";
         echo twig_escape_filter($this->env, $this->getAttribute((isset($context["page"]) ? $context["page"] : $this->getContext($context, "page")), "newPageNumber"), "html", null, true);
         echo "\">Create New Page</a></p>
 \t
@@ -111,9 +111,11 @@ class __TwigTemplate_ad9ad553da5cc048b5f56f741fed09ae extends Twig_Template
             // line 41
             echo twig_escape_filter($this->env, $this->env->getExtension('assets')->getAssetUrl("bundles/storyadmin/images/callback.jpg"), "html", null, true);
             echo "\" />&nbsp; -->
-\t<a href=\"/symfony/web/app_dev.php/story-admin/delete/";
+\t<a href=\"/symfony/web/app_dev.php/story-admin/page/delete/";
             // line 42
             echo twig_escape_filter($this->env, $this->getAttribute((isset($context["story"]) ? $context["story"] : $this->getContext($context, "story")), "id"), "html", null, true);
+            echo "/";
+            echo twig_escape_filter($this->env, $this->getAttribute((isset($context["page"]) ? $context["page"] : $this->getContext($context, "page")), "pageNumber"), "html", null, true);
             echo "\"><img src=\"";
             echo twig_escape_filter($this->env, $this->env->getExtension('assets')->getAssetUrl("bundles/storyadmin/images/delete16x16.gif"), "html", null, true);
             echo "\" /></a>&nbsp;
@@ -153,6 +155,6 @@ class __TwigTemplate_ad9ad553da5cc048b5f56f741fed09ae extends Twig_Template
 
     public function getDebugInfo()
     {
-        return array (  127 => 45,  116 => 42,  112 => 41,  108 => 40,  104 => 39,  98 => 38,  93 => 36,  89 => 35,  83 => 32,  77 => 31,  67 => 28,  63 => 26,  59 => 25,  40 => 11,  36 => 10,  30 => 7,  24 => 4,  19 => 1,);
+        return array (  129 => 45,  116 => 42,  112 => 41,  108 => 40,  104 => 39,  98 => 38,  93 => 36,  89 => 35,  83 => 32,  77 => 31,  67 => 28,  63 => 26,  59 => 25,  40 => 11,  36 => 10,  30 => 7,  24 => 4,  19 => 1,);
     }
 }
