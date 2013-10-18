@@ -18,7 +18,8 @@ class AppKernel extends Kernel
             new Doctrine\Bundle\MongoDBBundle\DoctrineMongoDBBundle(),
             new Sensio\Bundle\FrameworkExtraBundle\SensioFrameworkExtraBundle(),
             new WebForms\TestBundle\WebFormsTestBundle(),
-            new Story\AdminBundle\StoryAdminBundle()
+            new Story\AdminBundle\StoryAdminBundle(),
+            new Story\SecurityBundle\StorySecurityBundle(),
         );
 
         if (in_array($this->getEnvironment(), array('dev', 'test'))) {
