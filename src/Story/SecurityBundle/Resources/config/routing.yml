@@ -1,3 +1,11 @@
 story_security_homepage:
     pattern:  /hello/{name}
     defaults: { _controller: StorySecurityBundle:Default:index }
+
+default_security_target:
+    pattern:  /login
+    defaults: { _controller: StorySecurityBundle:Security:login }
+
+test_security_page:
+    pattern:  /test/login
+    defaults: { _controller: StorySecurityBundle:Security:test }

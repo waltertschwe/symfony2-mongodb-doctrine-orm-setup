@@ -1,7 +1,18 @@
 parameters:
-#    story_security.example.class: Story\SecurityBundle\Example
+    storyadmin_user_provider.class: Story\SecurityBundle\Security\User\StoryAdminUserProvider
 
 services:
-#    story_security.example:
-#        class: %story_security.example.class%
-#        arguments: [@service_id, "plain_value", %parameter%]
+    storyadmin_user_provider:
+        class: "%storyadmin_user_provider.class%"
+        
+    wsse.security.authentication.provider:
+        class:  Story\SecurityBundle\Security\Authentication\Provider\WsseProvider
+        arguments: ["", "%kernel.cache_dir%/security/nonces"]
+
+    wsse.security.authentication.listener:
+        class:  Story\SecurityBundle\Security\Firewall\WsseListener
+        arguments: ["@security.context", "@security.authentication.manager"]
+        
+   
+
+    

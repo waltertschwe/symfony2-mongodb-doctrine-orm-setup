@@ -1,0 +1,32 @@
+<?php 
+namespace Story\SecurityBundle\Document;
+
+use Symfony\Component\Security\Core\User\UserInterface;
+
+class AdminUser implements UserInterface, \Serializable {
+	
+	
+	public function __construct()
+    {
+        $this->isActive = true;
+        $this->salt = md5(uniqid(null, true));
+    }
+	
+	public function eraseCredentials()
+    {
+    }
+	
+    public function serialize()
+    {
+        return serialize(array(
+            $this->id,
+        ));
+    }
+	public function unserialize($serialized)
+    {
+        list (
+            $this->id,
+        ) = unserialize($serialized);
+    }
+	
+}

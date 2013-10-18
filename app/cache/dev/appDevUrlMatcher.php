@@ -170,6 +170,21 @@ class appDevUrlMatcher extends Symfony\Bundle\FrameworkBundle\Routing\Redirectab
 
         }
 
+        // story_security_homepage
+        if (0 === strpos($pathinfo, '/hello') && preg_match('#^/hello/(?P<name>[^/]++)$#s', $pathinfo, $matches)) {
+            return $this->mergeDefaults(array_replace($matches, array('_route' => 'story_security_homepage')), array (  '_controller' => 'Story\\SecurityBundle\\Controller\\DefaultController::indexAction',));
+        }
+
+        // default_security_target
+        if ($pathinfo === '/login') {
+            return array (  '_controller' => 'Story\\SecurityBundle\\Controller\\SecurityController::loginAction',  '_route' => 'default_security_target',);
+        }
+
+        // test_security_page
+        if ($pathinfo === '/test/login') {
+            return array (  '_controller' => 'Story\\SecurityBundle\\Controller\\SecurityController::testAction',  '_route' => 'test_security_page',);
+        }
+
         if (0 === strpos($pathinfo, '/story-admin')) {
             // story_admin_story_homepage
             if (rtrim($pathinfo, '/') === '/story-admin') {

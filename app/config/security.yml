@@ -1,6 +1,13 @@
 security:
+    providers:
+        userservice:
+            id: storyadmin_user_provider
+            
     encoders:
-        Symfony\Component\Security\Core\User\User: plaintext
+        Story\SecurityBundle\Security\User\StoryAdminUser: 
+            algorithm: sha512
+            encode_as_base64: false
+            iterations: 1
 
     role_hierarchy:
         ROLE_ADMIN:       ROLE_USER
@@ -14,6 +21,15 @@ security:
                     admin: { password: adminpass, roles: [ 'ROLE_ADMIN' ] }
 
     firewalls:
+        
+        wsse_secured:
+            pattern:   /test/.*
+            stateless: true
+            wsse:      true
+            logout:     true
+            #form_login:
+                #login_path: /login
+                
         dev:
             pattern:  ^/(_(profiler|wdt)|css|images|js)/
             security: false
