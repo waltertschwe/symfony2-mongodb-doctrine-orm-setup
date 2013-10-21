@@ -101,4 +101,31 @@ class Story {
         return $this->description;
     }
    
+    /**
+     * @var hash $pages
+     */
+    protected $pages;
+
+
+    /**
+     * Set pages
+     *
+     * @param hash $pages
+     * @return self
+     */
+    public function setPages($pages)
+    {
+        $this->pages = $pages;
+        return $this;
+    }
+
+    /**
+     * Get pages
+     *
+     * @return hash $pages
+     */
+    public function getPages()
+    {
+        return $this->pages;
+    }
 }

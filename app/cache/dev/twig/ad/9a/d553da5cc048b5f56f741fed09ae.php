@@ -49,21 +49,20 @@ class __TwigTemplate_ad9ad553da5cc048b5f56f741fed09ae extends Twig_Template
 \t\t\t<th style=\"text-align: center\">Page Number</th>
 \t\t\t<th style=\"text-align: center\">Page Name</th>
 \t\t\t<th style=\"text-align: center\">Body</th>
-\t\t\t<th style=\"text-align: center\">Decision</th>
 \t\t\t<th style=\"text-align: center\">Actions</th>
 \t\t</tr>
 \t</thead>
 \t<tbody>
 ";
-        // line 25
+        // line 24
         $context['_parent'] = (array) $context;
         $context['_seq'] = twig_ensure_traversable($this->getAttribute((isset($context["story"]) ? $context["story"] : $this->getContext($context, "story")), "pages"));
         foreach ($context['_seq'] as $context["_key"] => $context["page"]) {
-            // line 26
+            // line 25
             echo "<tr class=\"odd gradeA\">
 \t<td class=\"center\">
 \t\t<a href=\"/symfony/web/app_dev.php/story-admin/page/update/";
-            // line 28
+            // line 27
             echo twig_escape_filter($this->env, $this->getAttribute((isset($context["story"]) ? $context["story"] : $this->getContext($context, "story")), "id"), "html", null, true);
             echo "/";
             echo twig_escape_filter($this->env, $this->getAttribute((isset($context["page"]) ? $context["page"] : $this->getContext($context, "page")), "pageNumber"), "html", null, true);
@@ -73,46 +72,42 @@ class __TwigTemplate_ad9ad553da5cc048b5f56f741fed09ae extends Twig_Template
 \t</td>
 \t<td class=\"center\">
 \t\t<a href=\"/symfony/web/app_dev.php/story-admin/page/update/";
-            // line 31
+            // line 30
             echo twig_escape_filter($this->env, $this->getAttribute((isset($context["story"]) ? $context["story"] : $this->getContext($context, "story")), "id"), "html", null, true);
             echo "/";
             echo twig_escape_filter($this->env, $this->getAttribute((isset($context["page"]) ? $context["page"] : $this->getContext($context, "page")), "pageNumber"), "html", null, true);
             echo "\">
 \t\t\t";
-            // line 32
+            // line 31
             echo twig_escape_filter($this->env, $this->getAttribute((isset($context["page"]) ? $context["page"] : $this->getContext($context, "page")), "pageName"), "html", null, true);
             echo " 
 \t\t</a>\t\t
 \t</td>
 \t<td class=\"center\">";
-            // line 35
+            // line 34
             echo twig_escape_filter($this->env, $this->getAttribute((isset($context["page"]) ? $context["page"] : $this->getContext($context, "page")), "body"), "html", null, true);
-            echo " </td>
-\t<td class=\"center\">";
-            // line 36
-            echo twig_escape_filter($this->env, $this->getAttribute((isset($context["page"]) ? $context["page"] : $this->getContext($context, "page")), "decision"), "html", null, true);
             echo " </td>
 \t<td class=\"center\">
 \t<a href=\"/symfony/web/app_dev.php/story-admin/page/update/";
-            // line 38
+            // line 36
             echo twig_escape_filter($this->env, $this->getAttribute((isset($context["story"]) ? $context["story"] : $this->getContext($context, "story")), "id"), "html", null, true);
             echo "/";
             echo twig_escape_filter($this->env, $this->getAttribute((isset($context["page"]) ? $context["page"] : $this->getContext($context, "page")), "pageNumber"), "html", null, true);
             echo "\">
 \t<img src=\"";
-            // line 39
+            // line 37
             echo twig_escape_filter($this->env, $this->env->getExtension('assets')->getAssetUrl("bundles/storyadmin/images/page_icon.png"), "html", null, true);
             echo "\" /></a>&nbsp;
 \t<img src=\"";
-            // line 40
+            // line 38
             echo twig_escape_filter($this->env, $this->env->getExtension('assets')->getAssetUrl("bundles/storyadmin/images/json.png"), "html", null, true);
             echo "\" />&nbsp;
 \t<!-- <img src=\"";
-            // line 41
+            // line 39
             echo twig_escape_filter($this->env, $this->env->getExtension('assets')->getAssetUrl("bundles/storyadmin/images/callback.jpg"), "html", null, true);
             echo "\" />&nbsp; -->
 \t<a href=\"/symfony/web/app_dev.php/story-admin/page/delete/";
-            // line 42
+            // line 40
             echo twig_escape_filter($this->env, $this->getAttribute((isset($context["story"]) ? $context["story"] : $this->getContext($context, "story")), "id"), "html", null, true);
             echo "/";
             echo twig_escape_filter($this->env, $this->getAttribute((isset($context["page"]) ? $context["page"] : $this->getContext($context, "page")), "pageNumber"), "html", null, true);
@@ -125,14 +120,13 @@ class __TwigTemplate_ad9ad553da5cc048b5f56f741fed09ae extends Twig_Template
         $_parent = $context['_parent'];
         unset($context['_seq'], $context['_iterated'], $context['_key'], $context['page'], $context['_parent'], $context['loop']);
         $context = array_intersect_key($context, $_parent) + $_parent;
-        // line 45
+        // line 43
         echo "</tbody>
 \t<tfoot>
 \t\t<tr>
 \t\t\t<th style=\"text-align: center\">Page Number</th>
 \t\t\t<th style=\"text-align: center\">Page Name</th>
 \t\t\t<th style=\"text-align: center\">Body</th>
-\t\t\t<th style=\"text-align: center\">Decision</th>
 \t\t\t<th style=\"text-align: center\">Actions</th>
 \t\t</tr>
 \t</tfoot>
@@ -155,6 +149,6 @@ class __TwigTemplate_ad9ad553da5cc048b5f56f741fed09ae extends Twig_Template
 
     public function getDebugInfo()
     {
-        return array (  129 => 45,  116 => 42,  112 => 41,  108 => 40,  104 => 39,  98 => 38,  93 => 36,  89 => 35,  83 => 32,  77 => 31,  67 => 28,  63 => 26,  59 => 25,  40 => 11,  36 => 10,  30 => 7,  24 => 4,  19 => 1,);
+        return array (  124 => 43,  111 => 40,  107 => 39,  103 => 38,  99 => 37,  93 => 36,  88 => 34,  82 => 31,  76 => 30,  66 => 27,  62 => 25,  58 => 24,  40 => 11,  36 => 10,  30 => 7,  24 => 4,  19 => 1,);
     }
 }

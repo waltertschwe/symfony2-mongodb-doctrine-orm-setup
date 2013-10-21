@@ -66,6 +66,14 @@ class StoryAdminBundleDocumentStoryHydrator implements HydratorInterface
             $this->class->reflFields['pages']->setValue($document, $return);
             $hydratedData['pages'] = $return;
         }
+
+        /** @Field(type="hash") */
+        if (isset($data['choices'])) {
+            $value = $data['choices'];
+            $return = $value;
+            $this->class->reflFields['choices']->setValue($document, $return);
+            $hydratedData['choices'] = $return;
+        }
         return $hydratedData;
     }
 }

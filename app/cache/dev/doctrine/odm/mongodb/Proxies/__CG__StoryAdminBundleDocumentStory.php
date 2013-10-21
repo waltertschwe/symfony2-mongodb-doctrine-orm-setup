@@ -101,10 +101,22 @@ class Story extends \Story\AdminBundle\Document\Story implements \Doctrine\ODM\M
         return parent::getPages();
     }
 
+    public function setChoices($choices)
+    {
+        $this->__load();
+        return parent::setChoices($choices);
+    }
+
+    public function getChoices()
+    {
+        $this->__load();
+        return parent::getChoices();
+    }
+
 
     public function __sleep()
     {
-        return array('__isInitialized__', 'id', 'storyName', 'author', 'description', 'pages');
+        return array('__isInitialized__', 'id', 'storyName', 'author', 'description', 'pages', 'choices');
     }
 
     public function __clone()

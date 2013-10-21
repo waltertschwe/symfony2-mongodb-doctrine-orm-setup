@@ -63,20 +63,57 @@ class PageController extends Controller {
 		
 		if ($form->isValid()) {
 			$data = $form->getData();
+			$dm = $this->get('doctrine_mongodb')->getManager();
+			
 			$storyId = $this->getRequest()->get('storyId');
+			$currentPage = $form['pageNumber']->getData();
 			$storyObj = $repository->findOneById($storyId);
 			$pages = $storyObj->getPages();
+			
+			$newPages = array();
+			for ($choiceCounter=1; $choiceCounter <= 4; $choiceCounter++) {
+				$currentChoice = $form['choice'.$choiceCounter]->getData();
+				if(!empty($currentChoice)) {
+					$currentPage++;
+					$data['choice'][$choiceCounter]['text'] = $currentChoice;
+					$data['choice'][$choiceCounter]['goto-page-number'] = $currentPage;
+					
+					$newPages[$choiceCounter]['pageNumber'] = $currentPage;
+					$newPages[$choiceCounter]['page-came-from'] = $newPageNumber;
+					$newPages[$choiceCounter]['pageName'] = 'You came from page' . $newPageNumber;
+					$newPages[$choiceCounter]['body'] = 'You came from page' . $newPageNumber;
+					
+				}
+			
+				## remove choice form data from array	
+				$choice = 'choice'.$choiceCounter; 
+				unset($data[$choice]);			
+			}
+			
 			if(empty($pages)) {
+				## If this is the first page inserted
 				$storyObj->setPages(array($data));
 			} else {
 				array_push($pages, $data);		
 				$storyObj->setPages($pages);
 			}
+				
+			$dm->persist($storyObj);
+	    	$dm->flush();
 			
-    		$dm = $this->get('doctrine_mongodb')->getManager();
-			//$dm->persist($storyObj);
-	    	//$dm->flush();
-						
+			
+			## Refactor this to make adding new pages
+			## one atomic operation
+			if(!empty($newPages)){
+				$storyObj = $repository->findOneById($storyId);
+				$pages = $storyObj->getPages();
+				foreach ($newPages as $newPage) {
+					array_push($pages, $newPage);	
+					$storyObj->setPages($pages);
+					$dm->persist($storyObj);
+	    			$dm->flush();
+				}
+			}
 		}
 		 
 		return $this->render('StoryAdminBundle:Page:page.create.html.twig', array(
@@ -97,7 +134,6 @@ class PageController extends Controller {
 		$story = $repository->findOneBy(array('_id' => $storyId));
 		// pages php array 
 		$pages = $story->getPages();
-		
 		foreach ($pages as $key => $value) {
 		    foreach ($value as $k2 => $v2) {	
 				if($k2 == "pageNumber") {
@@ -108,8 +144,15 @@ class PageController extends Controller {
 				}
 			} 
 		}
-		
+	
 		$pageData = $pages[$pageKey];
+		for ($choiceCounter=1; $choiceCounter <= 4; $choiceCounter++) {
+			if(!empty($pages[$pageKey]['choice'][$choiceCounter])) {
+				$choiceValue = $pages[$pageKey]['choice'][$choiceCounter]['text'];
+				$pageData['choice'.$choiceCounter] = $choiceValue; 
+			}
+		}	
+		
 		$form = $this->createForm(new PageType(), $pageData);	
 		
 		if ($request->getMethod() == 'POST') {
@@ -126,6 +169,17 @@ class PageController extends Controller {
 			$pages = $storyObj->getPages();
 			$currentPage = $data['pageNumber'];
 			
+			for ($choiceCounter=1; $choiceCounter <= 4; $choiceCounter++) {
+				$currentChoice = $form['choice'.$choiceCounter]->getData();
+				if(!empty($currentChoice)) {
+					$data['choice'][$choiceCounter]['text'] = $currentChoice;
+				}
+				
+				## remove choice form data from array	
+				$choice = 'choice'.$choiceCounter; 
+				unset($data[$choice]);			
+			}
+				
 			foreach ($pages as $key => $value) {
 			    foreach ($value as $k2 => $v2) {	
 					if($k2 == "pageNumber") {

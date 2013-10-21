@@ -67,14 +67,41 @@ class __TwigTemplate_1f223d1607c5705f921c90bef96dacac extends Twig_Template
         // line 23
         echo $this->env->getExtension('form')->renderer->searchAndRenderBlock((isset($context["form"]) ? $context["form"] : $this->getContext($context, "form")), 'errors');
         echo "
- <br/>
- \t<script type=\"text/javascript\" charset=\"utf-8\">
-\t\t\tCKEDITOR.replace( 'storyName_description', {
-\t\t\t\tuiColor: '#1C6BA0'
-\t});
+\t";
+        // line 24
+        echo $this->env->getExtension('form')->renderer->searchAndRenderBlock($this->getAttribute((isset($context["form"]) ? $context["form"] : $this->getContext($context, "form")), "pageName"), 'row');
+        echo " <br/>
+\t";
+        // line 25
+        echo $this->env->getExtension('form')->renderer->searchAndRenderBlock($this->getAttribute((isset($context["form"]) ? $context["form"] : $this->getContext($context, "form")), "pageNumber"), 'row');
+        echo " <br/>
+\t";
+        // line 26
+        echo $this->env->getExtension('form')->renderer->searchAndRenderBlock($this->getAttribute((isset($context["form"]) ? $context["form"] : $this->getContext($context, "form")), "body"), 'row');
+        echo " <br/>
+\t<script type=\"text/javascript\" charset=\"utf-8\">
+\t\tCKEDITOR.replace( 'pageName_body', {
+\t\t\tuiColor: '#1C6BA0'
+\t\t});
 \t</script>
+\t";
+        // line 32
+        echo $this->env->getExtension('form')->renderer->searchAndRenderBlock($this->getAttribute((isset($context["form"]) ? $context["form"] : $this->getContext($context, "form")), "choice1"), 'row');
+        echo " 
+\t";
+        // line 33
+        echo $this->env->getExtension('form')->renderer->searchAndRenderBlock($this->getAttribute((isset($context["form"]) ? $context["form"] : $this->getContext($context, "form")), "choice2"), 'row');
+        echo "
+\t";
+        // line 34
+        echo $this->env->getExtension('form')->renderer->searchAndRenderBlock($this->getAttribute((isset($context["form"]) ? $context["form"] : $this->getContext($context, "form")), "choice3"), 'row');
+        echo " 
+\t";
+        // line 35
+        echo $this->env->getExtension('form')->renderer->searchAndRenderBlock($this->getAttribute((isset($context["form"]) ? $context["form"] : $this->getContext($context, "form")), "choice4"), 'row');
+        echo "  
 ";
-        // line 30
+        // line 36
         echo         $this->env->getExtension('form')->renderer->renderBlock((isset($context["form"]) ? $context["form"] : $this->getContext($context, "form")), 'form_end');
         echo "
 
@@ -94,6 +121,6 @@ class __TwigTemplate_1f223d1607c5705f921c90bef96dacac extends Twig_Template
 
     public function getDebugInfo()
     {
-        return array (  78 => 30,  68 => 23,  64 => 22,  57 => 18,  52 => 15,  42 => 11,  38 => 9,  34 => 8,  30 => 7,  24 => 4,  19 => 1,);
+        return array (  105 => 36,  101 => 35,  97 => 34,  93 => 33,  89 => 32,  80 => 26,  76 => 25,  72 => 24,  68 => 23,  64 => 22,  57 => 18,  52 => 15,  42 => 11,  38 => 9,  34 => 8,  30 => 7,  24 => 4,  19 => 1,);
     }
 }
