@@ -1,0 +1,9 @@
+db.AdminUser.insert({
+...     "username": "walter",
+...     "password": "walter",
+...     "email": "wschweitzer00@gmail.com",
+...     "salt": "",
+...     "roles": "Admin",
+...     "isactive": true
+... });
+

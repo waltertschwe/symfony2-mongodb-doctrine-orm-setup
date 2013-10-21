@@ -56,6 +56,7 @@ doctrine:
     orm:
         auto_generate_proxy_classes: %kernel.debug%
         auto_mapping: true
+        
 
 # Swiftmailer Configuration
 swiftmailer:
@@ -73,5 +74,7 @@ doctrine_mongodb:
     default_database: kickass
     document_managers:
         default:
-            auto_mapping: true
+            mappings:
+                StoryAdminBundle : ~
+                StorySecurityBundle : ~ 
   

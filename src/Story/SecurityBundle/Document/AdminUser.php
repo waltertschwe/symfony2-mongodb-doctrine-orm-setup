@@ -1,6 +1,7 @@
 <?php 
 namespace Story\SecurityBundle\Document;
 
+use Doctrine\ORM\Mapping as ORM;
 use Symfony\Component\Security\Core\User\UserInterface;
 
 class AdminUser implements UserInterface, \Serializable {
@@ -27,6 +28,11 @@ class AdminUser implements UserInterface, \Serializable {
         list (
             $this->id,
         ) = unserialize($serialized);
+    }
+	
+	public function getRoles()
+    {
+        return array('ROLE_USER');
     }
 	
     /**
