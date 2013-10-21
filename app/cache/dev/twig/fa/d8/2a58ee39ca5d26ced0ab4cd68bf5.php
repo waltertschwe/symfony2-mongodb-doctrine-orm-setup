@@ -67,9 +67,24 @@ class __TwigTemplate_fad82a58ee39ca5d26ced0ab4cd68bf5 extends Twig_Template
         // line 24
         echo $this->env->getExtension('form')->renderer->searchAndRenderBlock($this->getAttribute((isset($context["form"]) ? $context["form"] : $this->getContext($context, "form")), "decision"), 'row');
         echo " <br/>
-\t
-";
+\t";
+        // line 25
+        echo $this->env->getExtension('form')->renderer->searchAndRenderBlock($this->getAttribute((isset($context["form"]) ? $context["form"] : $this->getContext($context, "form")), "choice1"), 'row');
+        echo " 
+\t";
         // line 26
+        echo $this->env->getExtension('form')->renderer->searchAndRenderBlock($this->getAttribute((isset($context["form"]) ? $context["form"] : $this->getContext($context, "form")), "choice2"), 'row');
+        echo "
+\t";
+        // line 27
+        echo $this->env->getExtension('form')->renderer->searchAndRenderBlock($this->getAttribute((isset($context["form"]) ? $context["form"] : $this->getContext($context, "form")), "choice3"), 'row');
+        echo " 
+\t";
+        // line 28
+        echo $this->env->getExtension('form')->renderer->searchAndRenderBlock($this->getAttribute((isset($context["form"]) ? $context["form"] : $this->getContext($context, "form")), "choice4"), 'row');
+        echo "  
+";
+        // line 29
         echo         $this->env->getExtension('form')->renderer->renderBlock((isset($context["form"]) ? $context["form"] : $this->getContext($context, "form")), 'form_end');
         echo "
 </div></div>
@@ -90,6 +105,6 @@ class __TwigTemplate_fad82a58ee39ca5d26ced0ab4cd68bf5 extends Twig_Template
 
     public function getDebugInfo()
     {
-        return array (  73 => 26,  68 => 24,  59 => 18,  55 => 17,  51 => 16,  47 => 15,  43 => 14,  37 => 11,  30 => 7,  24 => 4,  19 => 1,);
+        return array (  88 => 29,  84 => 28,  80 => 27,  76 => 26,  72 => 25,  68 => 24,  59 => 18,  55 => 17,  51 => 16,  47 => 15,  43 => 14,  37 => 11,  30 => 7,  24 => 4,  19 => 1,);
     }
 }

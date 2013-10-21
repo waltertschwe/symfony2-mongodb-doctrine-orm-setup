@@ -57,10 +57,10 @@ class PageController extends Controller {
 		
 		$pageArr = array();
 		$pageArr['pageNumber'] = $newPageNumber;
-		
+			
 		$form = $this->createForm(new PageType(), $pageArr);	
-		
 		$form->handleRequest($this->getRequest());
+		
 		if ($form->isValid()) {
 			$data = $form->getData();
 			$storyId = $this->getRequest()->get('storyId');
@@ -74,8 +74,8 @@ class PageController extends Controller {
 			}
 			
     		$dm = $this->get('doctrine_mongodb')->getManager();
-			$dm->persist($storyObj);
-	    	$dm->flush();
+			//$dm->persist($storyObj);
+	    	//$dm->flush();
 						
 		}
 		 

@@ -10,4 +10,6 @@ Story\AdminBundle\Document\Story:
             type: string
         pages:
             type: hash
-       
+        choices:
+            type: hash
+            
