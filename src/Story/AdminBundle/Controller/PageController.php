@@ -167,19 +167,31 @@ class PageController extends Controller {
     			->getSingleResult();
 			
 			$pages = $storyObj->getPages();
+			$totalPages = count($pages);
 			$currentPage = $data['pageNumber'];
 			
+			$newPages = array();
 			for ($choiceCounter=1; $choiceCounter <= 4; $choiceCounter++) {
 				$currentChoice = $form['choice'.$choiceCounter]->getData();
 				if(!empty($currentChoice)) {
 					$data['choice'][$choiceCounter]['text'] = $currentChoice;
+					if(empty($data['choice'][$choiceCounter]['goto-page-number'])) {
+						echo "choice doesn't exist";
+						$totalPages++;
+						$newPageNumber = $totalPages; 
+						$newPages[$choiceCounter]['pageNumber'] = $selectedPageNumber;
+						$newPages[$choiceCounter]['page-came-from'] = $newPageNumber;
+						$newPages[$choiceCounter]['pageName'] = 'You came from page' . $newPageNumber;
+						$newPages[$choiceCounter]['body'] = 'You came from page' . $newPageNumber;
+						
+					}
 				}
 				
 				## remove choice form data from array	
 				$choice = 'choice'.$choiceCounter; 
 				unset($data[$choice]);			
 			}
-				
+			
 			foreach ($pages as $key => $value) {
 			    foreach ($value as $k2 => $v2) {	
 					if($k2 == "pageNumber") {
@@ -193,10 +205,20 @@ class PageController extends Controller {
 				} 
 			}
 			
-			
 			$storyObj->setPages($pages);
 			$dm->persist($storyObj);
 	    	$dm->flush();
+	    	
+	    	if(!empty($newPages)){
+				$storyObj = $repository->findOneById($storyId);
+				$pages = $storyObj->getPages();
+				foreach ($newPages as $newPage) {
+					array_push($pages, $newPage);	
+					$storyObj->setPages($pages);
+					//$dm->persist($storyObj);
+	    			//$dm->flush();
+				}
+			}
 			
 			$this->get('session')->getFlashBag()->add(
             	'notice',
