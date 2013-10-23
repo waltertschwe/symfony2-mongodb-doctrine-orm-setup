@@ -128,4 +128,31 @@ class Story {
     {
         return $this->pages;
     }
+    /**
+     * @var hash $choices
+     */
+    protected $choices;
+
+
+    /**
+     * Set choices
+     *
+     * @param hash $choices
+     * @return self
+     */
+    public function setChoices($choices)
+    {
+        $this->choices = $choices;
+        return $this;
+    }
+
+    /**
+     * Get choices
+     *
+     * @return hash $choices
+     */
+    public function getChoices()
+    {
+        return $this->choices;
+    }
 }

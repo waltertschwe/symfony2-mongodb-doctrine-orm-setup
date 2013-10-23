@@ -80,8 +80,8 @@ class PageController extends Controller {
 					
 					$newPages[$choiceCounter]['pageNumber'] = $currentPage;
 					$newPages[$choiceCounter]['page-came-from'] = $newPageNumber;
-					$newPages[$choiceCounter]['pageName'] = 'You came from page' . $newPageNumber;
-					$newPages[$choiceCounter]['body'] = 'You came from page' . $newPageNumber;
+					$newPages[$choiceCounter]['pageName'] = '** PLEASE ADD CONTENT **';
+					$newPages[$choiceCounter]['body'] = '** You came from page ' . $newPageNumber . ' **';
 					
 				}
 			
@@ -173,16 +173,21 @@ class PageController extends Controller {
 			$newPages = array();
 			for ($choiceCounter=1; $choiceCounter <= 4; $choiceCounter++) {
 				$currentChoice = $form['choice'.$choiceCounter]->getData();
+				echo "currentChoice = " . $currentChoice . "<br/>";
 				if(!empty($currentChoice)) {
-					$data['choice'][$choiceCounter]['text'] = $currentChoice;
-					if(empty($data['choice'][$choiceCounter]['goto-page-number'])) {
-						echo "choice doesn't exist";
+					if(isset($data['choice'][$choiceCounter]['text'])) { 
+						$currentChoiceText = $data['choice'][$choiceCounter]['text'];
+						$data['choice'][$choiceCounter]['text'] = $currentChoiceText;
+					} else {
+						$currentChoiceText = NULL;
+					}
+					if(empty($currentChoiceText)) {
 						$totalPages++;
 						$newPageNumber = $totalPages; 
-						$newPages[$choiceCounter]['pageNumber'] = $selectedPageNumber;
-						$newPages[$choiceCounter]['page-came-from'] = $newPageNumber;
-						$newPages[$choiceCounter]['pageName'] = 'You came from page' . $newPageNumber;
-						$newPages[$choiceCounter]['body'] = 'You came from page' . $newPageNumber;
+						$newPages[$choiceCounter]['pageNumber'] = $newPageNumber;
+						$newPages[$choiceCounter]['page-came-from'] = $selectedPageNumber;
+						$newPages[$choiceCounter]['pageName'] = '** PLEASE ADD CONTENT **';
+						$newPages[$choiceCounter]['body'] = '** You came from page ' . $selectedPageNumber . ' **';
 						
 					}
 				}
@@ -205,6 +210,8 @@ class PageController extends Controller {
 				} 
 			}
 			
+			var_dump($pages);
+			exit();
 			$storyObj->setPages($pages);
 			$dm->persist($storyObj);
 	    	$dm->flush();
@@ -215,8 +222,8 @@ class PageController extends Controller {
 				foreach ($newPages as $newPage) {
 					array_push($pages, $newPage);	
 					$storyObj->setPages($pages);
-					//$dm->persist($storyObj);
-	    			//$dm->flush();
+					$dm->persist($storyObj);
+	    			$dm->flush();
 				}
 			}
 			
