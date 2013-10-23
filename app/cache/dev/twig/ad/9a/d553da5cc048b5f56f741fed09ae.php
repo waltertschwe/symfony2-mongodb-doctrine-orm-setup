@@ -133,6 +133,11 @@ class __TwigTemplate_ad9ad553da5cc048b5f56f741fed09ae extends Twig_Template
 </table></div>
 </div>
 </div>
+ ";
+        // line 55
+        echo twig_include($this->env, $context, "StoryAdminBundle:Story:header/common.footer.html.twig");
+        echo "
+
 </body>
 </html>";
     }
@@ -149,6 +154,6 @@ class __TwigTemplate_ad9ad553da5cc048b5f56f741fed09ae extends Twig_Template
 
     public function getDebugInfo()
     {
-        return array (  124 => 43,  111 => 40,  107 => 39,  103 => 38,  99 => 37,  93 => 36,  88 => 34,  82 => 31,  76 => 30,  66 => 27,  62 => 25,  58 => 24,  40 => 11,  36 => 10,  30 => 7,  24 => 4,  19 => 1,);
+        return array (  138 => 55,  124 => 43,  111 => 40,  107 => 39,  103 => 38,  99 => 37,  93 => 36,  88 => 34,  82 => 31,  76 => 30,  66 => 27,  62 => 25,  58 => 24,  40 => 11,  36 => 10,  30 => 7,  24 => 4,  19 => 1,);
     }
 }

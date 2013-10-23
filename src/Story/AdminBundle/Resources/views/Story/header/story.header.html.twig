@@ -4,15 +4,4 @@
     <link href="{{ asset('bundles/storyadmin/css/custom-template.css') }}" type="text/css" rel="stylesheet" />
     <link href="{{ asset('bundles/storyadmin/css/demo_table.css') }}" type="text/css" rel="stylesheet" />
 {% endblock %}
-{% javascripts
-	'@StoryAdminBundle/Resources/public/js/jquery.js'
-	'@StoryAdminBundle/Resources/public/js/jquery.dataTables.js'	
-%}
-	<script src="{{ asset_url }}"></script>
-{% endjavascripts %}
 
-<script type="text/javascript" charset="utf-8">
-	$(document).ready(function() {
-		$('#example').dataTable();
-	} );
-</script>

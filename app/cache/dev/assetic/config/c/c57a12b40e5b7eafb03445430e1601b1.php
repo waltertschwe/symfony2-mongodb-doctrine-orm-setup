@@ -2,6 +2,26 @@
 
 // StoryAdminBundle:Story:story.index.html.twig
 return array (
+  '64c4bf4' => 
+  array (
+    0 => 
+    array (
+      0 => '@StoryAdminBundle/Resources/public/js/jquery.dataTables.js',
+    ),
+    1 => 
+    array (
+    ),
+    2 => 
+    array (
+      'output' => '_controller/js/64c4bf4.js',
+      'name' => '64c4bf4',
+      'debug' => NULL,
+      'combine' => NULL,
+      'vars' => 
+      array (
+      ),
+    ),
+  ),
   'c4adca3' => 
   array (
     0 => 

@@ -1,0 +1,12 @@
+{% javascripts
+	'@StoryAdminBundle/Resources/public/js/jquery.js'
+	'@StoryAdminBundle/Resources/public/js/jquery.dataTables.js'	
+  	'@StoryAdminBundle/Resources/public/js/bootstrap.min.js'  		
+%}
+<script src="{{ asset_url }}"></script>
+{% endjavascripts %}
+<script type="text/javascript" charset="utf-8">
+	$(document).ready(function() {
+		$('#example').dataTable();
+	} );
+</script>
