@@ -75,6 +75,7 @@ class PageController extends Controller {
 				$currentChoice = $form['choice'.$choiceCounter]->getData();
 				if(!empty($currentChoice)) {
 					$currentPage++;
+					$data['choice'][$choiceCounter]['choiceId'] = $choiceCounter;
 					$data['choice'][$choiceCounter]['text'] = $currentChoice;
 					$data['choice'][$choiceCounter]['goto-page-number'] = $currentPage;
 					
@@ -168,30 +169,32 @@ class PageController extends Controller {
 			
 			$pages = $storyObj->getPages();
 			$totalPages = count($pages);
+			$newPageNumber = $totalPages;
 			$currentPage = $data['pageNumber'];
-			
+			$choiceId = $data['choice'][1]['choiceId'];
 			$newPages = array();
+			
 			for ($choiceCounter=1; $choiceCounter <= 4; $choiceCounter++) {
-				$currentChoice = $form['choice'.$choiceCounter]->getData();
-				echo "currentChoice = " . $currentChoice . "<br/>";
-				if(!empty($currentChoice)) {
-					if(isset($data['choice'][$choiceCounter]['text'])) { 
-						$currentChoiceText = $data['choice'][$choiceCounter]['text'];
+				## choice value from form
+				$currentChoiceText = $data['choice'.$choiceCounter];
+				if(isset($data['choice'][$choiceCounter]['choiceId'])) {
+					## Choice already existed update the field
+					## no new page required already exists
+					$data['choice'][$choiceCounter]['text'] = $currentChoiceText;
+				} else {
+					## Create New Choice and a New Page for the Choice 	
+					if(!empty($currentChoiceText)) {				
+						$newPageNumber++; 
+						$data['choice'][$choiceCounter]['choiceID'] = $choiceCounter;
 						$data['choice'][$choiceCounter]['text'] = $currentChoiceText;
-					} else {
-						$currentChoiceText = NULL;
-					}
-					if(empty($currentChoiceText)) {
-						$totalPages++;
-						$newPageNumber = $totalPages; 
+						$data['choice'][$choiceCounter]['goto-page-number'] = $newPageNumber;
 						$newPages[$choiceCounter]['pageNumber'] = $newPageNumber;
 						$newPages[$choiceCounter]['page-came-from'] = $selectedPageNumber;
 						$newPages[$choiceCounter]['pageName'] = '** PLEASE ADD CONTENT **';
 						$newPages[$choiceCounter]['body'] = '** You came from page ' . $selectedPageNumber . ' **';
-						
 					}
 				}
-				
+					
 				## remove choice form data from array	
 				$choice = 'choice'.$choiceCounter; 
 				unset($data[$choice]);			
@@ -203,6 +206,7 @@ class PageController extends Controller {
 						if($v2 == $currentPage) {
 							$pageKey = $key;
 							unset($pages[$pageKey]);
+							## replace current page with new page data from form
 							$pages[$pageKey] = $data;
 							break 2;
 						}				
@@ -210,8 +214,6 @@ class PageController extends Controller {
 				} 
 			}
 			
-			var_dump($pages);
-			exit();
 			$storyObj->setPages($pages);
 			$dm->persist($storyObj);
 	    	$dm->flush();
