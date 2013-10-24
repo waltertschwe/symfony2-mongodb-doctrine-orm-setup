@@ -240,12 +240,8 @@ class appDevUrlMatcher extends Symfony\Bundle\FrameworkBundle\Routing\Redirectab
             }
 
             // story_welcome
-            if (rtrim($pathinfo, '/') === '/story') {
-                if (substr($pathinfo, -1) !== '/') {
-                    return $this->redirect($pathinfo.'/', 'story_welcome');
-                }
-
-                return array (  '_controller' => 'StoryView\\FrontEndBundle\\Controller\\StoryRouterController::indexAction',  '_route' => 'story_welcome',);
+            if (preg_match('#^/story/(?P<storyId>[^/]++)$#s', $pathinfo, $matches)) {
+                return $this->mergeDefaults(array_replace($matches, array('_route' => 'story_welcome')), array (  '_controller' => 'StoryView\\FrontEndBundle\\Controller\\StoryRouterController::storyHomeAction',));
             }
 
         }
