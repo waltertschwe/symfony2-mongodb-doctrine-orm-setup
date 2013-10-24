@@ -1,3 +1,7 @@
+story_view_front_end:
+    resource: "@StoryViewFrontEndBundle/Resources/config/routing.yml"
+    prefix:   /story
+
 story_security:
     resource: "@StorySecurityBundle/Resources/config/routing.yml"
     prefix:   /

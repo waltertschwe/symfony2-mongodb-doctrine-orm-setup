@@ -1,0 +1,7 @@
+story_view_front_end_homepage:
+    pattern:  /hello/{name}
+    defaults: { _controller: StoryViewFrontEndBundle:Default:index }
+
+story_welcome:
+    pattern:  /
+    defaults: { _controller: StoryViewFrontEndBundle:StoryRouter:index }

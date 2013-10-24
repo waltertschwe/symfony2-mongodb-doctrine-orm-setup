@@ -20,6 +20,7 @@
       <parameter key="WebFormsTestBundle">WebForms\TestBundle\WebFormsTestBundle</parameter>
       <parameter key="StoryAdminBundle">Story\AdminBundle\StoryAdminBundle</parameter>
       <parameter key="StorySecurityBundle">Story\SecurityBundle\StorySecurityBundle</parameter>
+      <parameter key="StoryViewFrontEndBundle">StoryView\FrontEndBundle\StoryViewFrontEndBundle</parameter>
       <parameter key="AcmeDemoBundle">Acme\DemoBundle\AcmeDemoBundle</parameter>
       <parameter key="WebProfilerBundle">Symfony\Bundle\WebProfilerBundle\WebProfilerBundle</parameter>
       <parameter key="SensioDistributionBundle">Sensio\Bundle\DistributionBundle\SensioDistributionBundle</parameter>
@@ -2822,6 +2823,10 @@
       <call method="addPath">
         <argument>/var/www/Symfony/src/Story/SecurityBundle/Resources/views</argument>
         <argument>StorySecurity</argument>
+      </call>
+      <call method="addPath">
+        <argument>/var/www/Symfony/src/StoryView/FrontEndBundle/Resources/views</argument>
+        <argument>StoryViewFrontEnd</argument>
       </call>
       <call method="addPath">
         <argument>/var/www/Symfony/src/Acme/DemoBundle/Resources/views</argument>

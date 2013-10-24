@@ -20,6 +20,7 @@ class AppKernel extends Kernel
             new WebForms\TestBundle\WebFormsTestBundle(),
             new Story\AdminBundle\StoryAdminBundle(),
             new Story\SecurityBundle\StorySecurityBundle(),
+            new StoryView\FrontEndBundle\StoryViewFrontEndBundle(),
         );
 
         if (in_array($this->getEnvironment(), array('dev', 'test'))) {

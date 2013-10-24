@@ -233,6 +233,23 @@ class appDevUrlMatcher extends Symfony\Bundle\FrameworkBundle\Routing\Redirectab
 
         }
 
+        if (0 === strpos($pathinfo, '/story')) {
+            // story_view_front_end_homepage
+            if (0 === strpos($pathinfo, '/story/hello') && preg_match('#^/story/hello/(?P<name>[^/]++)$#s', $pathinfo, $matches)) {
+                return $this->mergeDefaults(array_replace($matches, array('_route' => 'story_view_front_end_homepage')), array (  '_controller' => 'StoryView\\FrontEndBundle\\Controller\\DefaultController::indexAction',));
+            }
+
+            // story_welcome
+            if (rtrim($pathinfo, '/') === '/story') {
+                if (substr($pathinfo, -1) !== '/') {
+                    return $this->redirect($pathinfo.'/', 'story_welcome');
+                }
+
+                return array (  '_controller' => 'StoryView\\FrontEndBundle\\Controller\\StoryRouterController::indexAction',  '_route' => 'story_welcome',);
+            }
+
+        }
+
         // story_security_homepage
         if (0 === strpos($pathinfo, '/hello') && preg_match('#^/hello/(?P<name>[^/]++)$#s', $pathinfo, $matches)) {
             return $this->mergeDefaults(array_replace($matches, array('_route' => 'story_security_homepage')), array (  '_controller' => 'Story\\SecurityBundle\\Controller\\DefaultController::indexAction',));

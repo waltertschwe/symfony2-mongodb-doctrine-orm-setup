@@ -3085,6 +3085,7 @@ class appDevDebugProjectContainer extends Container
         $instance->addPath('/var/www/Symfony/src/WebForms/TestBundle/Resources/views', 'WebFormsTest');
         $instance->addPath('/var/www/Symfony/src/Story/AdminBundle/Resources/views', 'StoryAdmin');
         $instance->addPath('/var/www/Symfony/src/Story/SecurityBundle/Resources/views', 'StorySecurity');
+        $instance->addPath('/var/www/Symfony/src/StoryView/FrontEndBundle/Resources/views', 'StoryViewFrontEnd');
         $instance->addPath('/var/www/Symfony/src/Acme/DemoBundle/Resources/views', 'AcmeDemo');
         $instance->addPath('/var/www/Symfony/vendor/symfony/symfony/src/Symfony/Bundle/WebProfilerBundle/Resources/views', 'WebProfiler');
         $instance->addPath('/var/www/Symfony/vendor/sensio/distribution-bundle/Sensio/Bundle/DistributionBundle/Resources/views', 'SensioDistribution');
@@ -3560,6 +3561,7 @@ class appDevDebugProjectContainer extends Container
                 'WebFormsTestBundle' => 'WebForms\\TestBundle\\WebFormsTestBundle',
                 'StoryAdminBundle' => 'Story\\AdminBundle\\StoryAdminBundle',
                 'StorySecurityBundle' => 'Story\\SecurityBundle\\StorySecurityBundle',
+                'StoryViewFrontEndBundle' => 'StoryView\\FrontEndBundle\\StoryViewFrontEndBundle',
                 'AcmeDemoBundle' => 'Acme\\DemoBundle\\AcmeDemoBundle',
                 'WebProfilerBundle' => 'Symfony\\Bundle\\WebProfilerBundle\\WebProfilerBundle',
                 'SensioDistributionBundle' => 'Sensio\\Bundle\\DistributionBundle\\SensioDistributionBundle',

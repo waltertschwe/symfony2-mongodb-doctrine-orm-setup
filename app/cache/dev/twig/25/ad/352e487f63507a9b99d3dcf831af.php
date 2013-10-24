@@ -67,7 +67,10 @@ class __TwigTemplate_25ad352e487f63507a9b99d3dcf831af extends Twig_Template
         echo         $this->env->getExtension('form')->renderer->renderBlock((isset($context["form"]) ? $context["form"] : $this->getContext($context, "form")), 'form_end');
         echo "
 </div></div>
-
+ ";
+        // line 28
+        echo twig_include($this->env, $context, "StoryAdminBundle:Story:header/common.footer.html.twig");
+        echo "
 </body>
 
 
@@ -90,6 +93,6 @@ class __TwigTemplate_25ad352e487f63507a9b99d3dcf831af extends Twig_Template
 
     public function getDebugInfo()
     {
-        return array (  67 => 26,  57 => 19,  53 => 18,  49 => 17,  45 => 16,  41 => 15,  30 => 7,  24 => 4,  19 => 1,);
+        return array (  72 => 28,  67 => 26,  57 => 19,  53 => 18,  49 => 17,  45 => 16,  41 => 15,  30 => 7,  24 => 4,  19 => 1,);
     }
 }

@@ -39,7 +39,17 @@ class __TwigTemplate_a297579663fdcd70372c40f81cc91e73 extends Twig_Template
            \t</li>
             <li><a href=\"\">Authors</a></li>
             <li><a href=\"\">Badges</a></li>
-            <li><a href=\"\">Admin Tools</a></li>
+          </ul>
+          <ul class=\"nav navbar-nav pull-right\"> 
+          \t <li class=\"dropdown\">
+            <a href=\"#\"
+            \tclass=\"dropdown-toggle\"
+            \tdata-toggle=\"dropdown\">Admin Tools<b class=\"caret\"></b>
+            </a>
+\t            <ul class=\"dropdown-menu\">
+\t            \t<li><a href=\"create\">Create Author</a></li>
+\t            </ul>
+           \t</li>
           </ul>
         </div><!--/.nav-collapse -->
       </div>
