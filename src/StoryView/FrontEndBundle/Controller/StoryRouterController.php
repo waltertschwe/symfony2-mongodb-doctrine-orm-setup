@@ -74,9 +74,22 @@ class StoryRouterController extends Controller
 			 $pageBody = $pageData['body'];
 			 
 			 if (isset($pageData['choice'])) {
-			 	echo "there is a choice to be made";
+			 	 echo "there is a choice to be made";
+				 $formData = array('next-page' => '4',
+				 		'choices' => array('choice1' => 'this is choice1'));
+				 $choices = $pageData['choice'];
+				 foreach($choices as $choice) {
+				     if(isset($choice['choiceId'])) {
+				         $choiceId = $choice['choiceId'];
+						 //$formData['choices']['choice'.$choiceId] = 'hello';
+						 
+				     } 
+			     }
+				 
+				 $form = $this->createForm(new ChoicePageType(), $formData);
 			 } else {
-			 	echo "there is no choice to be made";
+			 	 echo "there is no choice to be made";
+				 
 			 }
 			 
 			 
