@@ -7,8 +7,9 @@ use Symfony\Bundle\FrameworkBundle\Controller\Controller;
 use Symfony\Component\HttpFoundation\Request;
 use Symfony\Component\HttpFoundation\Response;
 
-// Page Navigation Form
-use StoryView\FrontEndBundle\Form\Type\PageNavigatorType;
+// FORMS 
+use StoryView\FrontEndBundle\Form\Type\SimplePageType;
+use StoryView\FrontEndBundle\Form\Type\ChoicePageType;
 
 class StoryRouterController extends Controller
 {
@@ -35,13 +36,14 @@ class StoryRouterController extends Controller
 		$pageOne['storyName'] = $storyName;
 	
 		$formData = array('next-page' => $nextPageNumber);
-		$form = $this->createForm(new PageNavigatorType(), $formData);	
+		
 		
 		if (isset($pageOne['choice'])) {
 			## TODO: page 1 has a choice
-			
+			$form = $this->createForm(new ChoicePageType(), $formData);	
 		} else {
 			$pageOne['nextPage'] = 1;
+			$form = $this->createForm(new SimplePageType(), $formData);	
 		}
 		
         return $this->render('StoryViewFrontEndBundle:StoryRouter:home.html.twig', array(
@@ -60,13 +62,26 @@ class StoryRouterController extends Controller
 	        ->getRepository('StoryAdminBundle:Story');
 			
 		$storyObj = $repository->findOneById($storyId);
-		
 		$pages = $storyObj->getPages();
 		
 		//$currentPageData = $pages[$]
 		
 		if ($request->getMethod() == 'POST') {
 			echo "begin routing pages...<br/>";
+			 $postData = $request->request->get('pageNav');
+			 $currentPage = $postData['next-page'];
+			 $pageData = $pages[$currentPage];
+			 $pageBody = $pageData['body'];
+			 
+			 if (isset($pageData['choice'])) {
+			 	echo "there is a choice to be made";
+			 } else {
+			 	echo "there is no choice to be made";
+			 }
+			 
+			 
+			 var_dump($pageData);
+			 exit();
 			//$form->bindRequest($request);
 		}
 	}
