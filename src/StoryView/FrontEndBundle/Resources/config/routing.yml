@@ -5,3 +5,7 @@ story_view_front_end_homepage:
 story_welcome:
     pattern:  /{storyId}
     defaults: { _controller: StoryViewFrontEndBundle:StoryRouter:storyHome }
+    
+page_router:
+    pattern: /pages/{storyId}
+    defaults: { _controller: StoryViewFrontEndBundle:StoryRouter:pagesRouter }   

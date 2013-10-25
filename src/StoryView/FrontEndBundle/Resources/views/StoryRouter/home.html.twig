@@ -1,0 +1,21 @@
+<b>{{ pageOne.storyName }}</b>
+<br/>
+
+{{ pageOne.body | raw }} 
+
+<br/>
+The next page is:
+
+{{ pageOne.nextPage }}
+
+
+<form action="pages/{{pageOne.storyId}}" method="post">
+
+{{ form_errors(form) }}
+   <!-- Next Page is a Hidden Value -->
+	<div>
+		
+	</div>
+{{ form_rest(form) }}
+	
+</form>

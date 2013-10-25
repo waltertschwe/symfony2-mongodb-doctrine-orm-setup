@@ -14,9 +14,21 @@
 </a>
 {{ form_start(form) }}
     {{ form_errors(form) }}
-	{{ form_row(form.storyName) }} 
-	{{ form_row(form.author) }}<br/>
-	{{ form_row(form.description) }} 
+	 <div>
+        {{ form_label(form.storyName) }}
+        {{ form_errors(form.storyName) }}
+        {{ form_widget(form.storyName) }}
+    </div>
+	 <div>
+        {{ form_label(form.author) }}
+        {{ form_errors(form.author) }}
+        {{ form_widget(form.author) }}
+    </div>
+    <div>
+        {{ form_label(form.description) }}
+        {{ form_errors(form.description) }}
+        {{ form_widget(form.description) }}
+    </div>
 	<script type="text/javascript" charset="utf-8">
 			CKEDITOR.replace( 'storyName_description', {
 				uiColor: '#1C6BA0'

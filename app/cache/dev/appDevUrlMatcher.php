@@ -89,27 +89,6 @@ class appDevUrlMatcher extends Symfony\Bundle\FrameworkBundle\Routing\Redirectab
 
             }
 
-            if (0 === strpos($pathinfo, '/js/5b98941')) {
-                // _assetic_5b98941
-                if ($pathinfo === '/js/5b98941.js') {
-                    return array (  '_controller' => 'assetic.controller:render',  'name' => '5b98941',  'pos' => NULL,  '_format' => 'js',  '_route' => '_assetic_5b98941',);
-                }
-
-                if (0 === strpos($pathinfo, '/js/5b98941_')) {
-                    // _assetic_5b98941_0
-                    if ($pathinfo === '/js/5b98941_jquery_1.js') {
-                        return array (  '_controller' => 'assetic.controller:render',  'name' => '5b98941',  'pos' => 0,  '_format' => 'js',  '_route' => '_assetic_5b98941_0',);
-                    }
-
-                    // _assetic_5b98941_1
-                    if ($pathinfo === '/js/5b98941_bootstrap.min_2.js') {
-                        return array (  '_controller' => 'assetic.controller:render',  'name' => '5b98941',  'pos' => 1,  '_format' => 'js',  '_route' => '_assetic_5b98941_1',);
-                    }
-
-                }
-
-            }
-
             if (0 === strpos($pathinfo, '/js/64c4bf4')) {
                 // _assetic_64c4bf4
                 if ($pathinfo === '/js/64c4bf4.js') {
@@ -242,6 +221,11 @@ class appDevUrlMatcher extends Symfony\Bundle\FrameworkBundle\Routing\Redirectab
             // story_welcome
             if (preg_match('#^/story/(?P<storyId>[^/]++)$#s', $pathinfo, $matches)) {
                 return $this->mergeDefaults(array_replace($matches, array('_route' => 'story_welcome')), array (  '_controller' => 'StoryView\\FrontEndBundle\\Controller\\StoryRouterController::storyHomeAction',));
+            }
+
+            // page_router
+            if (0 === strpos($pathinfo, '/story/pages') && preg_match('#^/story/pages/(?P<storyId>[^/]++)$#s', $pathinfo, $matches)) {
+                return $this->mergeDefaults(array_replace($matches, array('_route' => 'page_router')), array (  '_controller' => 'StoryView\\FrontEndBundle\\Controller\\StoryRouterController::pagesRouterAction',));
             }
 
         }

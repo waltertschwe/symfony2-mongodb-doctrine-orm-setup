@@ -44,18 +44,48 @@ class __TwigTemplate_25ad352e487f63507a9b99d3dcf831af extends Twig_Template
         // line 16
         echo $this->env->getExtension('form')->renderer->searchAndRenderBlock((isset($context["form"]) ? $context["form"] : $this->getContext($context, "form")), 'errors');
         echo "
-\t";
-        // line 17
-        echo $this->env->getExtension('form')->renderer->searchAndRenderBlock($this->getAttribute((isset($context["form"]) ? $context["form"] : $this->getContext($context, "form")), "storyName"), 'row');
-        echo " 
-\t";
+\t <div>
+        ";
         // line 18
-        echo $this->env->getExtension('form')->renderer->searchAndRenderBlock($this->getAttribute((isset($context["form"]) ? $context["form"] : $this->getContext($context, "form")), "author"), 'row');
-        echo "<br/>
-\t";
+        echo $this->env->getExtension('form')->renderer->searchAndRenderBlock($this->getAttribute((isset($context["form"]) ? $context["form"] : $this->getContext($context, "form")), "storyName"), 'label');
+        echo "
+        ";
         // line 19
-        echo $this->env->getExtension('form')->renderer->searchAndRenderBlock($this->getAttribute((isset($context["form"]) ? $context["form"] : $this->getContext($context, "form")), "description"), 'row');
-        echo " 
+        echo $this->env->getExtension('form')->renderer->searchAndRenderBlock($this->getAttribute((isset($context["form"]) ? $context["form"] : $this->getContext($context, "form")), "storyName"), 'errors');
+        echo "
+        ";
+        // line 20
+        echo $this->env->getExtension('form')->renderer->searchAndRenderBlock($this->getAttribute((isset($context["form"]) ? $context["form"] : $this->getContext($context, "form")), "storyName"), 'widget');
+        echo "
+    </div>
+\t <div>
+        ";
+        // line 23
+        echo $this->env->getExtension('form')->renderer->searchAndRenderBlock($this->getAttribute((isset($context["form"]) ? $context["form"] : $this->getContext($context, "form")), "author"), 'label');
+        echo "
+        ";
+        // line 24
+        echo $this->env->getExtension('form')->renderer->searchAndRenderBlock($this->getAttribute((isset($context["form"]) ? $context["form"] : $this->getContext($context, "form")), "author"), 'errors');
+        echo "
+        ";
+        // line 25
+        echo $this->env->getExtension('form')->renderer->searchAndRenderBlock($this->getAttribute((isset($context["form"]) ? $context["form"] : $this->getContext($context, "form")), "author"), 'widget');
+        echo "
+    </div>
+    <div>
+        ";
+        // line 28
+        echo $this->env->getExtension('form')->renderer->searchAndRenderBlock($this->getAttribute((isset($context["form"]) ? $context["form"] : $this->getContext($context, "form")), "description"), 'label');
+        echo "
+        ";
+        // line 29
+        echo $this->env->getExtension('form')->renderer->searchAndRenderBlock($this->getAttribute((isset($context["form"]) ? $context["form"] : $this->getContext($context, "form")), "description"), 'errors');
+        echo "
+        ";
+        // line 30
+        echo $this->env->getExtension('form')->renderer->searchAndRenderBlock($this->getAttribute((isset($context["form"]) ? $context["form"] : $this->getContext($context, "form")), "description"), 'widget');
+        echo "
+    </div>
 \t<script type=\"text/javascript\" charset=\"utf-8\">
 \t\t\tCKEDITOR.replace( 'storyName_description', {
 \t\t\t\tuiColor: '#1C6BA0'
@@ -63,12 +93,12 @@ class __TwigTemplate_25ad352e487f63507a9b99d3dcf831af extends Twig_Template
 \t\t</script>
 \t<br/>
 ";
-        // line 26
+        // line 38
         echo         $this->env->getExtension('form')->renderer->renderBlock((isset($context["form"]) ? $context["form"] : $this->getContext($context, "form")), 'form_end');
         echo "
 </div></div>
  ";
-        // line 28
+        // line 40
         echo twig_include($this->env, $context, "StoryAdminBundle:Story:header/common.footer.html.twig");
         echo "
 </body>
@@ -93,6 +123,6 @@ class __TwigTemplate_25ad352e487f63507a9b99d3dcf831af extends Twig_Template
 
     public function getDebugInfo()
     {
-        return array (  72 => 28,  67 => 26,  57 => 19,  53 => 18,  49 => 17,  45 => 16,  41 => 15,  30 => 7,  24 => 4,  19 => 1,);
+        return array (  102 => 40,  97 => 38,  86 => 30,  82 => 29,  78 => 28,  72 => 25,  68 => 24,  64 => 23,  58 => 20,  54 => 19,  50 => 18,  45 => 16,  41 => 15,  30 => 7,  24 => 4,  19 => 1,);
     }
 }
