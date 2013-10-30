@@ -8,8 +8,7 @@ use Symfony\Component\HttpFoundation\Request;
 use Symfony\Component\HttpFoundation\Response;
 
 // FORMS 
-use StoryView\FrontEndBundle\Form\Type\SimplePageType;
-use StoryView\FrontEndBundle\Form\Type\ChoicePageType;
+use StoryView\FrontEndBundle\Form\Type\DecisionType;
 
 class StoryRouterController extends Controller
 {
@@ -18,6 +17,7 @@ class StoryRouterController extends Controller
     	
 		$homePageNumber = 0;
 		$nextPageNumber = 1;
+		$formData = array();
 		$repository = $this->get('doctrine_mongodb')
 	        ->getManager()
 	        ->getRepository('StoryAdminBundle:Story');
@@ -34,17 +34,17 @@ class StoryRouterController extends Controller
 		
 		$pageOne['storyId'] = $storyId;
 		$pageOne['storyName'] = $storyName;
-	
-		$formData = array('next-page' => $nextPageNumber);
 		
 		
-		if (isset($pageOne['choice'])) {
-			## TODO: page 1 has a choice
-			$form = $this->createForm(new ChoicePageType(), $formData);	
+		if(isset($pageOne['choice'])) {
+			$nextPage = $pages[$nextPageNumber];
+			
 		} else {
 			$pageOne['nextPage'] = 1;
-			$form = $this->createForm(new ChoicePageType(), $formData);	
 		}
+		
+		$formData['next-page'] = $nextPageNumber;
+		$form = $this->createForm(new DecisionType(), $formData);	
 		
         return $this->render('StoryViewFrontEndBundle:StoryRouter:home.html.twig', array(
 		 		'pageOne' => $pageOne,
@@ -57,6 +57,8 @@ class StoryRouterController extends Controller
 		
 		if ($request->getMethod() == 'POST') {
 			
+			$formData = array();
+			
 			$storyId = $this->getRequest()->get('storyId');
 		
 			$repository = $this->get('doctrine_mongodb')
@@ -66,29 +68,29 @@ class StoryRouterController extends Controller
 			$storyObj = $repository->findOneById($storyId);
 			$pages = $storyObj->getPages();
 			
-			 $postData = $request->request->get('pageNav');
-			 $currentPage = $postData['next-page'];
-			 $pageData = $pages[$currentPage];
-			 $pageData['storyId'] = $storyId;
-			 $pageBody = $pageData['body'];
+			$postData = $request->request->get('pageNav');
+			$currentPage = $postData['next-page'];
+			$pageData = $pages[$currentPage];
+			$pageData['storyId'] = $storyId;
+			$pageBody = $pageData['body'];
 			 
-			 if (isset($pageData['choice'])) {
-				
-				 $choices = $pageData['choice'];
-				 foreach($choices as $choice) {
-				     if(isset($choice['choiceId'])) {
-				         $choiceId = $choice['choiceId'];
-						 
-				     } 
-			     }
-				 $choices = array('choice1');
-				 $formData = array('next-page' => '4', 'decisions' => $choices);
-				 $form = $this->createForm(new ChoicePageType(), $formData);
-			 } else {
-			 	 echo "there is no choice to be made";
+			if (isset($pageData['choice'])) {
+			    $choices = $pageData['choice'];
+				foreach($choices as $choice) {
+				    if(isset($choice['choiceId'])) {
+				        $choiceId = $choice['choiceId'];
+						$formData['choices'][$choiceId]['text'] = $choice['text'];
+						$formData['choices'][$choiceId]['goto-page-number'] = $choice['goto-page-number'];
+				    } 
+			    }
+			} else {
+				 echo "there is no choice to be made";
 				 
-			 }
-			 return $this->render('StoryViewFrontEndBundle:StoryRouter:pageRouter.html.twig', array(
+			}
+			
+			$form = $this->createForm(new DecisionType(), $formData);
+			
+			return $this->render('StoryViewFrontEndBundle:StoryRouter:pageRouter.html.twig', array(
 				'pageData' => $pageData,
 				'form' => $form->createView()
 		  ));
