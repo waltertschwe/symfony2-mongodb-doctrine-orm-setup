@@ -27,21 +27,16 @@ class __TwigTemplate_a9750f631e989e337bdaaa664ae505ac extends Twig_Template
         echo " 
 
 <br/>
-The next page is:
 
-";
-        // line 9
-        echo twig_escape_filter($this->env, $this->getAttribute((isset($context["pageOne"]) ? $context["pageOne"] : $this->getContext($context, "pageOne")), "nextPage"), "html", null, true);
-        echo "
 
 
 <form action=\"pages/";
-        // line 12
+        // line 10
         echo twig_escape_filter($this->env, $this->getAttribute((isset($context["pageOne"]) ? $context["pageOne"] : $this->getContext($context, "pageOne")), "storyId"), "html", null, true);
         echo "\" method=\"post\">
 
 ";
-        // line 14
+        // line 12
         echo $this->env->getExtension('form')->renderer->searchAndRenderBlock((isset($context["form"]) ? $context["form"] : $this->getContext($context, "form")), 'errors');
         echo "
    <!-- Next Page is a Hidden Value -->
@@ -49,7 +44,7 @@ The next page is:
 \t\t
 \t</div>
 ";
-        // line 19
+        // line 17
         echo $this->env->getExtension('form')->renderer->searchAndRenderBlock((isset($context["form"]) ? $context["form"] : $this->getContext($context, "form")), 'rest');
         echo "
 \t
@@ -68,6 +63,6 @@ The next page is:
 
     public function getDebugInfo()
     {
-        return array (  53 => 19,  45 => 14,  40 => 12,  34 => 9,  26 => 4,  19 => 1,);
+        return array (  48 => 17,  40 => 12,  35 => 10,  26 => 4,  19 => 1,);
     }
 }

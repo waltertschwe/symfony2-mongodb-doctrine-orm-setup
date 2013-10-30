@@ -43,7 +43,7 @@ class StoryRouterController extends Controller
 			$form = $this->createForm(new ChoicePageType(), $formData);	
 		} else {
 			$pageOne['nextPage'] = 1;
-			$form = $this->createForm(new SimplePageType(), $formData);	
+			$form = $this->createForm(new ChoicePageType(), $formData);	
 		}
 		
         return $this->render('StoryViewFrontEndBundle:StoryRouter:home.html.twig', array(
@@ -55,48 +55,44 @@ class StoryRouterController extends Controller
 	
 	public function pagesRouterAction(Request $request) {
 		
-		$storyId = $this->getRequest()->get('storyId');
-		
-		$repository = $this->get('doctrine_mongodb')
-	        ->getManager()
-	        ->getRepository('StoryAdminBundle:Story');
-			
-		$storyObj = $repository->findOneById($storyId);
-		$pages = $storyObj->getPages();
-		
-		//$currentPageData = $pages[$]
-		
 		if ($request->getMethod() == 'POST') {
-			echo "begin routing pages...<br/>";
+			
+			$storyId = $this->getRequest()->get('storyId');
+		
+			$repository = $this->get('doctrine_mongodb')
+		        ->getManager()
+		        ->getRepository('StoryAdminBundle:Story');
+				
+			$storyObj = $repository->findOneById($storyId);
+			$pages = $storyObj->getPages();
+			
 			 $postData = $request->request->get('pageNav');
 			 $currentPage = $postData['next-page'];
 			 $pageData = $pages[$currentPage];
+			 $pageData['storyId'] = $storyId;
 			 $pageBody = $pageData['body'];
 			 
 			 if (isset($pageData['choice'])) {
-			 	 echo "there is a choice to be made";
-				 $formData = array('next-page' => '4',
-				 		'choices' => array('choice1' => 'this is choice1'));
+				
 				 $choices = $pageData['choice'];
 				 foreach($choices as $choice) {
 				     if(isset($choice['choiceId'])) {
 				         $choiceId = $choice['choiceId'];
-						 //$formData['choices']['choice'.$choiceId] = 'hello';
 						 
 				     } 
 			     }
-				 
+				 $choices = array('choice1');
+				 $formData = array('next-page' => '4', 'decisions' => $choices);
 				 $form = $this->createForm(new ChoicePageType(), $formData);
 			 } else {
 			 	 echo "there is no choice to be made";
 				 
 			 }
-			 
-			 
-			 var_dump($pageData);
-			 exit();
-			//$form->bindRequest($request);
+			 return $this->render('StoryViewFrontEndBundle:StoryRouter:pageRouter.html.twig', array(
+				'pageData' => $pageData,
+				'form' => $form->createView()
+		  ));
 		}
+		return $this->render('StoryViewFrontEndBundle:StoryRouter:error.html.twig');
 	}
-	
 }

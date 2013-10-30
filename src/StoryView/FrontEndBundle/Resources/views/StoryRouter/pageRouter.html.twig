@@ -1,0 +1,17 @@
+
+
+{{ pageData.body | raw }} 
+
+<br/>
+
+
+<form action="{{pageData.storyId}}" method="post">
+
+{{ form_errors(form) }}
+   <!-- Next Page is a Hidden Value -->
+	<div>
+		
+	</div>
+{{ form_rest(form) }}
+	
+</form>

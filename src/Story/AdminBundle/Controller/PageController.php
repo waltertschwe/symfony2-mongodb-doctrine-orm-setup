@@ -98,9 +98,11 @@ class PageController extends Controller {
 				array_push($pages, $data);		
 				$storyObj->setPages($pages);
 			}
+			var_dump($data);
+			exit();
 				
-			$dm->persist($storyObj);
-	    	$dm->flush();
+			//$dm->persist($storyObj);
+	    	//$dm->flush();
 			
 			
 			## Refactor this to make adding new pages
@@ -111,8 +113,8 @@ class PageController extends Controller {
 				foreach ($newPages as $newPage) {
 					array_push($pages, $newPage);	
 					$storyObj->setPages($pages);
-					$dm->persist($storyObj);
-	    			$dm->flush();
+					//$dm->persist($storyObj);
+	    			//$dm->flush();
 				}
 			}
 		}
