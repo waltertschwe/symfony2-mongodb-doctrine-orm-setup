@@ -98,12 +98,10 @@ class PageController extends Controller {
 				array_push($pages, $data);		
 				$storyObj->setPages($pages);
 			}
-			var_dump($data);
-			exit();
-				
-			//$dm->persist($storyObj);
-	    	//$dm->flush();
 			
+				
+			$dm->persist($storyObj);
+	    	$dm->flush();
 			
 			## Refactor this to make adding new pages
 			## one atomic operation
@@ -113,8 +111,8 @@ class PageController extends Controller {
 				foreach ($newPages as $newPage) {
 					array_push($pages, $newPage);	
 					$storyObj->setPages($pages);
-					//$dm->persist($storyObj);
-	    			//$dm->flush();
+					$dm->persist($storyObj);
+	    			$dm->flush();
 				}
 			}
 		}
@@ -174,37 +172,36 @@ class PageController extends Controller {
 			$newPageNumber = $totalPages;
 			$currentPage = $data['pageNumber'];
 			
-			if(isset($data['choice'][1]['choiceId'])) {
-				$choiceId = $data['choice'][1]['choiceId'];
-				$newPages = array();
+			$newPages = array();
 				
-				for ($choiceCounter=1; $choiceCounter <= 4; $choiceCounter++) {
+			for ($choiceCounter=1; $choiceCounter <= 4; $choiceCounter++) {
 					## choice value from form
-					$currentChoiceText = $data['choice'.$choiceCounter];
-					if(isset($data['choice'][$choiceCounter]['choiceId'])) {
-						## Choice already existed update the field
-						## no new page required already exists
+				$currentChoiceText = $data['choice'.$choiceCounter];
+				if(isset($data['choice'][$choiceCounter]['choiceId'])) {
+					## Choice already existed update the field
+					## no new page required already exists
+					$data['choice'][$choiceCounter]['text'] = $currentChoiceText;
+				} else {
+					## Create New Choice and a New Page for the Choice 	
+					
+					if(!empty($currentChoiceText)) {
+									
+						$newPageNumber++; 
+						$data['choice'][$choiceCounter]['choiceId'] = $choiceCounter;
 						$data['choice'][$choiceCounter]['text'] = $currentChoiceText;
-					} else {
-						## Create New Choice and a New Page for the Choice 	
-						if(!empty($currentChoiceText)) {				
-							$newPageNumber++; 
-							$data['choice'][$choiceCounter]['choiceID'] = $choiceCounter;
-							$data['choice'][$choiceCounter]['text'] = $currentChoiceText;
-							$data['choice'][$choiceCounter]['goto-page-number'] = $newPageNumber;
-							$newPages[$choiceCounter]['pageNumber'] = $newPageNumber;
-							$newPages[$choiceCounter]['page-came-from'] = $selectedPageNumber;
-							$newPages[$choiceCounter]['pageName'] = '** PLEASE ADD CONTENT **';
-							$newPages[$choiceCounter]['body'] = '** You came from page ' . $selectedPageNumber . ' **';
-						}
+						$data['choice'][$choiceCounter]['goto-page-number'] = $newPageNumber;
+						$newPages[$choiceCounter]['pageNumber'] = $newPageNumber;
+						$newPages[$choiceCounter]['page-came-from'] = $selectedPageNumber;
+						$newPages[$choiceCounter]['pageName'] = '** PLEASE ADD CONTENT **';
+						$newPages[$choiceCounter]['body'] = '** You came from page ' . $selectedPageNumber . ' **';
 					}
-						
-					## remove choice form data from array	
-					$choice = 'choice'.$choiceCounter; 
-					unset($data[$choice]);	
-				}		
-			}
-			
+				}
+					
+				## remove choice form data from array	
+				$choice = 'choice'.$choiceCounter; 
+				unset($data[$choice]);	
+			}		
+		
 			foreach ($pages as $key => $value) {
 			    foreach ($value as $k2 => $v2) {	
 					if($k2 == "pageNumber") {

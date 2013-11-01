@@ -69,7 +69,14 @@ class StoryRouterController extends Controller
 			$pages = $storyObj->getPages();
 			
 			$postData = $request->request->get('pageNav');
-			$currentPage = $postData['next-page'];
+			
+			if(isset($postData['decisions'])) {
+				$currentPage = $postData['decisions'];
+				$currentPage--;
+			} else {
+				$currentPage = $postData['next-page'];
+			}
+						
 			$pageData = $pages[$currentPage];
 			$pageData['storyId'] = $storyId;
 			$pageBody = $pageData['body'];
